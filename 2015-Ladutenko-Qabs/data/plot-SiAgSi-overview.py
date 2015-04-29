@@ -26,6 +26,9 @@ def load_data(fname):
 
 fname = "2015-04-01-Qabs-SiAgSi-overview"
 data, data_spaced = load_data(fname)
+for i in xrange(1, len(data[:,1])):
+    if data[i-2,1]<=data[i,1] and data[i+2,1]<=data[i,1]:
+        print(data[i,:])
 
 fname2 = "2015-04-01-SiAgSi-ab-ch"
 data2, data_spaced2 = load_data(fname2)
@@ -94,8 +97,8 @@ cax = axs[Qsca].plot(data[:,0], max2, '--',linewidth=plotwidth/2.0, color='blue'
 dashes = [2, 2] # points on, off, ...
 cax[0].set_dashes(dashes)
 lg=axs[Qsca].legend(loc='upper left',prop={'size':10})
-axs[Qsca].text(55, 1.2, 'max(n=1)', fontsize=10, color='red')
-axs[Qsca].text(55, 5.9, 'max(n=2)', fontsize=10, color='blue')
+axs[Qsca].text(55, 1.2, r'max($n=1$)', fontsize=10, color='red')
+axs[Qsca].text(55, 5.9, r'max($n=2$)', fontsize=10, color='blue')
 #lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
 lg.draw_frame(False)
 
@@ -115,10 +118,10 @@ cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
 lg=axs[Design].legend(loc='upper left',prop={'size':10})
 lg.draw_frame(False)
 
-axs[NACS].set_ylabel('NACS', labelpad=-0.9)
+axs[NACS].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
 axs[NACS].set_ylim(0, 0.3)
 
-axs[Qsca].set_ylabel('Qabs', labelpad=8.8)
+axs[Qsca].set_ylabel(r'$Q_{abs}$', labelpad=8.8)
 axs[Qsca].set_ylim(0, 7)
 axs[Design].set_ylabel('Width, nm', labelpad=2)
 axs[Design].set_ylim(0, 75)
