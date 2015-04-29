@@ -55,7 +55,7 @@ cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,1], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='black'
                      , label=r"$a_1$"
 )
-cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,2], linewidth=plotwidth,
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,2], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='red'
                      , label=r"$b_1$"
 )
@@ -63,15 +63,18 @@ cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,3], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='green'
                      , label=r"$a_2$"
 )
-cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,4], linewidth=plotwidth,
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,4], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='blue'
                      , label=r"$b_2$"
 )
-axs[NACS].axhline(y=0.25, ls='--', dashes=[2,2], color='black')
-lg=axs[NACS].legend(loc='upper left',prop={'size':11})
+axs[NACS].axhline(y=0.25, ls='--', dashes=[2,2], color='gray')
+lg=axs[NACS].legend(loc='center left',prop={'size':11})
 #lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
-lg.get_frame().set_linewidth(0.0)
-#lg.draw_frame(False)
+#lg.get_frame().set_linewidth(0.0)
+axs[NACS].annotate('0.25', xy=(27, 0.25), fontsize=9, color='gray',
+                horizontalalignment='left', verticalalignment='bottom')
+
+lg.draw_frame(False)
 
 
 
@@ -96,7 +99,7 @@ axs[Qsca].text(55, 5.9, 'max(n=2)', fontsize=10, color='blue')
 #lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
 lg.draw_frame(False)
 
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth,
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth/1.5,
                        solid_joinstyle='round', solid_capstyle='round', color='red'
                        , label="core"
                        )
@@ -106,7 +109,7 @@ cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,3], linewidth=plotwidth,
                        , label="inner shell"
                        )
 cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
-                       solid_joinstyle='round', solid_capstyle='round', color='blue'
+                       solid_joinstyle='round', solid_capstyle='round', color='black'
                        , label="outer shell"
                        )
 lg=axs[Design].legend(loc='upper left',prop={'size':10})
@@ -127,6 +130,7 @@ axs[Qsca].annotate('(b)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=1
                 horizontalalignment='right', verticalalignment='top')
 axs[Design].annotate('(c)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                 horizontalalignment='right', verticalalignment='top')
+axs[Design].locator_params(axis='x',nbins=5)
 
 fig.subplots_adjust(hspace=.05)
 
