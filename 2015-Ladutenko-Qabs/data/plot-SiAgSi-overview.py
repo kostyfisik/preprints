@@ -2,39 +2,43 @@
 # -*- coding: UTF-8 -*-
 import numpy as np
 import matplotlib.pyplot as plt
+def load_data(fname):
+    data = np.loadtxt(fname+".txt")
+    space = [np.nan]*len(data[0,:])
+    #space = [-100]*len(data[0,:])
+    min_value = np.min(data, axis=0)
+    max_value = np.max(data, axis=0)
+    range_value = max_value-min_value
+    max_step = range_value/20.0
+    data_spaced = data[0:1,:]
+    for i in xrange(2, len(data[:,0])+1):
+        diff = np.absolute(data[i-1:i,:] - data[i-2:i-1,:])
+        need_space = False
+        for j in xrange(2,len(max_step)):
+            if j > 4:
+                continue
+            if max_step[j]<diff[0,j]:
+                need_space = True
+        if need_space:
+            data_spaced = np.concatenate((data_spaced,[space]))
+        data_spaced = np.concatenate((data_spaced,data[i-1:i,:]))
+    return data, data_spaced
+
 fname = "2015-04-01-Qabs-SiAgSi-overview"
-data = np.loadtxt(fname+".txt")
-space = [np.nan]*len(data[0,:])
-#space = [-100]*len(data[0,:])
-min_value = np.min(data, axis=0)
-max_value = np.max(data, axis=0)
-range_value = max_value-min_value
-print(min_value)
-print(max_value)
-print(range_value)
-max_step = range_value/20.0
-print(max_step)
-data_spaced = data[0:1,:]
-for i in xrange(2, len(data[:,0])+1):
-    diff = np.absolute(data[i-1:i,:] - data[i-2:i-1,:])
-    need_space = False
-    for j in xrange(2,len(max_step)):
-        if j > 4:
-            continue
-        if max_step[j]<diff[0,j]:
-            need_space = True
-    if need_space:
-        data_spaced = np.concatenate((data_spaced,[space]))
-    data_spaced = np.concatenate((data_spaced,data[i-1:i,:]))
+data, data_spaced = load_data(fname)
+
+fname2 = "2015-04-01-SiAgSi-ab-ch"
+data2, data_spaced2 = load_data(fname2)
+
+max1 = (2*1+1)/(2*np.power(2*np.pi*data[:,0]/500,2))
+max2 = (2*2+1)/(2*np.power(2*np.pi*data[:,0]/500,2))
 
 
+
+############################# Plotting ######################
 import numpy.ma as ma
 vals = ma.array(data_spaced)
 mvals = ma.masked_where(np.nan in data_spaced, vals)
-print(mvals)
-# for i in xrange(0, len(data[:,0])):
-#     print(mvals[i])
-
 
 fig, axs = plt.subplots(3,figsize=(4,6), sharex=True)#, sharey=True)
 NACS=0
@@ -47,11 +51,69 @@ for ax in axs:
     #ax.tick_params(axis='x', pad=30)
 
 plotwidth=2.0
-cax = axs[NACS].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth, solid_joinstyle='round', solid_capstyle='round', color='blue')
-cax = axs[Qsca].plot(data_spaced[:,0], data_spaced[:,1], linewidth=plotwidth, solid_joinstyle='round', solid_capstyle='round', color='black')
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth, solid_joinstyle='round', solid_capstyle='round', color='red')
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,3], linewidth=plotwidth, solid_joinstyle='round', solid_capstyle='round', color='green')
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth, solid_joinstyle='round', solid_capstyle='round', color='blue')
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,1], linewidth=plotwidth,
+                     solid_joinstyle='round', solid_capstyle='round', color='black'
+                     , label=r"$a_1$"
+)
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,2], linewidth=plotwidth,
+                     solid_joinstyle='round', solid_capstyle='round', color='red'
+                     , label=r"$b_1$"
+)
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,3], linewidth=plotwidth,
+                     solid_joinstyle='round', solid_capstyle='round', color='green'
+                     , label=r"$a_2$"
+)
+cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,4], linewidth=plotwidth,
+                     solid_joinstyle='round', solid_capstyle='round', color='blue'
+                     , label=r"$b_2$"
+)
+axs[NACS].axhline(y=0.25, ls='--', dashes=[2,2], color='black')
+lg=axs[NACS].legend(loc='upper left',prop={'size':11})
+#lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
+lg.get_frame().set_linewidth(0.0)
+#lg.draw_frame(False)
+
+
+
+cax = axs[Qsca].plot(data_spaced[:,0], data_spaced[:,1], linewidth=plotwidth,
+                     solid_joinstyle='round', solid_capstyle='round', color='black',
+                     label=r"Si/Ag/Si")
+#Analyic
+cax = axs[Qsca].plot(data[:,0], max1, '--',linewidth=plotwidth/2.0,
+                     solid_joinstyle='round', solid_capstyle='round', color='red'
+#                     , label="max(n=1)"
+                     )
+dashes = [5, 2] # points on, off, ...
+cax[0].set_dashes(dashes)
+cax = axs[Qsca].plot(data[:,0], max2, '--',linewidth=plotwidth/2.0, color='blue'
+#                     , label="max(n=2)"
+                     )
+dashes = [2, 2] # points on, off, ...
+cax[0].set_dashes(dashes)
+lg=axs[Qsca].legend(loc='upper left',prop={'size':10})
+axs[Qsca].text(55, 1.2, 'max(n=1)', fontsize=10, color='red')
+axs[Qsca].text(55, 5.9, 'max(n=2)', fontsize=10, color='blue')
+#lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
+lg.draw_frame(False)
+
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='red'
+                       , label="core"
+                       )
+
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,3], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='green'
+                       , label="inner shell"
+                       )
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='blue'
+                       , label="outer shell"
+                       )
+lg=axs[Design].legend(loc='upper left',prop={'size':10})
+lg.draw_frame(False)
+
+axs[NACS].set_ylabel('NACS', labelpad=-0.9)
+axs[NACS].set_ylim(0, 0.3)
 
 axs[Qsca].set_ylabel('Qabs', labelpad=8.8)
 axs[Qsca].set_ylim(0, 7)
@@ -59,6 +121,13 @@ axs[Design].set_ylabel('Width, nm', labelpad=2)
 axs[Design].set_ylim(0, 75)
 axs[Design].set_xlabel('Total R, nm', labelpad=2)
 plt.xlim(0,  89)
+axs[NACS].annotate('(a)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+                horizontalalignment='right', verticalalignment='top')
+axs[Qsca].annotate('(b)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+                horizontalalignment='right', verticalalignment='top')
+axs[Design].annotate('(c)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+                horizontalalignment='right', verticalalignment='top')
+
 fig.subplots_adjust(hspace=.05)
 
 plt.savefig(fname+".pdf",pad_inches=0.02, bbox_inches='tight')
