@@ -308,7 +308,6 @@ try:
         flow_x, flow_z = GetFlow(scale_x, scale_z, Ec, Hc,
                                  min(scale_x)+flow*(scale_x[-1]-scale_x[0])/(flow_total-1),
                                                     min(scale_z), npts, nmax=npts*10)
-        # flow_xSP, flow_ySP, flow_zSP = 
         verts = np.vstack((flow_z, flow_x)).transpose().tolist()
         #codes = [Path.CURVE4]*len(verts)
         codes = [Path.LINETO]*len(verts)
@@ -317,6 +316,20 @@ try:
         patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='white',zorder = 2.5)
         ax.add_patch(patch)
 
+    scanSP = np.linspace(-factor*x[-1], factor*x[-1], npts)
+    min_SP = -factor*x[-1]
+    step_SP = 2.0*factor*x[-1]/(flow_total-1)
+    x0, y0, z0 = min_SP, min_SP, min_SP
+    for flow in range(0,flow_total):
+        flow_xSP, flow_ySP, flow_zSP = GetFlow3D(x0, y0, z0, max_length, x, m)
+
+        # verts = np.vstack((flow_z, flow_x)).transpose().tolist()
+        # #codes = [Path.CURVE4]*len(verts)
+        # codes = [Path.LINETO]*len(verts)
+        # codes[0] = Path.MOVETO
+        # path = Path(verts, codes)
+        # patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='yellow',zorder = 2.7)
+        # ax.add_patch(patch)
  
     plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[-1]*WL/2.0/np.pi)))+".pdf")
     plt.draw()
