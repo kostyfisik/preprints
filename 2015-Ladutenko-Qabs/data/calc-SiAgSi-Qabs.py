@@ -26,9 +26,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # This test case calculates the electric field in the 
-# E-k plane, for an spherical Si-Ag-Si nanoparticle. Core radius is 17.74 nm,
-# inner layer 23.31nm, outer layer 22.95nm. Working wavelength is 800nm, we use
-# silicon epsilon=13.64+i0.047, silver epsilon= -28.05+i1.525
+# E-k plane, for an spherical Si-Ag-Si nanoparticle.
 
 import scattnlay
 from scattnlay import fieldnlay
@@ -40,11 +38,56 @@ import cmath
 def get_index(array,value):
     idx = (np.abs(array-value)).argmin()
     return idx
+###############################################################################
+def GetFlow3D(x0, y0, z0, max_length, x, m):
+    # Initial position
+    flow_x = [x0]
+    flow_y = [y0]
+    flow_z = [z0]
+    max_step = max(x0, y0, z0, x[0,-1])
+    x_pos = flow_x[-1]
+    y_pos = flow_y[-1]
+    z_pos = flow_z[-1]
+    # x_idx = get_index(scale_x, x_pos)
+    # z_idx = get_index(scale_z, z_pos)
+    # S=np.cross(Ec[npts*z_idx+x_idx], Hc[npts*z_idx+x_idx]).real
+    # #if (np.linalg.norm(S)> 1e-4):
+    # Snorm_prev=S/np.linalg.norm(S)
+    # Snorm_prev=Snorm_prev.real
+    # max_x = np.max(scale_x)
+    # max_z = np.max(scale_z)
+    # min_x = np.min(scale_x)
+    # min_z = np.min(scale_z)
+    # for n in range(0, nmax):
+    #     #Get the next position
+    #     #1. Find Poynting vector and normalize it
+    #     x_pos = flow_x[-1]
+    #     z_pos = flow_z[-1]
+    #     x_idx = get_index(scale_x, x_pos)
+    #     z_idx = get_index(scale_z, z_pos)
+    #     Epoint = Ec[npts*z_idx+x_idx]
+    #     Hpoint = Hc[npts*z_idx+x_idx]
+    #     S=np.cross(Epoint, Hpoint.conjugate())
+    #     #if (np.linalg.norm(S)> 1e-4):
+    #     Snorm=S.real/np.linalg.norm(S)
+    #     #Snorm=Snorm.real
+    #     #2. Evaluate displacement = half of the discrete and new position
+    #     dpos = abs(scale_z[0]-scale_z[1])/2.0
+    #     dx = dpos*Snorm[0];
+    #     dz = dpos*Snorm[2];
+    #     x_pos = x_pos+dx
+    #     z_pos = z_pos+dz
+    #     #3. Save result
+    #     flow_x.append(x_pos)
+    #     flow_z.append(z_pos)
+    #     if x_pos<min_x or x_pos>max_x:
+    #         break
+    #     if z_pos<min_z or z_pos>max_z:
+    #         break
+    return flow_x, flow_z
 
-#Ec = np.resize(Ec, (npts, npts)).T
-
-
-def GetFlow(scale_x, scale_z, Ec, Hc, a, b, nmax):
+###############################################################################
+def GetFlow(scale_x, scale_z, Ec, Hc, a, b, npts, nmax):
     # Initial position
     flow_x = [a]
     flow_z = [b]
@@ -87,132 +130,117 @@ def GetFlow(scale_x, scale_z, Ec, Hc, a, b, nmax):
         if z_pos<min_z or z_pos>max_z:
             break
     return flow_x, flow_z
-# eps Ag at WL 
-#500	-8.5014154589	0.7585845411
-# eps Si at WL 
-#500	18.4631066585	0.6259727805
-epsilon_Si = 18.4631066585 + 0.6259727805j
-epsilon_Ag = -8.5014154589 + 0.7585845411j
 
 
+###############################################################################
+def SetXM(design):
+    """ design value:
+    1: AgSi - a1
+    2: SiAgSi - a1, b1
+    3: SiAgSi - a1, b2
+    """
+    epsilon_Si = 18.4631066585 + 0.6259727805j
+    epsilon_Ag = -8.5014154589 + 0.7585845411j
+    index_Si = np.sqrt(epsilon_Si)
+    index_Ag = np.sqrt(epsilon_Ag)
+    isSiAgSi=True
+    if design==1:
+        #36	5.62055	0	31.93	4.06	49	5.62055	500
+        isSiAgSi=False
+        WL=500 #nm
+        core_width = 0.0 #nm Si
+        inner_width = 31.93 #nm Ag
+        outer_width = 4.06 #nm  Si
+    elif design==2:
+        #62.5	4.48866	29.44	10.33	22.73	0	4.48866	500
+        WL=500 #nm
+        core_width = 29.44 #nm Si
+        inner_width = 10.33 #nm Ag
+        outer_width = 22.73 #nm  Si
+    else:
+        #81.4	3.14156	5.27	8.22	67.91	0	3.14156	500
+        WL=500 #nm
+        core_width = 5.27 #nm Si
+        inner_width = 8.22 #nm Ag
+        outer_width = 67.91 #nm  Si
+    core_r = core_width
+    inner_r = core_r+inner_width
+    outer_r = inner_r+outer_width
 
-# # at WL=800nm
-# epsilon_Si = 13.64 + 0.047j
-# epsilon_Ag = -28.05 + 1.525j
-
-# epsilon_Si = 2.0 + 0.047j
-# epsilon_Ag = -2.0 + 1.525j
-
-# air = 1
-# epsilon_Si = air*2
-# epsilon_Ag = air*2
-
-
-index_Si = np.sqrt(epsilon_Si)
-index_Ag = np.sqrt(epsilon_Ag)
-
-print(index_Si)
-print(index_Ag)
-# # Values for 800 nm, taken from http://refractiveindex.info/
-# index_Si = 3.69410 + 0.0065435j
-# index_Ag = 0.18599 + 4.9886j
-
-
-# WL=800 #nm
-# core_width = 17.74 #nm Si
-# inner_width = 23.31 #nm Ag
-# outer_width = 22.95 #nm  Si
-
-isSiAgSi=True
-
-#first design
-#36	5.62055	0	31.93	4.06	49	5.62055	500
-isSiAgSi=False
-WL=500 #nm
-core_width = 0.0 #nm Si
-inner_width = 31.93 #nm Ag
-outer_width = 4.06 #nm  Si
-
-# #second
-# #62.5	4.48866	29.44	10.33	22.73	0	4.48866	500
-# WL=500 #nm
-# core_width = 29.44 #nm Si
-# inner_width = 10.33 #nm Ag
-# outer_width = 22.73 #nm  Si
-
-# #last
-# #81.4	3.14156	5.27	8.22	67.91	0	3.14156	500
-# WL=500 #nm
-# core_width = 5.27 #nm Si
-# inner_width = 8.22 #nm Ag
-# outer_width = 67.91 #nm  Si
+    nm = 1.0
+    if isSiAgSi:
+        x = np.ones((1, 3), dtype = np.float64)
+        x[0, 0] = 2.0*np.pi*core_r/WL
+        x[0, 1] = 2.0*np.pi*inner_r/WL
+        x[0, 2] = 2.0*np.pi*outer_r/WL
+        m = np.ones((1, 3), dtype = np.complex128)
+        m[0, 0] = index_Si/nm
+        m[0, 1] = index_Ag/nm
+    #    m[0, 1] = index_Si/nm
+        m[0, 2] = index_Si/nm
+    else:
+        # bilayer
+        x = np.ones((1, 2), dtype = np.float64)
+        x[0, 0] = 2.0*np.pi*inner_r/WL
+        x[0, 1] = 2.0*np.pi*outer_r/WL
+        m = np.ones((1, 2), dtype = np.complex128)
+        m[0, 0] = index_Ag/nm
+        m[0, 1] = index_Si/nm
+    return x, m, WL
 
 
+###############################################################################
+def GetField(crossplane, npts, factor, x, m):
+    """
+    crossplane: XZ, YZ, XY
+    npts: number of point in each direction
+    factor: ratio of plotting size to outer size of the particle
+    x: size parameters for particle layers
+    m: relative index values for particle layers
+    """
+    scan = np.linspace(-factor*x[0, -1], factor*x[0, -1], npts)
+    coordX, coordZ = np.meshgrid(scan, scan)
+    coordX.resize(npts*npts)
+    coordZ.resize(npts*npts)
+    coordY = coordX
+    coordPlot = coordX
+    zero = np.zeros(npts*npts, dtype = np.float64)
+    if crossplane=='XY':
+        coordZ = zero
+    elif crossplane=='YZ':
+        coordX = zero
+    else:
+        coordY = zero
+    coord = np.vstack((coordX, coordY, coordZ)).transpose()
+    terms, E, H = fieldnlay(x, m, coord)
+    Ec = E[0, :, :]
+    Hc = H[0, :, :]
+    P=[]
+    for n in range(0, len(E[0])):
+        P.append(np.linalg.norm( np.cross(Ec[n], np.conjugate(Hc[n]) ).real/2 ))
+    return Ec, Hc, P, coordPlot, coordPlot
 
-
-core_r = core_width
-inner_r = core_r+inner_width
-outer_r = inner_r+outer_width
-
-# n1 = 1.53413
-# n2 = 0.565838 + 7.23262j
-nm = 1.0
-
-npts = 241
-factor=2.2
-
-if isSiAgSi:
-    x = np.ones((1, 3), dtype = np.float64)
-    x[0, 0] = 2.0*np.pi*core_r/WL
-    x[0, 1] = 2.0*np.pi*inner_r/WL
-    x[0, 2] = 2.0*np.pi*outer_r/WL
-    m = np.ones((1, 3), dtype = np.complex128)
-    m[0, 0] = index_Si/nm
-    m[0, 1] = index_Ag/nm
-    m[0, 2] = index_Si/nm
-    scan = np.linspace(-factor*x[0, 2], factor*x[0, 2], npts)
-else:
-    # bilayer
-    x = np.ones((1, 2), dtype = np.float64)
-    x[0, 0] = 2.0*np.pi*inner_r/WL
-    x[0, 1] = 2.0*np.pi*outer_r/WL
-    m = np.ones((1, 2), dtype = np.complex128)
-    m[0, 0] = index_Ag/nm
-    m[0, 1] = index_Si/nm
-    scan = np.linspace(-factor*x[0, 1], factor*x[0, 1], npts)
-
+###############################################################################
+design = 1
+# design = 2
+# design = 3
+x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
+npts = 21
+factor=2.2
+crossplane='XZ'
+#crossplane='YZ'
+Ec, Hc, P, coordX, coordZ = GetField(crossplane, npts, factor, x, m)
 
-
-coordX, coordZ = np.meshgrid(scan, scan)
-coordX.resize(npts*npts)
-coordZ.resize(npts*npts)
-coordY = np.zeros(npts*npts, dtype = np.float64)
-
-coord = np.vstack((coordX, coordY, coordZ)).transpose()
-
-terms, Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo, S1, S2 = scattnlay(x, m)
-terms, E, H = fieldnlay(x, m, coord)
-Er = np.absolute(E)
-Hr = np.absolute(H)
+Er = np.absolute(Ec)
+Hr = np.absolute(Hc)
 
 # |E|/|Eo|
-Eabs = np.sqrt(Er[0, :, 0]**2 + Er[0, :, 1]**2 + Er[0, :, 2]**2)
-Ec = E[0, :, :]
-Hc = H[0, :, :]
-Eangle = np.angle(E[0, :, 0])/np.pi*180
-
-P=[]
-for n in range(0, len(E[0])):
-    P.append(np.linalg.norm( np.cross(Ec[n], np.conjugate(Hc[n]) ).real/2 ))
-#Pr = np.absolute(P)
-#Pabs= np.sqrt(P[:, 0]**2 + P[ :, 1]**2 + P[ :, 2]**2)
-
-Habs= np.sqrt(Hr[0, :, 0]**2 + Hr[0, :, 1]**2 + Hr[0, :, 2]**2)
-Hangle = np.angle(H[0, :, 1])/np.pi*180
-
-
+Eabs = np.sqrt(Er[ :, 0]**2 + Er[ :, 1]**2 + Er[ :, 2]**2)
+Eangle = np.angle(Ec[ :, 0])/np.pi*180
+Habs= np.sqrt(Hr[ :, 0]**2 + Hr[ :, 1]**2 + Hr[ :, 2]**2)
+Hangle = np.angle(Hc[ :, 1])/np.pi*180
 
 try:
     import matplotlib.pyplot as plt
@@ -231,8 +259,8 @@ try:
     fig, ax = plt.subplots(1,1)#, sharey=True, sharex=True)
     #fig.tight_layout()
     # Rescale to better show the axes
-    scale_x = np.linspace(min(coordX)*WL/2.0/np.pi/nm, max(coordX)*WL/2.0/np.pi/nm, npts)
-    scale_z = np.linspace(min(coordZ)*WL/2.0/np.pi/nm, max(coordZ)*WL/2.0/np.pi/nm, npts)
+    scale_x = np.linspace(min(coordX)*WL/2.0/np.pi, max(coordX)*WL/2.0/np.pi, npts)
+    scale_z = np.linspace(min(coordZ)*WL/2.0/np.pi, max(coordZ)*WL/2.0/np.pi, npts)
 
     # Define scale ticks
     min_tick = min(min_tick, np.amin(Eabs_data))
@@ -256,21 +284,21 @@ try:
     cbar.ax.set_yticklabels(['%5.3g' % (a) for a in scale_ticks]) # vertically oriented colorbar
     pos = list(cbar.ax.get_position().bounds)
     #fig.text(pos[0] - 0.02, 0.925, '|E|/|E$_0$|', fontsize = 14)
+    if crossplane=='XZ':
+        plt.xlabel('Z, nm')
+        plt.ylabel('X, nm')
+    elif crossplane=='YZ':
+        plt.xlabel('Z, nm')
+        plt.ylabel('Y, nm')
     
-    plt.xlabel('Z, nm')
-    plt.ylabel('X, nm')
 
-    # This part draws the nanoshell
+    # # This part draws the nanoshell
     from matplotlib import patches
-    s1 = patches.Arc((0, 0), 2.0*core_r, 2.0*core_r,  angle=0.0, zorder=2,
-                     theta1=0.0, theta2=360.0, linewidth=1, color='black')
-    s2 = patches.Arc((0, 0), 2.0*inner_r, 2.0*inner_r, angle=0.0, zorder=2,
-                     theta1=0.0, theta2=360.0, linewidth=1, color='black')
-    s3 = patches.Arc((0, 0), 2.0*outer_r, 2.0*outer_r, angle=0.0, zorder=2,
-                     theta1=0.0, theta2=360.0, linewidth=1, color='black')
-    ax.add_patch(s1)
-    ax.add_patch(s2) 
-    ax.add_patch(s3) 
+    for xx in x[0]:
+        r= xx*WL/2.0/np.pi
+        s1 = patches.Arc((0, 0), 2.0*r, 2.0*r,  angle=0.0, zorder=2,
+                         theta1=0.0, theta2=360.0, linewidth=1, color='black')
+        ax.add_patch(s1)
 
     from matplotlib.path import Path
     #import matplotlib.patches as patches
@@ -279,17 +307,18 @@ try:
     for flow in range(0,flow_total):
         flow_x, flow_z = GetFlow(scale_x, scale_z, Ec, Hc,
                                  min(scale_x)+flow*(scale_x[-1]-scale_x[0])/(flow_total-1),
-                                                    min(scale_z), npts*12)
+                                                    min(scale_z), npts, nmax=npts*10)
+        # flow_xSP, flow_ySP, flow_zSP = 
         verts = np.vstack((flow_z, flow_x)).transpose().tolist()
-        codes = [Path.CURVE4]*len(verts)
-        #codes = [Path.LINETO]*len(verts)
+        #codes = [Path.CURVE4]*len(verts)
+        codes = [Path.LINETO]*len(verts)
         codes[0] = Path.MOVETO
         path = Path(verts, codes)
-        patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='white')
+        patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='white',zorder = 2.5)
         ax.add_patch(patch)
 
  
-    plt.savefig("P-SiAgSi-flow-R"+str(outer_r)+".png")
+    plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[0, -1]*WL/2.0/np.pi)))+".pdf")
     plt.draw()
 
     plt.show()
@@ -297,6 +326,7 @@ try:
     plt.clf()
     plt.close()
 finally:
+    terms, Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo, S1, S2 = scattnlay(x, m)
     print("Qabs = "+str(Qabs));
 #
 
