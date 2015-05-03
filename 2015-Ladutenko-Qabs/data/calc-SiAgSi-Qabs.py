@@ -44,7 +44,7 @@ def GetFlow3D(x0, y0, z0, max_length, x, m):
     flow_x = [x0]
     flow_y = [y0]
     flow_z = [z0]
-    max_step = max(x0, y0, z0, x[0,-1])
+    max_step = max(x0, y0, z0, x[-1])
     x_pos = flow_x[-1]
     y_pos = flow_y[-1]
     z_pos = flow_z[-1]
@@ -169,23 +169,23 @@ def SetXM(design):
 
     nm = 1.0
     if isSiAgSi:
-        x = np.ones((1, 3), dtype = np.float64)
-        x[0, 0] = 2.0*np.pi*core_r/WL
-        x[0, 1] = 2.0*np.pi*inner_r/WL
-        x[0, 2] = 2.0*np.pi*outer_r/WL
-        m = np.ones((1, 3), dtype = np.complex128)
-        m[0, 0] = index_Si/nm
-        m[0, 1] = index_Ag/nm
+        x = np.ones((3), dtype = np.float64)
+        x[0] = 2.0*np.pi*core_r/WL
+        x[1] = 2.0*np.pi*inner_r/WL
+        x[2] = 2.0*np.pi*outer_r/WL
+        m = np.ones((3), dtype = np.complex128)
+        m[0] = index_Si/nm
+        m[1] = index_Ag/nm
     #    m[0, 1] = index_Si/nm
-        m[0, 2] = index_Si/nm
+        m[2] = index_Si/nm
     else:
         # bilayer
-        x = np.ones((1, 2), dtype = np.float64)
-        x[0, 0] = 2.0*np.pi*inner_r/WL
-        x[0, 1] = 2.0*np.pi*outer_r/WL
-        m = np.ones((1, 2), dtype = np.complex128)
-        m[0, 0] = index_Ag/nm
-        m[0, 1] = index_Si/nm
+        x = np.ones((2), dtype = np.float64)
+        x[0] = 2.0*np.pi*inner_r/WL
+        x[1] = 2.0*np.pi*outer_r/WL
+        m = np.ones((2), dtype = np.complex128)
+        m[0] = index_Ag/nm
+        m[1] = index_Si/nm
     return x, m, WL
 
 
@@ -198,7 +198,7 @@ def GetField(crossplane, npts, factor, x, m):
     x: size parameters for particle layers
     m: relative index values for particle layers
     """
-    scan = np.linspace(-factor*x[0, -1], factor*x[0, -1], npts)
+    scan = np.linspace(-factor*x[-1], factor*x[-1], npts)
     coordX, coordZ = np.meshgrid(scan, scan)
     coordX.resize(npts*npts)
     coordZ.resize(npts*npts)
@@ -212,7 +212,7 @@ def GetField(crossplane, npts, factor, x, m):
     else:
         coordY = zero
     coord = np.vstack((coordX, coordY, coordZ)).transpose()
-    terms, E, H = fieldnlay(x, m, coord)
+    terms, E, H = fieldnlay(np.array([x]), np.array([m]), coord)
     Ec = E[0, :, :]
     Hc = H[0, :, :]
     P=[]
@@ -294,7 +294,7 @@ try:
 
     # # This part draws the nanoshell
     from matplotlib import patches
-    for xx in x[0]:
+    for xx in x:
         r= xx*WL/2.0/np.pi
         s1 = patches.Arc((0, 0), 2.0*r, 2.0*r,  angle=0.0, zorder=2,
                          theta1=0.0, theta2=360.0, linewidth=1, color='black')
@@ -318,7 +318,7 @@ try:
         ax.add_patch(patch)
 
  
-    plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[0, -1]*WL/2.0/np.pi)))+".pdf")
+    plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[-1]*WL/2.0/np.pi)))+".pdf")
     plt.draw()
 
     plt.show()
@@ -326,7 +326,8 @@ try:
     plt.clf()
     plt.close()
 finally:
-    terms, Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo, S1, S2 = scattnlay(x, m)
+    terms, Qext, Qsca, Qabs, Qbk, Qpr, g, Albedo, S1, S2 = scattnlay(np.array([x]),
+                                                                     np.array([m]))
     print("Qabs = "+str(Qabs));
 #
 
