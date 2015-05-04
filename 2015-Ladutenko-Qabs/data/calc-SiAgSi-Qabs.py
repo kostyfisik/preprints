@@ -38,53 +38,85 @@ import cmath
 def get_index(array,value):
     idx = (np.abs(array-value)).argmin()
     return idx
+def unit_vector(vector):
+    """ Returns the unit vector of the vector.  """
+    return vector / np.linalg.norm(vector)
+
+def angle_between(v1, v2):
+    """ Returns the angle in radians between vectors 'v1' and 'v2'::
+
+            >>> angle_between((1, 0, 0), (0, 1, 0))
+            1.5707963267948966
+            >>> angle_between((1, 0, 0), (1, 0, 0))
+            0.0
+            >>> angle_between((1, 0, 0), (-1, 0, 0))
+            3.141592653589793
+    """
+    v1_u = unit_vector(v1)
+    v2_u = unit_vector(v2)
+    angle = np.arccos(np.dot(v1_u, v2_u))
+    if np.isnan(angle):
+        if (v1_u == v2_u).all():
+            return 0.0
+        else:
+            return np.pi
+    return angle
 ###############################################################################
-def GetFlow3D(x0, y0, z0, max_length, x, m):
+def GetFlow3D(x0, y0, z0, max_length, max_angle, x, m):
     # Initial position
     flow_x = [x0]
     flow_y = [y0]
     flow_z = [z0]
-    max_step = max(x0, y0, z0, x[-1])
-    x_pos = flow_x[-1]
-    y_pos = flow_y[-1]
-    z_pos = flow_z[-1]
-    # x_idx = get_index(scale_x, x_pos)
-    # z_idx = get_index(scale_z, z_pos)
-    # S=np.cross(Ec[npts*z_idx+x_idx], Hc[npts*z_idx+x_idx]).real
-    # #if (np.linalg.norm(S)> 1e-4):
-    # Snorm_prev=S/np.linalg.norm(S)
-    # Snorm_prev=Snorm_prev.real
-    # max_x = np.max(scale_x)
-    # max_z = np.max(scale_z)
-    # min_x = np.min(scale_x)
-    # min_z = np.min(scale_z)
-    # for n in range(0, nmax):
-    #     #Get the next position
-    #     #1. Find Poynting vector and normalize it
-    #     x_pos = flow_x[-1]
-    #     z_pos = flow_z[-1]
-    #     x_idx = get_index(scale_x, x_pos)
-    #     z_idx = get_index(scale_z, z_pos)
-    #     Epoint = Ec[npts*z_idx+x_idx]
-    #     Hpoint = Hc[npts*z_idx+x_idx]
-    #     S=np.cross(Epoint, Hpoint.conjugate())
-    #     #if (np.linalg.norm(S)> 1e-4):
-    #     Snorm=S.real/np.linalg.norm(S)
-    #     #Snorm=Snorm.real
-    #     #2. Evaluate displacement = half of the discrete and new position
-    #     dpos = abs(scale_z[0]-scale_z[1])/2.0
-    #     dx = dpos*Snorm[0];
-    #     dz = dpos*Snorm[2];
-    #     x_pos = x_pos+dx
-    #     z_pos = z_pos+dz
-    #     #3. Save result
-    #     flow_x.append(x_pos)
-    #     flow_z.append(z_pos)
-    #     if x_pos<min_x or x_pos>max_x:
-    #         break
-    #     if z_pos<min_z or z_pos>max_z:
-    #         break
-    return flow_x, flow_z
+    max_step = max(x0, y0, z0, x[-1])/50
+    min_step = x[0]/2000
+    step = min_step*3.0
+    if max_step < min_step:
+        max_step = min_step
+    coord = np.vstack(([flow_x[-1]], [flow_y[-1]], [flow_z[-1]])).transpose()
+    terms, E, H = fieldnlay(np.array([x]), np.array([m]), coord)
+    Ec, Hc = E[0, 0, :], H[0, 0, :]
+    S = np.cross(Ec, Hc.conjugate())
+    Snorm = S/np.linalg.norm(S)
+    Snorm_prev = Snorm.real
+    length = 0
+    dpos = step
+    while length < max_length:
+        step = step*2.0
+        while step > min_step:
+            #Evaluate displacement from previous poynting vector
+            dpos = step
+            dx = dpos*Snorm_prev[0];
+            dy = dpos*Snorm_prev[1];
+            dz = dpos*Snorm_prev[2];
+            #Test the next position not to turn more than max_angle
+            coord = np.vstack(([flow_x[-1]+dx], [flow_y[-1]+dy], [flow_z[-1]+dz])).transpose()
+            terms, E, H = fieldnlay(np.array([x]), np.array([m]), coord)
+            Ec, Hc = E[0, 0, :], H[0, 0, :]
+            Eth = max(np.absolute(Ec))/1e10
+            Hth = max(np.absolute(Hc))/1e10
+            for i in xrange(0,len(Ec)):
+                if abs(Ec[i]) < Eth:
+                    Ec[i] = 0+0j
+                if abs(Hc[i]) < Hth:
+                    Hc[i] = 0+0j
+            S = np.cross(Ec, Hc.conjugate())
+            Snorm = S/np.linalg.norm(S)
+            Snorm = Snorm.real
+            angle = angle_between(Snorm, Snorm_prev)
+            if angle < max_angle:
+                break
+            step = step/2.0
+        #3. Save result
+        Snorm_prev = Snorm
+        dx = dpos*Snorm_prev[0];
+        dy = dpos*Snorm_prev[1];
+        dz = dpos*Snorm_prev[2];
+        length = length + step
+        flow_x.append(flow_x[-1] + dx)
+        flow_y.append(flow_y[-1] + dy)
+        flow_z.append(flow_z[-1] + dz)
+
+    return np.array(flow_x), np.array(flow_y), np.array(flow_z)
 
 ###############################################################################
 def GetFlow(scale_x, scale_z, Ec, Hc, a, b, npts, nmax):
@@ -221,16 +253,16 @@ def GetField(crossplane, npts, factor, x, m):
     return Ec, Hc, P, coordPlot, coordPlot
 
 ###############################################################################
-design = 1
-# design = 2
-# design = 3
+#design = 1
+#design = 2
+design = 3
 x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
-npts = 21
-factor=2.2
+npts = 551
+factor=2.8
 crossplane='XZ'
-#crossplane='YZ'
+crossplane='YZ'
 Ec, Hc, P, coordX, coordZ = GetField(crossplane, npts, factor, x, m)
 
 Er = np.absolute(Ec)
@@ -303,35 +335,49 @@ try:
     from matplotlib.path import Path
     #import matplotlib.patches as patches
 
+    # flow_total = 21
+    # for flow in range(0,flow_total):
+    #     flow_x, flow_z = GetFlow(scale_x, scale_z, Ec, Hc,
+    #                              min(scale_x)+flow*(scale_x[-1]-scale_x[0])/(flow_total-1),
+    #                                                 min(scale_z), npts, nmax=npts*10)
+    #     verts = np.vstack((flow_z, flow_x)).transpose().tolist()
+    #     #codes = [Path.CURVE4]*len(verts)
+    #     codes = [Path.LINETO]*len(verts)
+    #     codes[0] = Path.MOVETO
+    #     path = Path(verts, codes)
+    #     patch = patches.PathPatch(path, facecolor='none', lw=0.2, edgecolor='white',zorder = 2.5)
+    #     ax.add_patch(patch)
     flow_total = 21
-    for flow in range(0,flow_total):
-        flow_x, flow_z = GetFlow(scale_x, scale_z, Ec, Hc,
-                                 min(scale_x)+flow*(scale_x[-1]-scale_x[0])/(flow_total-1),
-                                                    min(scale_z), npts, nmax=npts*10)
-        verts = np.vstack((flow_z, flow_x)).transpose().tolist()
+    scanSP = np.linspace(-factor*x[-1], factor*x[-1], npts)
+    min_SP = -factor*x[-1]
+    step_SP = 2.0*factor*x[-1]/(flow_total-1)
+    x0, y0, z0 = 0, 0, 0
+    max_length=factor*x[-1]*8
+    max_angle = np.pi/200
+    for flow in range(0,flow_total*2+1):
+        if crossplane=='XZ':
+            x0 = min_SP*2 + flow*step_SP
+            z0 = min_SP
+        elif crossplane=='YZ':
+            y0 = min_SP*2 + flow*step_SP
+            z0 = min_SP
+        flow_xSP, flow_ySP, flow_zSP = GetFlow3D(x0, y0, z0, max_length, max_angle, x, m)
+        if crossplane=='XZ':
+            flow_z_plot = flow_zSP*WL/2.0/np.pi
+            flow_x_plot = flow_xSP*WL/2.0/np.pi
+        elif crossplane=='YZ':
+            flow_z_plot = flow_zSP*WL/2.0/np.pi
+            flow_x_plot = flow_ySP*WL/2.0/np.pi
+
+        verts = np.vstack((flow_z_plot, flow_x_plot)).transpose().tolist()
         #codes = [Path.CURVE4]*len(verts)
         codes = [Path.LINETO]*len(verts)
         codes[0] = Path.MOVETO
         path = Path(verts, codes)
-        patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='white',zorder = 2.5)
+        patch = patches.PathPatch(path, facecolor='none', lw=0.2, edgecolor='white',zorder = 2.7)
         ax.add_patch(patch)
-
-    scanSP = np.linspace(-factor*x[-1], factor*x[-1], npts)
-    min_SP = -factor*x[-1]
-    step_SP = 2.0*factor*x[-1]/(flow_total-1)
-    x0, y0, z0 = min_SP, min_SP, min_SP
-    for flow in range(0,flow_total):
-        flow_xSP, flow_ySP, flow_zSP = GetFlow3D(x0, y0, z0, max_length, x, m)
-
-        # verts = np.vstack((flow_z, flow_x)).transpose().tolist()
-        # #codes = [Path.CURVE4]*len(verts)
-        # codes = [Path.LINETO]*len(verts)
-        # codes[0] = Path.MOVETO
-        # path = Path(verts, codes)
-        # patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='yellow',zorder = 2.7)
-        # ax.add_patch(patch)
  
-    plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[-1]*WL/2.0/np.pi)))+".pdf")
+    plt.savefig("P-SiAgSi-flow-R"+str(int(round(x[-1]*WL/2.0/np.pi)))+"-"+crossplane+".pdf")
     plt.draw()
 
     plt.show()
