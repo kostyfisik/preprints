@@ -119,7 +119,7 @@ lg=axs[Design].legend(loc='upper left',prop={'size':10})
 lg.draw_frame(False)
 
 axs[NACS].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
-axs[NACS].set_ylim(0, 0.3)
+axs[NACS].set_ylim(0, 0.29)
 
 axs[Qsca].set_ylabel(r'$Q_{abs}$', labelpad=8.8)
 axs[Qsca].set_ylim(0, 7)
