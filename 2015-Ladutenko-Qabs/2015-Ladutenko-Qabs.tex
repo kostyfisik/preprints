@@ -5,7 +5,8 @@
 %Letter or rapid communication - 3500 words
 %\documentclass[prb,groupedaddress,reprint]{revtex4-1}
 %APL
-\documentclass[aps,prl,reprint]{revtex4-1}
+\documentclass[aps,prl,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4-1}
+%\documentclass[aps,prl,reprint]{revtex4-1}
 %\documentclass[aip,jap,reprint]{revtex4-1}
 \usepackage[english]{babel}
 \usepackage{graphicx}% Include figure files
@@ -58,6 +59,44 @@ The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
 % emacs M-x count-words
 
 \begin{abstract}
+  There is a theoretical limit for absoption by a bulk spherical
+  partical.  In order to break this limit we applied a widely used
+  design pattern for a multilayered sphere which consist of
+  overlapping several electric and/or magnetic resonances (dipole
+  and higher multipoles).  We used a straightforward approach to
+  evaluate several designs from realistic materials.  However, we found that
+  due to dimension effect it can be preferable to use a properly
+  disigned particle of smaller size with only a dipole response in
+  order to reach the best absorption efficiency.
+\end{abstract}
+
+\pacs% insert suggested PACS numbers in braces on next line
+{41.20.Jb 42.25.Bs 02.60.Pn 02.70.-c}
+%41.20.Jb	Electromagnetic wave propagation
+%42.25.Bs       Wave propagation, transmission and absorption
+%%42.25.Fx	Diffraction and scattering
+%02.60.Pn	Numerical optimization
+%02.70.-c	Computational techniques; simulations 
+
+\maketitle %\maketitle must follow title, authors, abstract and \pacs
+
+Mie theory~[] describes interaction of an electromagnetic wave with a
+spherical particle and is still of great interest our days~[] inspite
+of its long history lasting more than a century.  Development of Mie
+theory over the years [Yang, Pena] lead to possibiltity to explore
+properies of multilayer spherical particles []. Such particles has
+various applications in ... [].
+
+The problem of scattering from a multilayered cylinder and a sphere
+was investigated in great details with Fan~et~al.~[Fan-PRL, Fan-APL].
+In his work he defined a ``super'' scatterer as a subwavelength object
+having a scattering cross section that far exceeds the single-channel
+limit of the maximal total angular momentum involved.  From spectral
+point of view this means the overlapping several electric and/or
+magnetic resonances.
+
+ 
+
 
   There was some recent fuzz about ``superscattering'' effect, which is
   about to design a structure such a way, that several multiple
@@ -76,16 +115,7 @@ The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
   efficiency, however, at WL=400 nm a single resonance small particle
   has a better scattering efficiency compared to larger particles with
   ``super'' design.
-\end{abstract}
 
-\pacs% insert suggested PACS numbers in braces on next line
-{41.20.Jb 42.25.Fx 02.60.Pn 02.70.-c}
-%41.20.Jb	Electromagnetic wave propagation
-%42.25.Fx	Diffraction and scattering
-%02.60.Pn	Numerical optimization
-%02.70.-c	Computational techniques; simulations 
-
-\maketitle %\maketitle must follow title, authors, abstract and \pacs
 % \section{Introduction}
 % Interest in metamaterials, artificial media with exotic
 % electromagnetic properties, has increased considerably during the

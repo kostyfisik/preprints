@@ -131,16 +131,17 @@ comment='SiAgSi-flow'
 # comment='bulk-Ag-flow'
 
 WL_units='nm'
-npts = 501
-factor=1.9
-#flow_total = 39
-flow_total = 7
+npts = 101
+#factor=1.9
+factor=4.5
+flow_total = 39
+#flow_total = 7
 #flow_total = 0
 #crossplane='XY'
 
 # Options to plot: Eabs, Habs, Pabs, angleEx, angleHy
-#field_to_plot='Pabs'
-field_to_plot='angleHy'
+field_to_plot='Pabs'
+#field_to_plot='angleHy'
 import matplotlib.pyplot as plt
 fig, axs = plt.subplots(2,2)#, sharey=True, sharex=True)
 fig.tight_layout()
