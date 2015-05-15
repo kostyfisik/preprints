@@ -59,16 +59,17 @@ The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
 % emacs M-x count-words
 
 \begin{abstract}
-  There is a theoretical limit for absoption by a bulk spherical
-  partical.  In order to break this limit we applied a widely used
-  design pattern for a multilayered sphere which consist of
-  overlapping several electric and/or magnetic resonances (dipole
-  and higher multipoles).  We used a straightforward approach to
-  evaluate several designs from realistic materials.  However, we found that
-  due to dimension effect it can be preferable to use a properly
-  disigned particle of smaller size with only a dipole response in
-  order to reach the best absorption efficiency.
+  There is a theoretical limit for absorption by a sub-wavelength bulk
+  spherical particle.  To overcome this limit we applied a widely used
+  ``super'' design pattern for a multilayered particle which superpose
+  several electric and magnetic multipole resonances.  We used a
+  straightforward approach to evaluate several designs from realistic
+  materials.  However, we found that due to dimension effect it can be
+  preferable to use a properly designed particle of smaller size with
+  only a dipole response in order to reach the best absorption
+  efficiency.
 \end{abstract}
+
 
 \pacs% insert suggested PACS numbers in braces on next line
 {41.20.Jb 42.25.Bs 02.60.Pn 02.70.-c}
@@ -80,41 +81,86 @@ The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
-Mie theory~[] describes interaction of an electromagnetic wave with a
-spherical particle and is still of great interest our days~[] inspite
-of its long history lasting more than a century.  Development of Mie
-theory over the years [Yang, Pena] lead to possibiltity to explore
-properies of multilayer spherical particles []. Such particles has
-various applications in ... [].
+Mie theory~[TODO] describes interaction of an electromagnetic wave with a
+spherical particle.  In spite of its long history lasting over a
+century it is still of great interest our days~[TODO] .  Development of
+Mie theory~\cite{Yang-2003, Pena-scattnlay-2009} made it possible to
+explore properties of multilayered spherical particles [TODO]. Such particles
+has various applications in cancer treatment [TODO 5,6 from Ovidio draft]
+and medical diagnostics [TODO 7 from Ovidio draft], cloaking
+devices~\cite{Semouchkina-2013, Ladutenko-2014}, solar
+cells ... [TODO].
 
 The problem of scattering from a multilayered cylinder and a sphere
-was investigated in great details with Fan~et~al.~[Fan-PRL, Fan-APL].
-In his work he defined a ``super'' scatterer as a subwavelength object
+was investigated in great detail with Fan~et~al.~[Fan-PRL, Fan-APL].
+In his work he defined a ``super'' scatterer as a sub-wavelength object
 having a scattering cross section that far exceeds the single-channel
 limit of the maximal total angular momentum involved.  From spectral
-point of view this means the overlapping several electric and/or
+point of view this means the superposition of several electric and/or
 magnetic resonances.
 
+There is a similar problem to design highly absorbing sub-wavelength
+particles.  Tribelsky has derived [TODO] a theoretical limit of a maximum
+absorption value for a single channel.  As a result the scattering
+coefficient (as defined in Mie theory [TODO Bohren Huffman]) for the used
+angular momentum become limited with $1/4$ in case of largest possible
+absorption. To overcome single-channel limit we tried to use similar
+approach and to tune together several absorption resonances.
+
+We used a triple layered $Si/Ag/Si$ spherical particle with
+experimental material parameters from Palik~[TODO] illuminated with a
+plane wave~(Fig. TODO ).  To optimize width of each layer we
+implemented~[link to GitHub] adaptive differential
+evolution~\cite{Storn-DE-first-1997} algorithm named
+JADE~\cite{Jingqiao-JADE-2009}.  All the details on the optimization
+procedure can be found elsewhere~\cite{Ladutenko-2014}.  Initially we
+tried to maximize contribution of several multipole resonances at a
+given wavelength $\lambda=500$~nm.  However, best results were
+obtained with the optimizer set to find maximum of the absorption
+efficiency factor $Q_{\rm abs}=C_{\rm abs}/2\pi R_{\rm total}^2$,
+where $R_{\rm total}$ is the outer radius of the particle and $C_{\rm
+  abs}$ denotes absorption cross-section. This way, the efficiency is
+defined as absorption cross-section normalized to the geometrical
+cross-section of the particle.
  
+\begin{figure}
+  \center{
+    % Use pdfcrop to remove white margins
+    \includegraphics[width=0.47\textwidth]{fig/2015-04-01-Qabs-SiAgSi-overview}%
+    \caption{ Optimized designs overview at working wavelength
+      $\lambda = 500$~nm. (a) Scattering
+      coefficients (b) Absorption efficiency with best value at total
+      R=36~nm and Ag/Si design (zero sized core) and ``super'' designs
+      at R=63~nm and R=81~nm. (c) Used layers width, for total
+      $R<45$~nm the core width was optimized to be zero, the design
+      become bi-layer $Ag/Si$ particle. 
+      \label{fig:overview}
+    }%
+  }
+\end{figure}
 
 
-  There was some recent fuzz about ``superscattering'' effect, which is
-  about to design a structure such a way, that several multiple
-  (electric and/or magnetic) resonances are overlapped.  This breaks
-  the theoretical limit we can achieve using a single resonance,
-  that`s why it is called ``super''. Our initial idea was to show the
-  same effect in absorption, and R=63 with R=81nm are such
-  `superabsopting` designs. However, in 3D case (in contrast to 2D
-  investigated with Ali) it turned out that sometimes it is preferable
-  to use a smaller particle with single resonance to achieve the best
-  efficiency. This way, in 3D case using real materials for a
-  multilayer spherical particle ``superabsorbing'' design do not
-  always leads to best absorption efficiency. Moreover, same effect
-  exists for scattering from SiAgSi optimized structure. At WL=500 nm
-  ``super'' scattering mode with two resonances gives the best
-  efficiency, however, at WL=400 nm a single resonance small particle
-  has a better scattering efficiency compared to larger particles with
-  ``super'' design.
+
+
+
+
+
+
+
+
+% . Our initial idea was to show the
+%   same effect in absorption, and R=63 with R=81nm are such
+%   `superabsopting` designs. However, in 3D case (in contrast to 2D
+%   investigated with Ali) it turned out that sometimes it is preferable
+%   to use a smaller particle with single resonance to achieve the best
+%   efficiency. This way, in 3D case using real materials for a
+%   multilayer spherical particle ``superabsorbing'' design do not
+%   always leads to best absorption efficiency. Moreover, same effect
+%   exists for scattering from SiAgSi optimized structure. At WL=500 nm
+%   ``super'' scattering mode with two resonances gives the best
+%   efficiency, however, at WL=400 nm a single resonance small particle
+%   has a better scattering efficiency compared to larger particles with
+%   ``super'' design.
 
 % \section{Introduction}
 % Interest in metamaterials, artificial media with exotic
@@ -137,20 +183,6 @@ magnetic resonances.
 % sphere symmetry using multilayer dielectric
 % coating~\cite{semouchkina_sphere_multilayer, Ladutenko-2014} have been
 % obtained using stochastic optimization methods.
-
-\begin{figure}
-  \center{
-    % Use pdfcrop to remove white margins
-    \includegraphics[width=0.47\textwidth]{fig/2015-04-01-Qabs-SiAgSi-overview}%
-    \caption{ Optimized designs overview at working wavelength
-      $\lambda = 500$~nm. (a) Expansion
-      coefficients (b) Absorption efficiency with best value at total
-      R=36~nm and Ag/Si design (zero sized core) and ``super'' designs
-      at R=63~nm and R=81~nm. (c) Used layers width
-      %\label{fig:model-view}
-    }%
-  }
-\end{figure}
 
 \begin{figure}
   \center{
