@@ -44,8 +44,8 @@ vals = ma.array(data_spaced)
 mvals = ma.masked_where(np.nan in data_spaced, vals)
 
 fig, axs = plt.subplots(3,figsize=(4,6), sharex=True)#, sharey=True)
-NACS=0
-Qsca=1
+NACS=1
+Qsca=0
 Design=2
 for ax in axs:
     ax.locator_params(axis='y',nbins=4)
@@ -56,19 +56,19 @@ for ax in axs:
 plotwidth=2.0
 cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,1], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='black'
-                     , label=r"$a_1$"
+                     , label=r"$\tilde{a}_1$"
 )
 cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,2], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='red'
-                     , label=r"$b_1$"
+                     , label=r"$\tilde{b}_1$"
 )
 cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,3], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='green'
-                     , label=r"$a_2$"
+                     , label=r"$\tilde{a}_2$"
 )
 cax = axs[NACS].plot(data_spaced2[:,0], data_spaced2[:,4], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='blue'
-                     , label=r"$b_2$"
+                     , label=r"$\tilde{b}_2$"
 )
 axs[NACS].axhline(y=0.25, ls='--', dashes=[2,2], color='gray')
 lg=axs[NACS].legend(loc='center left',prop={'size':11})
@@ -118,18 +118,19 @@ cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
 lg=axs[Design].legend(loc='upper left',prop={'size':10})
 lg.draw_frame(False)
 
-axs[NACS].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
+axs[NACS].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
 axs[NACS].set_ylim(0, 0.29)
 
 axs[Qsca].set_ylabel(r'$Q_{abs}$', labelpad=8.8)
 axs[Qsca].set_ylim(0, 7)
 axs[Design].set_ylabel('Width, nm', labelpad=2)
 axs[Design].set_ylim(0, 75)
-axs[Design].set_xlabel('Total R, nm', labelpad=2)
+axs[Design].set_xlabel(r'$R_{\rm total}$, nm', labelpad=2)
 plt.xlim(0,  89)
-axs[NACS].annotate('(a)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+#plt.xlim(0,  160)
+axs[NACS].annotate('(b)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                 horizontalalignment='right', verticalalignment='top')
-axs[Qsca].annotate('(b)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+axs[Qsca].annotate('(a)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                 horizontalalignment='right', verticalalignment='top')
 axs[Design].annotate('(c)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                 horizontalalignment='right', verticalalignment='top')

@@ -37,7 +37,7 @@ fname3 = "Si-Ag-Si-channels-TotalR081.dat"
 data3, data_spaced3 = load_data(fname3)
 
 isAll = False
-isAll = True
+#isAll = True
 ############################# Plotting ######################
 import numpy.ma as ma
 vals = ma.array(data_spaced)
@@ -59,19 +59,19 @@ for ax in axs:
 plotwidth=2.0
 cax = axs[AgSi].plot(data[:,0], data[:,1], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='black'
-                     , label=r"$a_1$"
+                     , label=r"$\tilde{a}_1$"
 )
 cax = axs[AgSi].plot(data[:,0], data[:,2], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='red'
-                     , label=r"$b_1$"
+                     , label=r"$\tilde{b}_1$"
 )
 cax = axs[AgSi].plot(data[:,0], data[:,3], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='green'
-                     , label=r"$a_2$"
+                     , label=r"$\tilde{a}_2$"
 )
 cax = axs[AgSi].plot(data[:,0], data[:,4], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='blue'
-                     , label=r"$b_2$"
+                     , label=r"$\tilde{b}_2$"
 )
 axs[AgSi].axhline(y=0.25, ls='--', dashes=[2,2], color='gray')
 lg=axs[AgSi].legend(loc='center right',prop={'size':11})
@@ -85,20 +85,20 @@ lg.draw_frame(False)
 plotwidth=2.0
 cax = axs[SiAgSi].plot(data_spaced2[:,0], data_spaced2[:,1], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='black'
-                     , label=r"$a_1$"
+                     , label=r"$\tilde{a}_1$"
 )
 
 cax = axs[SiAgSi].plot(data_spaced2[:,0], data_spaced2[:,2], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='red'
-                     , label=r"$b_1$"
+                     , label=r"$\tilde{b}_1$"
 )
 cax = axs[SiAgSi].plot(data_spaced2[:,0], data_spaced2[:,3], linewidth=plotwidth,
                      solid_joinstyle='round', solid_capstyle='round', color='green'
-                     , label=r"$a_2$"
+                     , label=r"$\tilde{a}_2$"
 )
 cax = axs[SiAgSi].plot(data_spaced2[:,0], data_spaced2[:,4], linewidth=plotwidth/1.5,
                      solid_joinstyle='round', solid_capstyle='round', color='blue'
-                     , label=r"$b_2$"
+                     , label=r"$\tilde{b}_2$"
 )
 axs[SiAgSi].axhline(y=0.25, ls='--', dashes=[2,2], color='gray')
 lg=axs[SiAgSi].legend(loc='center right',prop={'size':11})
@@ -113,20 +113,20 @@ if isAll:
     plotwidth=2.0
     cax = axs[SiAgSi2].plot(data_spaced3[:,0], data_spaced3[:,1], linewidth=plotwidth,
                          solid_joinstyle='round', solid_capstyle='round', color='black'
-                         , label=r"$a_1$"
+                         , label=r"$\tilde{a}_1$"
     )
 
     cax = axs[SiAgSi2].plot(data_spaced3[:,0], data_spaced3[:,2], linewidth=plotwidth/1.5,
                          solid_joinstyle='round', solid_capstyle='round', color='red'
-                         , label=r"$b_1$"
+                         , label=r"$\tilde{b}_1$"
     )
     cax = axs[SiAgSi2].plot(data_spaced3[:,0], data_spaced3[:,3], linewidth=plotwidth,
                          solid_joinstyle='round', solid_capstyle='round', color='green'
-                         , label=r"$a_2$"
+                         , label=r"$\tilde{a}_2$"
     )
     cax = axs[SiAgSi2].plot(data_spaced3[:,0], data_spaced3[:,4], linewidth=plotwidth/1.5,
                          solid_joinstyle='round', solid_capstyle='round', color='blue'
-                         , label=r"$b_2$"
+                         , label=r"$\tilde{b}_2$"
     )
     axs[SiAgSi2].axhline(y=0.25, ls='--', dashes=[2,2], color='gray')
     lg=axs[SiAgSi2].legend(loc='center right',prop={'size':11})
@@ -140,14 +140,14 @@ if isAll:
 
 
 y_up_lim = 0.29
-axs[AgSi].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
+axs[AgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
 axs[AgSi].set_ylim(0, y_up_lim)
 
-axs[SiAgSi].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
+axs[SiAgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
 axs[SiAgSi].set_ylim(0, y_up_lim)
 
 if isAll:
-    axs[SiAgSi2].set_ylabel(r'$a_n ,\ b_n$', labelpad=-0.9)
+    axs[SiAgSi2].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
     axs[SiAgSi2].set_ylim(0, y_up_lim)
     axs[SiAgSi2].set_xlabel('Wavelengh, nm', labelpad=2)
 else:
