@@ -34,16 +34,6 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
   Jos\'{e} Guti\'{e}rrez Abascal 2, E-28006 Madrid, Spain}
 
 
-% \author{Irina Melchakova}
-% \author{Alexander Shalin}
-% \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
-%   197101, Russian Federation\\}
-%TODO не хватает адреса
-% \affiliation{Kotel’nikov Institute of Radio Engineering and
-%   Electronics of RAS (Ulyanovsk branch),\\48 Goncharov Str., Ulyanovsk
-%   432011, Russian Federation}
-% \affiliation{Ulyanovsk State University, 42 L. Tolstoy Str., Ulyanovsk 432017, Russian Federation}
-% \author{Ilya Yagupov}
 % \author{Pavel Belov}
 % \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
 %   197101, Russian Federation\\}
@@ -54,8 +44,8 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
 
 \date{\today}
-% APL 250 words! Moreover, some designs have spectral Phys Rev B less
-% then 500 words, about 5% ot total paper length
+% APL 250 words! Phys Rev B less then 500 words, about
+% 5% ot total paper length
 % emacs M-x count-words
 
 \begin{abstract}
@@ -80,18 +70,22 @@ The Australian National University, 59 Mills Rd, Acton, ACT, 2601, Australia}
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
-Mie theory~[TODO] describes interaction of an electromagnetic wave with a
-spherical particle.  In spite of its long history lasting over a
-century it is still of great interest our days~[TODO] .  Development of
-Mie theory~\cite{Yang-2003, Pena-scattnlay-2009} made it possible to
-explore properties of multilayered spherical particles [TODO]. Such particles
-has various applications in cancer treatment [TODO 5,6 from Ovidio draft]
-and medical diagnostics [TODO 7 from Ovidio draft],
-cloaking~\cite{Semouchkina-2013, Ladutenko-2014} and  plasmonic~[TODO] devices, solar
-cells, ... [TODO]
+Mie theory~\cite{Mie-1908} describes interaction of an electromagnetic
+wave with a spherical particle.  In spite of its long history lasting
+over a century it is still of great interest our
+days~\cite{Suzuki-2008,MacKowski-2012,Lerme-2000,Xu-2005,Li-2006,Gogoi-2010,Santiago-2011}.
+Development of Mie theory~\cite{Yang-2003, Pena-scattnlay-2009} made
+it possible to explore properties of multilayered spherical
+particles~\cite{Sheehan-2013,Selmke-2012}. Such particles has various
+applications in cancer treatment~\cite{Zhang-2010, Hirsch-2003} and
+medical diagnostics~\cite{Allain-2002},
+cloaking~\cite{Qui-2009,Semouchkina-2013, Ladutenko-2014} and
+plasmonic~\cite{Martin-2013, Alu-2005} devices, study on thermal
+properties of insulating material~\cite{Xie-2013}, solar cells\cite{Kameya-2011,Mann-2011},
+and so on.
 
 The problem of scattering from a multilayered cylinder and a sphere
-was investigated in great detail with Fan~et~al.~[Fan-PRL, Fan-APL].
+was investigated in great detail with Fan~et~al.~\cite{Fan-2010,Fan-2011}.
 In his work he defined a ``super'' scatterer as a sub-wavelength object
 having a scattering cross section that far exceeds the single-channel
 limit of the maximal total angular momentum involved.  From spectral
@@ -99,26 +93,28 @@ point of view this means the superposition of several electric and/or
 magnetic resonances.
 
 There is a similar problem to design highly absorbing sub-wavelength
-particles.  Tribelsky has derived [TODO] a theoretical limit of a
-maximum absorption value for a single channel.  As a result the
-absorption coefficents $\tilde{a}_n= {\rm Re}\{a_n\} - |a_n|^2 $ and
-$\tilde{b}_n= {\rm Re}\{b_n\} - |b_n|^2 $ become limited with $1/4$ in
-case of largest possible absorption (where $a_n$ and $b_n$ are
-scattering coefficient as defined in Mie theory [TODO Bohren
-Huffman]).  To overcome a single-channel limit we tried to use similar
-approach and to tune together several absorption resonances.
+particles.  Tribelsky has derived~\cite{Tribelsky-2011} a theoretical
+limit of a maximum absorption value for a single channel.  As a result
+the absorption coefficients $\tilde{a}_n= {\rm Re}\{a_n\} - |a_n|^2 $
+and $\tilde{b}_n= {\rm Re}\{b_n\} - |b_n|^2 $ become limited with
+$1/4$ in case of largest possible absorption (where $a_n$ and $b_n$
+are scattering coefficient as defined in Mie
+theory~\cite{Bohren-1983}.  To overcome a single-channel limit we
+tried to use similar approach and to tune together several absorption
+resonances.
 
 We used a triple layered $Si/Ag/Si$ spherical particle with
-experimental material parameters from Palik~[TODO] illuminated with a
-plane wave~(Fig. TODO ).  To optimize width of each layer we
-implemented~[link to GitHub] adaptive differential
+experimental material parameters from Palik~\cite{palik-1997}
+illuminated with a plane wave~(Fig. TODO ).  To optimize width of each
+layer we implemented~\cite{JADE-web} adaptive differential
 evolution~\cite{Storn-DE-first-1997} algorithm named
 JADE~\cite{Jingqiao-JADE-2009}.  All the details on the optimization
 procedure can be found elsewhere~\cite{Ladutenko-2014}.  Mie
 calculations were performed with the
-Scattnlay~\cite{Pena-scattnlay-2009} software, whose results were verified
-against a number of other Mie-type codes and commercially available
-programs Comsol Multiphisics[TODO] and CST Microwave studio[TODO].
+Scattnlay~\cite{Pena-scattnlay-2009,Scattnlay-web} software, whose results were
+verified against a number of other Mie-type codes and commercially
+available programs Comsol Multiphysics~\cite{CST-web} and CST Microwave
+studio~\cite{CST-web}.
 
 Initially we tried to maximize contribution of several multipole
 resonances at a given wavelength $\lambda=500$~nm.  However, best
@@ -146,23 +142,23 @@ geometrical cross-section of the particle.
 \end{figure}
 In order to understand the phenomena we run a series of optimizations;
 we were steadily increasing the outer size of the particle starting
-from zero.  The dependance of highest absorption efficiency obtained
+from zero.  The dependence of highest absorption efficiency obtained
 with the optimization procedure on the spherical particle outer radius
 is depicted in Fig.~\ref{fig:overview}a.  With dashed lines we marked
-the absorption limit of dipole ($n=1$) and quadupole ($n=2$) resonces
-derived with Tribelsky[TODO] as $$Q^{(n)}_{\rm abs\
+the absorption limit of dipole ($n=1$) and quadrupole ($n=2$) resonances
+derived with Tribelsky~\cite{Tribelsky-2011} as $$Q^{(n)}_{\rm abs\
   max}=\frac{2n+1}{2q^2},$$ where size parameter $q=2\pi R_{\rm
   total}/\lambda$.  This limits are obviously beaten for $R_{\rm
   total}>60$~nm, as far as the contribution of higher multipoles with
 $n>2$ in negligible for the plotted range of outer size of the
 particle.  All this designs should be classified as ``super''
-absorbers as it follows from the Fan~et~al.~[Fan-PRL, Fan-APL]
+absorbers as it follows from the Fan~et~al.~\cite{Fan-2010,Fan-2011}
 definition.
 
 In Fig.~\ref{fig:overview}b we present values of absorption
 coefficients; horizontal dashed line denotes their theoretical limit.
 For small particles the absorption is dominated with electric dipole
-$\tilde{a}_1$.  At $R_{\rm total} = 56.6$~nm the opimizer switches to
+$\tilde{a}_1$.  At $R_{\rm total} = 56.6$~nm the optimizer switches to
 the branch of designs, that combine the usage of electric and magnetic
 dipoles, as far as they start to outperform the single electric dipole
 designs branch.  There is one more branch of designs using electric
@@ -174,19 +170,19 @@ Fig.~\ref{fig:overview}c unveils the fact of dipole design branch has
 two parts. For $R_{\rm total}<46$~nm the optimizer nullifies the
 innermost layers width (marked as a ``core'' layer); the particle
 design was reduces to $Ag/Si$ bi-layer.  At $R_{\rm total}=46$ dipole
-channel becomes practically undistiguishable from the theoretical
+channel becomes practically indistinguishable from the theoretical
 limit (it becomes $\tilde{a}_1>0.249$).  It looks like the optimizer
 introduced the inner $Si$ layer in order to keep $\tilde{a}_1$ near
-the theoretical limit as the $R_{\rm total}$ increases futher on.  As
+the theoretical limit as the $R_{\rm total}$ increases further on.  As
 a side effect quadrupole $\tilde{a}_2$ appears, however, it do not
 help to reach ``super'' absorption limit $n=2$.
 
 The most important feature of Fig.~\ref{fig:overview} is that the best
 absorption efficiency was reached in non ``super'' absorption mode;
 even more, it was reached before $\tilde{a}_1$ hit the single channel
-limit.  This way to achieve the best absorption effeciency there is no
+limit.  This way to achieve the best absorption efficiency there is no
 need to tune several multipole resonances using complex multilayer
-structure.  From prctical point of view it is even more important that
+structure.  From practical point of view it is even more important that
 the maxima can be reached in bi-layer structure, instead of
 triple-layer; it should be easier (and cheaper) to produce such an
 absorber.
@@ -201,10 +197,10 @@ absorber.
     }%
   }
 \end{figure}
-To verify large absorption coefficient obtianed during optimization
-corresponds to a multipole resonance we plotted on
-Fig.~\ref{fig:spectra} specta of absorption coefficents for all
-designs that give a local maxima of $Q_{\rm abs}$ on
+To verify large absorption coefficient obtained during optimization
+corresponds to a multipole resonance we plotted in
+Fig.~\ref{fig:spectra} spectra of absorption coefficients for all
+designs that have a local maxima of $Q_{\rm abs}$ on
 Fig.~\ref{fig:overview}a.  As expected design with maxima at R=36~nm
 has a single electric dipole resonance with the center at optimized
 wavelength $\lambda=500$~nm.  Spectra of designs with maximum at
@@ -226,9 +222,9 @@ explanation, why it flat? Any ideas?)
   }
 \end{figure}
 Finally, we present distribution for amplitude of electric field
-(Fig.~\ref{fig:field}) for two designs: with the best efficency and a
-``super'' absorber.  We set different scale for this two desings so
-that black cirlces that denote outer boundary are plotted to be the
+(Fig.~\ref{fig:field}) for two designs: with the best efficiency and a
+``super'' absorber.  We set different scale for this two designs so
+that black circles that denote outer boundary are plotted to be the
 same size.  We also plot streamlines for a Poynting vector, the last
 one is tangent at each point to the white curve.  For the effective
 design the power flow goes into the particle.  In case of ``super''
@@ -277,21 +273,18 @@ power flow vortexes, there is some power leaking throw the particle.
 % \end{acknowledgments}
 
 This way we conclude, that to design a good absorber it is not
-necessary to superpose several resonces.  The explanation for the
-phenomena seems to be quite intuitive.  Due to spatial stucture of
+necessary to superpose several resonances.  The explanation for the
+phenomena seems to be quite intuitive.  Due to spatial structure of
 higher multipoles, namely presence of nodal point, they are not using
 effectively the whole volume of the particle for the absorption. At
 the same time in 3D the increased absorption of higher multipoles should
 compete against quadratic growth of the geometrical cross-section.  It
-is cleary not the point for the case under consideration, the most
-effective desing has simply the smallest radius.
+is clearly not the point for the case under consideration, the most
+effective design has simply the smallest radius.
 
 
-It is intersting, that similar conclustion was made by Miller et
-al~[TODO Fundamental Limits to Extinction by Metallic Nanoparticles
-Phys. Rev. Lett. 112, 123903 – Published 26 March 2014 O. D. Miller,
-C. W. Hsu, M. T. H. Reid, W. Qiu, B. G. DeLacy, J. D. Joannopoulos,
-M. Soljačić, and S. G. Johnson] for extinction of arbitrary particles.
+It is interesting, that similar conclusion was made by Miller et
+al~\cite{Miller-2014} for extinction of arbitrary particles.
 
 
 \bibliography{2015-Ladutenko-Qabs}
