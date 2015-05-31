@@ -104,6 +104,11 @@ epsilon_Ag = -2.0 + 0.28j   #original
 # core_r = WL/20.0
 # epsilon_Ag = -2.71 + 0.25j
 
+WL=500
+epsilon_Ag = -2.48679437245715+0.239602516298027j
+core_r = 36
+epsilon_Ag = -2.8959457031312 + 1.63134793747717j
+core_r = 62.5
 
 index_Ag = np.sqrt(epsilon_Ag)
 
@@ -123,7 +128,7 @@ m[0, 1] = index_Ag/nm
 print "x =", x
 print "m =", m
 
-npts = 281
+npts = 81
 
 factor=3
 scan = np.linspace(-factor*x[0, 0], factor*x[0, 0], npts)
