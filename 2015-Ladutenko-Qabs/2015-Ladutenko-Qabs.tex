@@ -17,7 +17,7 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 
 \begin{document} %Max size in pdf for APL - 4 print pages
 
-\title{More effective than a ``super'' absorption in spherical nanoparticles}
+\title{More efficient than a ``super'' absorption in spherical nanoparticles}
 
 
 \author{Konstantin Ladutenko} \email[e-mail: ]{fisik2000@mail.ru}
@@ -99,7 +99,7 @@ the absorption coefficients $\tilde{a}_n= {\rm Re}\{a_n\} - |a_n|^2 $
 and $\tilde{b}_n= {\rm Re}\{b_n\} - |b_n|^2 $ become limited with
 $1/4$ in case of largest possible absorption (where $a_n$ and $b_n$
 are scattering coefficient as defined in Mie
-theory~\cite{Bohren-1983}.  To overcome a single-channel limit we
+theory~\cite{Bohren-1983}).  To overcome a single-channel limit we
 tried to use similar approach and to tune together several absorption
 resonances.
 
@@ -130,12 +130,13 @@ geometrical cross-section of the particle.
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.4\textwidth]{fig/2015-04-01-Qabs-SiAgSi-overview}%
     \caption{ Optimized designs overview at working wavelength
-      $\lambda = 500$~nm. (a) Scattering
-      coefficients (b) Absorption efficiency with best value at total
-      R=36~nm and Ag/Si design (zero sized core) and ``super'' designs
-      at R=63~nm and R=81~nm. (c) Used layers width, for total
-      $R<46$~nm the core width was optimized to be zero, the design
-      become bi-layer $Ag/Si$ particle. 
+      $\lambda = 500$~nm. (a) Absorption efficiency with best value at total
+      R=36~nm and Ag/Si design (zero sized core) and ``super'' designs maxima
+      at R=63~nm and R=81~nm. (b)  Absorption coefficients for
+      electric and magnetic dipole ($\tilde{a}_1$ and $\tilde{b}_1$)
+      and quadupole ($\tilde{a}_2$ and $\tilde{b}_2$) modes (c) Used
+      layers width, for total $R<46$~nm the core width was optimized
+      to be zero, the design become bi-layer $Ag/Si$ particle. 
       \label{fig:overview}
     }%
   }
@@ -159,20 +160,20 @@ In Fig.~\ref{fig:overview}b we present values of absorption
 coefficients; horizontal dashed line denotes their theoretical limit.
 For small particles the absorption is dominated with electric dipole
 $\tilde{a}_1$.  At $R_{\rm total} = 56.6$~nm the optimizer switches to
-the branch of designs, that combine the usage of electric and magnetic
-dipoles, as far as they start to outperform the single electric dipole
-designs branch.  There is one more branch of designs using electric
-dipole $\tilde{a}_1$ and magnetic quadrupole $\tilde{b}_2$, however,
-it turns to be the best in a very limited range of $R_{\rm total}$ from
-80.7~nm to 82.1~nm.
+the branch of designs, that combine the usage of electric
+$\tilde{a}_1$ and magnetic $\tilde{b}_1$ dipoles, as far as they start
+to outperform the single electric dipole designs branch.  There is one
+more branch of designs using electric dipole $\tilde{a}_1$ and
+magnetic quadrupole $\tilde{b}_2$, however, it turns to be the best in
+a very limited range of $R_{\rm total}$ from 80.7~nm to 82.1~nm.
 
-Fig.~\ref{fig:overview}c unveils the fact of dipole design branch has
+Fig.~\ref{fig:overview}c unveils the fact that dipole design branch has
 two parts. For $R_{\rm total}<46$~nm the optimizer nullifies the
-innermost layers width (marked as a ``core'' layer); the particle
+innermost layer width (marked as a ``core'' layer); the particle
 design was reduces to $Ag/Si$ bi-layer.  At $R_{\rm total}=46$ dipole
 channel becomes practically indistinguishable from the theoretical
 limit (it becomes $\tilde{a}_1>0.249$).  It looks like the optimizer
-introduced the inner $Si$ layer in order to keep $\tilde{a}_1$ near
+introduces the inner $Si$ layer in order to keep $\tilde{a}_1$ near
 the theoretical limit as the $R_{\rm total}$ increases further on.  As
 a side effect quadrupole $\tilde{a}_2$ appears, however, it do not
 help to reach ``super'' absorption limit $n=2$.
@@ -180,9 +181,10 @@ help to reach ``super'' absorption limit $n=2$.
 The most important feature of Fig.~\ref{fig:overview} is that the best
 absorption efficiency was reached in non ``super'' absorption mode;
 even more, it was reached before $\tilde{a}_1$ hit the single channel
-limit.  This way to achieve the best absorption efficiency there is no
+limit.  \textit{This way to achieve the best absorption efficiency for a
+spherical particle there is no
 need to tune several multipole resonances using complex multilayer
-structure.  From practical point of view it is even more important that
+structure.}  From practical point of view it is even more important that
 the maxima can be reached in bi-layer structure, instead of
 triple-layer; it should be easier (and cheaper) to produce such an
 absorber.
@@ -207,9 +209,24 @@ wavelength $\lambda=500$~nm.  Spectra of designs with maximum at
 R=63~nm and R=81~nm has a ``super'' structure; there is a
 superposition of electric and magnetic resonances.  These spectra also
 has some other resonances, however, they are located rather far from
-the used wavelength.  A noticeable feature of Fig.~\ref{fig:spectra}c is
-an almost flat top of the electric dipole resonance. (TODO add some
-explanation, why it flat? Any ideas?)
+the used wavelength.  
+
+A noticeable feature of Fig.~\ref{fig:spectra}c is an almost flat top
+of the electric dipole resonance.  We do not have any good explanation
+for this phenomena, however, we can suggest that it is due to coupling
+of the electric dipole $\tilde{a}_1$ with the magnetic quadrupole
+$\tilde{b}_2$.  Whereas resonant responses of other desings originate
+from coupling of incident plane wave with the corresponding multipole, it
+is not the case for the design with R=81~nm. Here, the particle is
+mostly composed from the $Si$ outer shell, that give enough volume for
+$\tilde{b}_2$.  Dipole response comes from the small inner part of the
+sphere and can not be directly exited with the incident wave.  It
+takes the power from the surrounding $\tilde{b}_2$ mode and very soon
+it reaches the fundamental limit for absorption.  This way we can
+observe a flat top for the $\tilde{a}_1$ response accompanied with a
+sigificat value of $\tilde{b}_2$.  Our suggestion is indirectly proved
+by the reduced width of the $\tilde{b}_2$ resonance compared to
+other quadrupole responses.
 
 \begin{figure}
   \center{
@@ -226,40 +243,46 @@ Finally, we present distribution for amplitude of electric field
 ``super'' absorber.  We set different scale for this two designs so
 that black circles that denote outer boundary are plotted to be the
 same size.  We also plot streamlines for a Poynting vector, the last
-one is tangent at each point to the white curve.  For the effective
+one is tangent at each point to the white curve.  For the efficient
 design the power flow goes into the particle.  In case of ``super''
 absorption presence of the magnetic response leads to the existence of
 power flow vortexes, there is some power leaking throw the particle.
 
+This way we conclude, that to design a good absorber it is not
+necessary to superpose several resonances.  The explanation for the
+phenomena seems to be quite intuitive.  Due to spatial structure of
+higher multipoles, namely presence of nodal points, they are not using
+efficiently the whole volume of the particle for the absorption. At
+the same time in 3D the increased absorption of higher multipoles should
+compete against quadratic growth of the geometrical cross-section.  It
+is clearly not the point for the case under consideration, the most
+efficient design has simply the smallest radius.
+
+It is interesting, that similar conclusion was made by Miller et
+al.~\cite{Miller-2014} for extinction of arbitrary particles: small
+size with only dipole responce is preferable for geometric volume
+normalized efficiency.  
+
+As a final word we would like to notice that the use of stochastic
+optimizer to design absorbing particles seems to be superior to pure
+theoretical approach.  Grigoriev et al.~\cite{Grigoriev-2015} derived
+expressions for ideal absorber; however, they considered only a dipole
+approximation, the final value for our range of particle sizes is very
+close to the dipole limit predicted with
+Tribelsky~\cite{Tribelsky-2011}. This way, ``super'' designs are out
+of scope from their ideal case; it is easy to check that ``super''
+designs from Fig.~\ref{fig:overview}c gives larger absorption cross-sections.
+Grigoriev et al.~\cite{Grigoriev-2015} also provide an equation to
+desing a core-shell structure from predefined materials. However, in
+case of material parameters that we used for $Si$ and $Ag$ and size
+parameter from our best design, Grigoriev`s equation gives a complex
+value for relative share of two layers, which is not suitable for
+most of the simulation software or experiment.
 
 
+\begin{acknowledgments}
 
-
-
-
-
-
-% . Our initial idea was to show the
-%   same effect in absorption, and R=63 with R=81nm are such
-%   `superabsopting` designs. However, in 3D case (in contrast to 2D
-%   investigated with Ali) it turned out that sometimes it is preferable
-%   to use a smaller particle with single resonance to achieve the best
-%   efficiency. This way, in 3D case using real materials for a
-%   multilayer spherical particle ``superabsorbing'' design do not
-%   always leads to best absorption efficiency. Moreover, same effect
-%   exists for scattering from SiAgSi optimized structure. At WL=500 nm
-%   ``super'' scattering mode with two resonances gives the best
-%   efficiency, however, at WL=400 nm a single resonance small particle
-%   has a better scattering efficiency compared to larger particles with
-%   ``super'' design.
-
-
-
-
-
-
-
-% \begin{acknowledgments}
+  TODO acknowledgments
 %   The authors would like to thank the Ministry of Education and
 %   Science of the Russian Federation (Goszadanie 2014/190, Zadanie
 %   No. 3.561.2014/K, project 14.584.21.0009 10), Russian Foundation for Basic
@@ -270,22 +293,7 @@ power flow vortexes, there is some power leaking throw the particle.
 %   % would also like to appreciate Alexander Krasnok for the help with
 %   % CST simulations and Ilya V. Shadrivov for valuable comments on the
 %   % manuscript.
-% \end{acknowledgments}
-
-This way we conclude, that to design a good absorber it is not
-necessary to superpose several resonances.  The explanation for the
-phenomena seems to be quite intuitive.  Due to spatial structure of
-higher multipoles, namely presence of nodal points, they are not using
-effectively the whole volume of the particle for the absorption. At
-the same time in 3D the increased absorption of higher multipoles should
-compete against quadratic growth of the geometrical cross-section.  It
-is clearly not the point for the case under consideration, the most
-effective design has simply the smallest radius.
-
-
-It is interesting, that similar conclusion was made by Miller et
-al~\cite{Miller-2014} for extinction of arbitrary particles.
-
+\end{acknowledgments}
 
 \bibliography{2015-Ladutenko-Qabs}
 \end{document}
