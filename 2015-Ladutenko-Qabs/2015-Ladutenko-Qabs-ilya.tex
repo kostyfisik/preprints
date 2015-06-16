@@ -34,24 +34,16 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
   Jos\'{e} Guti\'{e}rrez Abascal 2, E-28006 Madrid, Spain}
 
 
-% \author{Irina Melchakova} \author{Alexander Shalin}
-% \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
-% 197101, Russian Federation\\} TODO не хватает адреса
-% \affiliation{Kotel’nikov Institute of Radio Engineering and
-% Electronics of RAS (Ulyanovsk branch),\\48 Goncharov Str., Ulyanovsk
-% 432011, Russian Federation} \affiliation{Ulyanovsk State University,
-% 42 L. Tolstoy Str., Ulyanovsk 432017, Russian Federation}
-% \author{Ilya Yagupov} \author{Pavel Belov} \affiliation{ITMO
-% University, 49 Kronverskii Ave., St.~Petersburg 197101, Russian
-% Federation\\}
+% \author{Pavel Belov} \affiliation{ITMO University, 49 Kronverskii
+% Ave., St.~Petersburg 197101, Russian Federation\\}
 \author{Ali Mirzaei} \author{Andrey Miroshnichenko} \author{Ilya
   Shadrivov} \affiliation{Nonlinear Physics Centre, Research School of
   Physics and Engineering, The Australian National University, 59
   Mills Rd, Acton, ACT, 2601, Australia}
 
 \date{\today}
-% APL 250 words! Moreover, some designs have spectral Phys Rev B less
-% then 500 words, about 5% ot total paper length
+% APL 250 words! Phys Rev B less then 500 words, about
+% 5% ot total paper length
 % emacs M-x count-words
 
 \begin{abstract}
@@ -78,20 +70,25 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
-Mie theory~[TODO], which is over 100 years old now, describes
+Mie theory~\cite{Mie-1908}, which is over 100 years old now, describes
 interaction of electromagnetic waves with spherical particles. Mie
-solution is still of great interest these days~[TODO], since it is one
-of the primary tools for analyzing wave scattering by spherical
-objects. Further development of the Mie theory~\cite{Yang-2003,
-  Pena-scattnlay-2009} made it possible to apply study the
-multilayered spherical particles [TODO]. Such particles have various
-applications in cancer treatment [TODO 5,6 from Ovidio draft] and
-medical diagnostics [TODO 7 from Ovidio draft],
-cloaking~\cite{Semouchkina-2013, Ladutenko-2014} and plasmonic~[TODO]
-devices, as well as for improving solar cells performance [TODO].
+solution is still of great interest these
+days~\cite{Suzuki-2008,MacKowski-2012,Lerme-2000,Xu-2005,Li-2006,Gogoi-2010,Santiago-2011},
+since it is one of the primary tools for analyzing wave scattering by
+spherical objects. Further development of the Mie
+theory~\cite{Yang-2003, Pena-scattnlay-2009} made it possible to apply
+study the multilayered spherical
+particles~\cite{Sheehan-2013,Selmke-2012}.  Such particles have
+various applications in cancer treatment~\cite{Zhang-2010,
+  Hirsch-2003} and medical diagnostics~\cite{Allain-2002},
+cloaking~\cite{Qui-2009, Semouchkina-2013, Ladutenko-2014} and
+plasmonic~\cite{Martin-2013, Alu-2005} devices, study on thermal
+properties of insulating material~\cite{Xie-2013}, as well as for
+improving solar cells performance~\cite{Kameya-2011,Mann-2011}, and so
+on.
 
 The scattering properties of multilayer cylinders and spheres was
-studied in great detail by Fan~et~al.~[Fan-PRL, Fan-APL]. In these
+studied in great detail by Fan~et~al.~\cite{Fan-2010,Fan-2011}.  In these
 works authors introduced the concept of a super scattering, when the
 scattering cross-section of a multilayer particle exceeds that of a
 homogeneous particle of the same size in the so-called single-channel
@@ -104,16 +101,16 @@ to make these resonances overlap, and this limits the achievable
 scattering cross-section.
 
 Similar fundamental limitations exist for the absorbing properties of
-sub-wavelength nanoparticles.  Tribelsky [TODO] has derived a
+sub-wavelength nanoparticles.  Tribelsky~\cite{Tribelsky-2011} has derived a
 theoretical limit of a maximum absorption cross-section (ACS) value
 for a single channel, i.e., when only one mode of the sphere is
 excited.  As a result the absorption coefficients $\tilde{a}_n= {\rm
   Re}\{a_n\} - |a_n|^2 $ and $\tilde{b}_n= {\rm Re}\{b_n\} - |b_n|^2 $
 become limited by $1/4$, here $a_n$ and $b_n$ are scattering
-coefficient as defined in Mie theory [TODO Bohren Huffman]).
+coefficient as defined in Mie theory~\cite{Bohren-1983}.
 
 To overcome these limitations, we employ similar approach for
-enhancing absorption cross-section [Fan-APL]. In particular, we
+enhancing absorption cross-section~\cite{Fan-2011}. In particular, we
 propose to use the multi-layer structures, and by means of genetic
 algorithm we optimize the ACS of these particles. We analyze the
 absorption cross-section of these particles, and present the
@@ -128,16 +125,16 @@ small particles.
 We start our analyses by considering the triple layered $Si/Ag/Si$
 spherical particle illuminated with a plane wave~(Fig. TODO ). In what
 follows we describe the materials using experimentally measured
-parameters from the Ref.~[TODO].  To optimize the thickness of each
-layer we implemented~[link to GitHub] an adaptive differential
+parameters from the Ref.~\cite{palik-1997}.  To optimize the thickness of each
+layer we implemented~\cite{JADE-web} an adaptive differential
 evolution algorithm~\cite{Storn-DE-first-1997}, which is called
 JADE~\cite{Jingqiao-JADE-2009}.  The technical details of the
 optimization algorithm are published previously in
 Ref.~\cite{Ladutenko-2014}. We perform Mie calculations using the
-Scattnlay~\cite{Pena-scattnlay-2009} software, whose results were
+Scattnlay~\cite{Pena-scattnlay-2009,Scattnlay-web} software, whose results were
 verified with a number of other implementations of the Mie solutions
 and with a commercially available software such as CST Microwave
-studio.
+studio~\cite{CST-web} and Comsol Multiphysics~\cite{Comsol-web}.
 
 It is obvious that in general, a bigger particle will have a bigger
 absorption cross-section, so sphere with the diameter of 1 cm will
@@ -159,13 +156,12 @@ $\lambda=500$~nm).
       limits for the first channel and second channel
       absorption. Second and third peaks in the absorption efficiency
       curve exceed the theoretical limit for the second mode
-      absorption at R=63~nm and R=81~nm. (b) Mie
-coefficients for individual excited modes of the optimized structures
-[Kostya - why do they have tildas - are these not directly Mie
-coefficients?]. (c) Optimized layer thicknesses. For the total
-particle radius below 46~nm the genetic algorithm converges to the
-two-layer structure, when core size vanishes, and the optimum design
-is a bi-layer $Ag/Si$ particle. 
+      absorption at R=63~nm and R=81~nm. (b) Mie absorption
+      coefficients for individual excited modes of the optimized
+      structures. (c) Optimized layer thicknesses. For the total
+      particle radius below 46~nm the optimizer converges to
+      the two-layer structure, when core size vanishes, and the
+      optimum design is a bi-layer $Ag/Si$ particle. 
 
       \label{fig:overview}
     }%
@@ -179,10 +175,10 @@ radii of internal cores, whereas the target function is the absorption
 efficiency.  We show the results of our genetic optimization algorithm
 in Fig.~\ref{fig:overview}a.  Dashed lines show theoretical absorption
 limit of a dipole ($n=1$) and a quadrupole ($n=2$)
-resonances~[Tribelsky:TODO], which are given as $$Q^{(n)}_{\rm abs\
+resonances~\cite{Tribelsky-2011}, which are given as $$Q^{(n)}_{\rm abs\
   max}=\frac{2n+1}{2q^2},$$ where the size parameter $q=2\pi R_{\rm
   total}/\lambda$, and $n$ is an angular momentum of the
-mode. Following Ref.~[Fan-APL], where authors introduce super
+mode. Following Ref.~\cite{Fan-2011}, where authors introduce super
 scattering for spherical particles, here we we introduce
 super-absorption, when the ACS is larger than the theoretical limit
 for absorption by the mode with highest excited angular momentum
@@ -192,9 +188,9 @@ should be higher than that of a quadrupole. We clearly see this
 super-absorption at $R_{\rm total}>60$~nm, in Fig.~\ref{fig:overview}
 (a).
 
-In Fig.~\ref{fig:overview}b we present the values of Mie coefficients
-for individual excited modes in the structure, while horizontal dashed
-line shows the theoretical limit (1/4) for each of
+In Fig.~\ref{fig:overview}b we present the values of Mie absorption
+coefficients for individual excited modes in the structure, while
+horizontal dashed line shows the theoretical limit (1/4) for each of
 them. $\tilde{a}_{1,2}$ are electric dipole and electric quadrupole,
 while $\tilde{b}_{1,2}$ are magnetic dipole and magnetic
 quadrupole. For small particles, as expected, the absorption is
@@ -239,7 +235,7 @@ cheaper to produce.
   \center{
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.4\textwidth]{fig/2015-04-01-SiAgSi-ab-spectra3.pdf}%
-    \caption{Spectra of Mie coefficients of (a) efficient and (b-c)super absorption design.      
+    \caption{Spectra of Mie absorption coefficients of (a) efficient and (b-c)super absorption design.      
       \label{fig:spectra}
     }%
   }
@@ -255,11 +251,12 @@ $\lambda=500$~nm. Spectra of designs with maxima at R=63~nm and
 R=81~nm have a signature of the super absorption, i.e. there is an
 overlap of several resonances.  We note that these structures have
 additional absorption resonances, but they are located far from the
-wavelength of interest.  A noticeable feature of
-Fig.~\ref{fig:spectra} (c) is an almost flat top of the electric
-dipole resonance. (TODO add some explanation, why it flat? Any ideas?
-- not really, maybe there are two different dipole "types", and we see
-their interference?)
+wavelength of interest.
+
+A noticeable feature of Fig.~\ref{fig:spectra} (c) is an almost flat
+top of the electric dipole resonance. (TODO add some explanation, why
+it flat? Any ideas?  - not really, maybe there are two different
+dipole "types", and we see their interference?)
 
 \begin{figure}
   \center{
@@ -274,54 +271,16 @@ their interference?)
 %
 Finally, we present distribution of the amplitude of the electric
 field in Fig.~\ref{fig:field} for two designs: with the best
-efficiency at R=36 nm and in a super-absorbing design with R=???? nm.
-We set different scale for these two designs so that black circles
-that denote outer boundary are plotted to be the same size [I am
-actually not convinced that this is the best way to present it. Can
-you show them in "true" scale?].  We also plot streamlines of the
-Poynting vector which characterize energy flow. For the effective
-design of the absorber, the power from a large cross-sectional area
-flows into the particle.  In case of super-absorption regime, we
-observe power flow vortices, which make absorbtion more efficient as
-the electromagnetic energy propagates several times through the
-absorbing materials.
+efficiency at $R=36$~nm and in a super-absorbing design with
+$R=63$~nm.  We set different scale for these two designs so that black
+circles that denote outer boundary are plotted to be the same size.
+We also plot streamlines of the Poynting vector which characterize
+energy flow. For the effective design of the absorber, the power from
+a large cross-sectional area flows into the particle.  In case of
+super-absorption regime, we observe power flow vortices, which make
+absorbtion more efficient as the electromagnetic energy propagates
+several times through the absorbing materials.
 
-
-
-
-% . Our initial idea was to show the same effect in absorption, and
-% R=63 with R=81nm are such `superabsopting` designs. However, in 3D
-% case (in contrast to 2D investigated with Ali) it turned out that
-% sometimes it is preferable to use a smaller particle with single
-% resonance to achieve the best efficiency. This way, in 3D case using
-% real materials for a multilayer spherical particle
-% ``superabsorbing'' design do not always leads to best absorption
-% efficiency. Moreover, same effect exists for scattering from SiAgSi
-% optimized structure. At WL=500 nm ``super'' scattering mode with two
-% resonances gives the best efficiency, however, at WL=400 nm a single
-% resonance small particle has a better scattering efficiency compared
-% to larger particles with ``super'' design.
-
-
-
-
-
-
-
-% \begin{acknowledgments}
-%   The authors would like to thank the Ministry of Education and
-%   Science of the Russian Federation (Goszadanie 2014/190, Zadanie
-%   No. 3.561.2014/K, project 14.584.21.0009 10), Russian Foundation
-%   for Basic Research (Grant 15-02-01344), and Government of the
-%   Russian Federation (Grant 074-U01) for the financial support. The
-%   simulations of cloak designs has been funded by the Russian
-%   Science Foundation Grant No. 14-12-01227.% We
-%   %   would also like to appreciate Alexander Krasnok for the help
-%   %   with
-%   %   CST simulations and Ilya V. Shadrivov for valuable comments on
-%   %   the
-%   %   manuscript.
-% \end{acknowledgments}
 
 In conclusion, we find the effect of the super-absorption, when the
 absorption cross-section of the nanoparticle can exceed the

@@ -271,8 +271,8 @@ def fieldplot(fig, ax, x,m, WL, comment='', WL_units=' ', crossplane='XZ', field
             min_SP = -factor*x[-1]
             step_SP = 2.0*factor*x[-1]/(flow_total-1)
             x0, y0, z0 = 0, 0, 0
-            #max_length=factor*x[-1]*10
-            max_length=factor*x[-1]*5
+            max_length=factor*x[-1]*10
+            #max_length=factor*x[-1]*5
             max_angle = np.pi/160
             if is_flow_extend:
                 rg = range(0,flow_total*2+1)

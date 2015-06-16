@@ -131,16 +131,16 @@ comment='SiAgSi-flow'
 # comment='bulk-Ag-flow'
 
 WL_units='nm'
-npts = 101
-#factor=1.9
-factor=4.5
-flow_total = 39
-#flow_total = 7
+npts = 1501
+factor=2.8
+#factor=4.5
+#flow_total = 39
+flow_total = 13
 #flow_total = 0
 #crossplane='XY'
 
 # Options to plot: Eabs, Habs, Pabs, angleEx, angleHy
-field_to_plot='Pabs'
+field_to_plot='Eabs'
 #field_to_plot='angleHy'
 import matplotlib.pyplot as plt
 fig, axs = plt.subplots(2,2)#, sharey=True, sharex=True)
@@ -152,7 +152,7 @@ design = 1 #AgSi
 x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
-fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
+fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
           subplot_label='(a)')#,is_flow_extend=False)
 
 design = 2 #AgSi
@@ -168,7 +168,7 @@ design = 1 #AgSi
 x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
-fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
+fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
           subplot_label='(c)')#,is_flow_extend=False)
 
 design = 2 #AgSi

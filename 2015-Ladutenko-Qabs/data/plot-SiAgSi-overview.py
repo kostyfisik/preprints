@@ -125,7 +125,7 @@ axs[Qsca].set_ylabel(r'$Q_{abs}$', labelpad=8.8)
 axs[Qsca].set_ylim(0, 7)
 axs[Design].set_ylabel('Width, nm', labelpad=2)
 axs[Design].set_ylim(0, 75)
-axs[Design].set_xlabel(r'$R_{\rm total}$, nm', labelpad=2)
+axs[Design].set_xlabel(r'$R$, nm', labelpad=2)
 plt.xlim(0,  89)
 #plt.xlim(0,  160)
 axs[NACS].annotate('(b)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
