@@ -89,7 +89,7 @@ theory~\cite{Yang-2003, Pena-scattnlay-2009} made it possible to apply
 study the multilayered spherical
 particles~\cite{Sheehan-2013,Selmke-2012}.  Such particles have
 various applications in cancer treatment~\cite{Zhang-2010,
-  Hirsch-2003} and medical diagnostics~\cite{Allain-2002},
+  Hirsch-2003}, medical diagnostics~\cite{Allain-2002},
 cloaking~\cite{Qui-2009, Semouchkina-2013, Ladutenko-2014} and
 plasmonic~\cite{Martin-2013, Alu-2005} devices, study on thermal
 properties of insulating material~\cite{Xie-2013}, as well as for
@@ -135,14 +135,14 @@ Another approach was given in a recent work of Grigoriev et
 al.~\cite{Grigoriev-2015} with expressions for ideal absorber;
 however, they considered only a dipole approximation, the final value
 for our range of particle sizes is very close to the dipole limit
-predicted with Tribelsky~\cite{Tribelsky-2011}.  This way
+predicted with Tribelsky~\cite{Tribelsky-2011}.  This way,
 super-absorption designs are out of scope from the Grigoriev ideal
-case; moreover, Grigoriev also provide an equation to desing a
+case; moreover, Grigoriev also provide an equation to design a
 core-shell structure from predefined materials. However, in case of
-material parameters for $Si$ and $Ag$ and size parameter
-from our best design, Grigoriev`s equation gives a complex value for
-relative share of two layers, which is not suitable for most of the
-simulation software or experiment.
+$Si$ and $Ag$ materials and size parameter from our best design,
+Grigoriev`s equation gives a complex value for relative share of two
+layers, which is not suitable for most of the simulation software or
+experiment.
 
 
 \begin{figure}
@@ -190,7 +190,8 @@ $\lambda=500$~nm).
       limits for the first channel and second channel
       absorption. Second and third peaks in the absorption efficiency
       curve exceed the theoretical limit for the second mode
-      absorption at $R=63$~nm and $R=81$~nm. (b) Mie absorption
+      absorption at $R=63$~nm and $R=81$~nm. TODO add arrows to mark
+      local maxima on the plot (b) Mie absorption
       coefficients for individual excited modes of the optimized
       structures. (c) Optimized layer thicknesses. For the total
       particle radius below 46~nm the optimizer converges to
@@ -226,7 +227,7 @@ horizontal dashed line shows the theoretical limit (1/4) for each of
 them. $\tilde{a}_{1,2}$ are electric dipole and electric quadrupole,
 while $\tilde{b}_{1,2}$ are magnetic dipole and magnetic
 quadrupole. For small particles, as expected, the absorption is
-dominated by an electric dipole $\tilde{a}_1$.  At $R >
+dominated by an electric dipole $\tilde{a}_1$.  From $R >
 56.6$~nm the optimization procedure finds that the designs with both
 electric and magnetic dipoles have larger ACS, than the structure with
 only the electric dipole excited. This is why the curves in
@@ -242,13 +243,13 @@ the multi-layer structure. It reveals quite a curious result, that the
 dipole branch (i.e. for particle radii below 56.6~nm) has two
 parts. For $R<46$~nm the best absorber has just two
 layers, as the radius of the core of the three-layer structure
-vanishes, and the particle reduces to $Ag/Si$ core-shell structure.
+vanishes, and the particle reduces to a simple $Ag/Si$ core-shell structure.
 At $R=46$ dipole channel becomes practically
 undistinguishable from the theoretical limit (it becomes
 $\tilde{a}_1>0.249$).  It appears that the optimizer introduced the
 inner $Si$ layer in order to keep $\tilde{a}_1$ near the theoretical
 limit as the $R$ increases.  As a side effect, the
-quadrupole contribution $\tilde{a}_2$ appears, however, it does not
+quadrupole contribution $\tilde{a}_2$ appears; however, it does not
 help to reach super-absorption limit $n=2$.
 
 Remarkably, the absolute maximum absorption efficiency is not reached
@@ -285,30 +286,32 @@ additional absorption resonances, but they are located far from the
 wavelength of interest.
 
 A noticeable feature of Fig.~\ref{fig:spectra}~(c) is an almost flat top
-of the electric dipole resonance.  We do not have any good explanation
+of the electric dipole resonance.  
 %maybe there are two different
 %dipole "types", and we see their interference?
-for this phenomena, however, we can suggest that it is due to coupling
-of the electric dipole $\tilde{a}_1$ with the magnetic quadrupole
-$\tilde{b}_2$.  Whereas resonant responses of other desings originate
-from coupling of incident plane wave with the corresponding multipole,
-it is not the case for the design with $R=81$~nm. Here, the particle is
-mostly composed from the $Si$ outer shell, that give enough volume for
-$\tilde{b}_2$.  Dipole response comes from the small inner part of the
-sphere and can not be directly exited with the incident wave.  It
-takes the power from the surrounding $\tilde{b}_2$ mode and very soon
-it reaches the fundamental limit for absorption.  This way we can
-observe a flat top for the $\tilde{a}_1$ response accompanied with a
-sigificat value of $\tilde{b}_2$.  Our suggestion is indirectly proved
-by the reduced width of the $\tilde{b}_2$ resonance compared to other
-quadrupole responses.
+This effect might be related with the coupling beteen the electric
+dipole $\tilde{a}_1$ with the magnetic quadrupole $\tilde{b}_2$, but
+this hypothesis should be further tested.  Whereas resonant responses
+of other desings originate from coupling of incident plane wave with
+the corresponding multipole, it is not the case for the design with
+$R=81$~nm. Here, the particle is mostly composed from the $Si$ outer
+shell, that give enough volume for $\tilde{b}_2$.  Dipole response
+comes from the small inner part of the sphere and can not be directly
+exited with the incident wave.  It takes the power from the
+surrounding $\tilde{b}_2$ mode and very soon it reaches the
+fundamental limit for absorption.  This way, we can observe a flat top
+for the $\tilde{a}_1$ response accompanied with a sigificat value of
+$\tilde{b}_2$.  Our suggestion is indirectly proved by the reduced
+width of the $\tilde{b}_2$ resonance compared to other quadrupole
+responses.
 
 \begin{figure}
   \center{
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.45\textwidth]{fig/SiAgSi-flow-R62-YZ-Eabs.pdf}%
     \caption{ Amplitude of electric field for $R=36$~nm (a,c) and
-      ``super'' (b,d) designs in E-k  (a-b) and H-k (c-d) planes. 
+      ``super'' (b,d) designs in E-k  (a-b) and H-k (c-d)
+      planes. 
       \label{fig:field}
     }%
   }
@@ -332,11 +335,10 @@ absorption cross-section divided by a geometric cross-section of the
 particle, and quite unexpectedly we find that the most efficient
 absorbers are smaller nanoparticles working in a single mode
 regime. We present their spectral characteristics and field structure.
-
 %TODO 
 WE NEED TO WRITE ABOUT THIS AND SOME OTHER WORKS IN THE
 INTRODUCTION. THE TOPIC IS DONE TO DEATH. 
-It is interesting, that similar conclusion was made by Miller et
+It is interesting to note that a similar conclusion was made by Miller et
 al.~\cite{Miller-2014} for extinction of arbitrary particles: small
 size with only dipole responce is preferable for geometric volume
 normalized efficiency.
