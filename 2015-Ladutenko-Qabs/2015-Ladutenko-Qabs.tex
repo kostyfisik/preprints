@@ -17,25 +17,25 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 
 \begin{document} %Max size in pdf for APL - 4 print pages
 
-\title{Super absorption and efficient absorption of light by spherical
+\title{Super-absorption and efficient absorption of light by spherical
   nanoparticles}
 
 
 \author{Konstantin Ladutenko} \email[e-mail: ]{fisik2000@mail.ru}
 \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
-  197101, Russian Federation\\}
+  197101, Russian Federation}
 
 \affiliation{Ioffe Physical-Technical Institute of the Russian Academy
   of Sciences, 26 Polytekhnicheskaya Str., St.~Petersburg 194021,
   Russian Federation}
 
+\author{Pavel Belov} \affiliation{ITMO University, 49 Kronverskii
+ Ave., St.~Petersburg 197101, Russian Federation}
+
 \author{Ovidio Pe\~{n}a-Rodr\'{i}guez} \affiliation{Instituto de
-  Fusi\'{o}n Nuclear, Universidad Polit\'{e}cnica de Madrid,\\
+  Fusi\'{o}n Nuclear, Universidad Polit\'{e}cnica de Madrid,
   Jos\'{e} Guti\'{e}rrez Abascal 2, E-28006 Madrid, Spain}
 
-
-% \author{Pavel Belov} \affiliation{ITMO University, 49 Kronverskii
-% Ave., St.~Petersburg 197101, Russian Federation\\}
 \author{Ali Mirzaei} \author{Andrey Miroshnichenko} \author{Ilya
   Shadrivov} \affiliation{Nonlinear Physics Centre, Research School of
   Physics and Engineering, The Australian National University, 59
@@ -98,10 +98,10 @@ on.
 
 The scattering properties of multilayer cylinders and spheres was
 studied in great detail by Fan~et~al.~\cite{Fan-2010,Fan-2011}.  In these
-works authors introduced the concept of a super scattering, when the
+works authors introduced the concept of a super-scattering, when the
 scattering cross-section of a multilayer particle exceeds that of a
 homogeneous particle of the same size in the so-called single-channel
-limit. The super scattering appears when we design a multilayer
+limit. The super-scattering appears when we design a multilayer
 structure so that several modes become nearly degenerate, i.e. their
 resonance frequencies coincide or get close to each other. In a
 homogeneous particle, the resonances appear at different frequencies,
@@ -120,7 +120,7 @@ coefficient as defined in Mie theory~\cite{Bohren-1983}.
 
 To overcome these limitations, we employ similar approach for
 enhancing absorption cross-section~\cite{Fan-2011}. In particular, we
-propose to use the multi-layer structures, and by means of genetic
+propose to use the multi-layer structures, and by means of stochastic optimization
 algorithm we optimize the ACS of these particles. We analyze the
 absorption cross-section of these particles, and present the
 super-absorption regime. We further introduce the absorption
@@ -157,18 +157,21 @@ experiment.
 
 
 We start our analyses by considering the triple layered $Si/Ag/Si$
-spherical particle illuminated with a plane wave~(Fig.~\ref{fig:geom}). In what
-follows we describe the materials using experimentally measured
-parameters from the Ref.~\cite{palik-1997}.  To optimize the thickness of each
+spherical particle illuminated with a plane
+wave~(Fig.~\ref{fig:geom}). In what follows we describe the materials
+using experimentally measured parameters from the
+Ref.~\cite{palik-1997} as $\epsilon_{Si} = 18.5 + i0.63$ and
+$\epsilon_{Ag} = -8.5 + i0.76$.  To optimize the thickness of each
 layer we implemented~\cite{JADE-web} an adaptive differential
 evolution algorithm~\cite{Storn-DE-first-1997}, which is called
 JADE~\cite{Jingqiao-JADE-2009}.  The technical details of the
 optimization algorithm are published previously in
 Ref.~\cite{Ladutenko-2014}. We perform Mie calculations using the
-Scattnlay~\cite{Pena-scattnlay-2009,Scattnlay-web} software, whose results were
-verified with a number of other implementations of the Mie solutions
-and with a commercially available software such as CST Microwave
-studio~\cite{CST-web} and Comsol Multiphysics~\cite{Comsol-web}.
+Scattnlay~\cite{Pena-scattnlay-2009,Scattnlay-web} software, whose
+results were verified with a number of other implementations of the
+Mie solutions and with a commercially available software such as CST
+Microwave studio~\cite{CST-web} and Comsol
+Multiphysics~\cite{Comsol-web}.
 
 It is obvious that in general, a bigger particle will have a bigger
 absorption cross-section, so sphere with the diameter of 1 cm will
@@ -206,13 +209,13 @@ In order to study the dependence of the absorption efficiency on the
 outer particle size, we run optimization algorithm for different
 (fixed) particle outer size, and our optimization parameters are the
 radii of internal cores, whereas the target function is the absorption
-efficiency.  We show the results of our genetic optimization algorithm
+efficiency.  We show the results of our stochastic optimization algorithm
 in Fig.~\ref{fig:overview}~(a).  Dashed lines show theoretical absorption
 limit of a dipole ($n=1$) and a quadrupole ($n=2$)
 resonances~\cite{Tribelsky-2011}, which are given as $$Q^{(n)}_{\rm
   abs\ max}=\frac{2n+1}{2q^2},$$ where the size parameter $q=2\pi
 R/\lambda$, and $n$ is an angular momentum of the mode. Following
-Ref.~\cite{Fan-2011}, where authors introduce super scattering for
+Ref.~\cite{Fan-2011}, where authors introduce super-scattering for
 spherical particles, here we we introduce super-absorption, when the
 ACS is larger than the theoretical limit for absorption by the mode
 with highest excited angular momentum $n$. In our parameter space we
@@ -244,7 +247,7 @@ dipole branch (i.e. for particle radii below 56.6~nm) has two
 parts. For $R<46$~nm the best absorber has just two
 layers, as the radius of the core of the three-layer structure
 vanishes, and the particle reduces to a simple $Ag/Si$ core-shell structure.
-At $R=46$ dipole channel becomes practically
+At $R=46$~nm dipole channel becomes practically
 undistinguishable from the theoretical limit (it becomes
 $\tilde{a}_1>0.249$).  It appears that the optimizer introduced the
 inner $Si$ layer in order to keep $\tilde{a}_1$ near the theoretical
@@ -268,7 +271,7 @@ cheaper to produce.
   \center{
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.4\textwidth]{fig/2015-04-01-SiAgSi-ab-spectra3.pdf}%
-    \caption{Spectra of Mie absorption coefficients of (a) efficient and (b-c)super absorption design.      
+    \caption{Spectra of Mie absorption coefficients of (a) efficient and (b-c)super-absorption design.      
       \label{fig:spectra}
     }%
   }
@@ -280,7 +283,7 @@ different cases for designs that correspond to local maxima of $Q_{\rm
 corresponding to the maximum absorption efficiency at $R=36$~nm has a
 single electric dipole resonance centered at the target wavelength
 $\lambda=500$~nm. Spectra of designs with maxima at $R=63$~nm and
-$R=81$~nm have a signature of the super absorption, i.e. there is an
+$R=81$~nm have a signature of the super-absorption, i.e. there is an
 overlap of several resonances.  We note that these structures have
 additional absorption resonances, but they are located far from the
 wavelength of interest.
@@ -310,8 +313,8 @@ responses.
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.45\textwidth]{fig/SiAgSi-flow-R62-YZ-Eabs.pdf}%
     \caption{ Amplitude of electric field for $R=36$~nm (a,c) and
-      ``super'' (b,d) designs in E-k  (a-b) and H-k (c-d)
-      planes. 
+      super- (b,d) designs in E-k  (a-b) and H-k (c-d)
+      planes normalized to incident wave. 
       \label{fig:field}
     }%
   }
@@ -319,12 +322,20 @@ responses.
 Finally, we present distribution of the amplitude of the electric
 field in Fig.~\ref{fig:field} for two designs: with the best
 efficiency at $R=36$~nm and in a super-absorbing design with
-$R=63$~nm.  We also plot streamlines of the Poynting vector which characterize
-energy flow. For the effective design of the absorber, the power from
-a large cross-sectional area flows into the particle.  In case of
+$R=63$~nm.  Using semi-transparent white curves we also plot
+streamlines of the Poynting vector which characterize energy flow.
+For the effective design of the absorber, the power from a large
+cross-sectional area flows into the particle.  In case of
 super-absorption regime, we observe power flow vortices, which make
 absorbtion more efficient as the electromagnetic energy propagates
-several times through the absorbing materials.
+several times through the absorbing materials.  The reason for the
+smaller overall absorption efficiency of a super-design is obvious:
+spatial distribution of the electric field is not uniform inside the
+particle and the share of the volume with high absorption rate in the
+vortices do not compensate low absorbtion efficiency in the regions
+with small electric field ( absorbed power is expressed as $P_{\rm
+  abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
+%TODO map the aborbtion power inside the particle?  
 
 In conclusion, we find the effect of the super-absorption, when the
 absorption cross-section of the nanoparticle can exceed the

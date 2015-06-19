@@ -132,6 +132,7 @@ comment='SiAgSi-flow'
 
 WL_units='nm'
 npts = 1501
+#npts = 101
 factor=2.8
 #factor=4.5
 #flow_total = 39
@@ -184,7 +185,7 @@ for aaxs in axs:
         ax.locator_params(axis='x',nbins=5)
         ax.locator_params(axis='y',nbins=5)
 
-fig.subplots_adjust(hspace=0.3, wspace=-0.3)
+fig.subplots_adjust(hspace=0.3, wspace=-0.1)
 
 plt.savefig(comment+"-R"+str(int(round(x[-1]*WL/2.0/np.pi)))+"-"+crossplane+"-"
                     +field_to_plot+".pdf",pad_inches=0.02, bbox_inches='tight')

@@ -203,9 +203,11 @@ def fieldplot(fig, ax, x,m, WL, comment='', WL_units=' ', crossplane='XZ', field
         scale_z = np.linspace(min(coordZ)*WL/2.0/np.pi, max(coordZ)*WL/2.0/np.pi, npts)
 
         # Define scale ticks
-        min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
-        max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
-        scale_ticks = np.linspace(min_tick, max_tick, 6)
+        #min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
+        min_tick = 0
+        #max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
+        max_tick = 8
+        scale_ticks = np.linspace(min_tick, max_tick, 5)
 
         # Interpolation can be 'nearest', 'bilinear' or 'bicubic'
         #ax.set_title(label)
@@ -224,9 +226,9 @@ def fieldplot(fig, ax, x,m, WL, comment='', WL_units=' ', crossplane='XZ', field
                         )
         ax.axis("image")
 
-        # # Add colorbar
-        # cbar = fig.colorbar(cax, ticks = [a for a in scale_ticks], ax=ax)
-        # cbar.ax.set_yticklabels(['%4.2f' % (a) for a in scale_ticks]) # vertically oriented colorbar
+        # Add colorbar
+        cbar = fig.colorbar(cax, ticks = [a for a in scale_ticks], ax=ax)
+        cbar.ax.set_yticklabels(['%1.0f' % (a) for a in scale_ticks]) # vertically oriented colorbar
         # pos = list(cbar.ax.get_position().bounds)
         #fig.text(pos[0] - 0.02, 0.925, '|E|/|E$_0$|', fontsize = 14)
         lp2 = -10.0
@@ -306,7 +308,7 @@ def fieldplot(fig, ax, x,m, WL, comment='', WL_units=' ', crossplane='XZ', field
                 codes[0] = Path.MOVETO
                 path = Path(verts, codes)
                 #patch = patches.PathPatch(path, facecolor='none', lw=0.2, edgecolor='white',zorder = 2.7)
-                patch = patches.PathPatch(path, facecolor='none', lw=0.7, edgecolor='white',zorder = 1.9)
+                patch = patches.PathPatch(path, facecolor='none', lw=0.7, edgecolor='white',zorder = 1.9, alpha=0.7)
                 ax.add_patch(patch)
                 #ax.plot(flow_z_plot, flow_f_plot, 'x',ms=2, mew=0.1, linewidth=0.5, color='k', fillstyle='none')
 
