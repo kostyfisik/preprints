@@ -101,6 +101,9 @@ axs[Qsca].text(55, 1.2, r'max($n=1$)', fontsize=10, color='red')
 axs[Qsca].text(55, 5.9, r'max($n=2$)', fontsize=10, color='blue')
 #lg=axs[Qsca].legend(loc='upper right',prop={'size':8})
 lg.draw_frame(False)
+axs[Qsca].arrow(36, 4.5, 0, 0.6, head_width=1.2, head_length=0.3, fc='k', ec='k')
+axs[Qsca].arrow(62.6, 3.35, 0, 0.6, head_width=1.2, head_length=0.3, fc='k', ec='k')
+axs[Qsca].arrow(81.4, 4.3, 0, -0.6, head_width=1.2, head_length=0.3, fc='k', ec='k')
 
 cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth/1.5,
                        solid_joinstyle='round', solid_capstyle='round', color='red'
