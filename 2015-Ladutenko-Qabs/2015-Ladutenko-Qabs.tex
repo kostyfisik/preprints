@@ -129,18 +129,18 @@ smaller particles, and quite remarkably we find that the most {\em
   efficient} absorption can be achieved in a single channel limit for
 small particles.
 
-Another approach was given in a recent work of Grigoriev et
-al.~\cite{Grigoriev-2015} with expressions for ideal absorber;
-however, they considered only a dipole approximation, the final value
-for our range of particle sizes is very close to the dipole limit
-predicted with Tribelsky~\cite{Tribelsky-2011}.  This way,
-super-absorption designs are out of scope from the Grigoriev ideal
-case; moreover, Grigoriev also provide an equation to design a
+Another approach for an ideal absorber was given in a recent work by
+Grigoriev et al.~\cite{Grigoriev-2015}. However, they considered only
+a dipole approximation, the final value for our range of particle
+sizes is very close to the dipole limit predicted with
+Tribelsky~\cite{Tribelsky-2011}.  Thus, such super-absorption designs
+correspond to single mode limit.  At the same time, Grigoriev et
+al.~\cite{Grigoriev-2015} also provide an equation to design a
 core-shell structure from predefined materials. However, in case of
-$Si$ and $Ag$ materials and size parameter from our best design,
-Grigoriev`s equation gives a complex value for relative share of two
-layers, which is not suitable for most of the simulation software or
-experiment.
+$Si$ (core) and $Ag$ (shell) materials and size parameter from our
+best design, their equation gives a complex value for the core
+material filling factor, which is not practical for any experimental
+realisations.
 
 
 \begin{figure}
@@ -192,7 +192,7 @@ of the incident light (we have chosen $\lambda=500$~nm).
       absorption. Second and third peaks in the absorption efficiency
       curve exceed the theoretical limit for the second mode
       absorption at $R=63$~nm and $R=81$~nm. Local maxima of
-      absorption efficiency are additionall marked with arrows. (b) Mie absorption
+      absorption efficiency are additionally marked with arrows. (b) Mie absorption
       coefficients for individual excited modes of the optimized
       structures. (c) Optimized layer thicknesses. For the total
       particle radius below 46~nm the optimizer converges to
@@ -286,9 +286,12 @@ additional absorption resonances, but they are located far from the
 wavelength of interest.
 
 A noticeable feature of Fig.~\ref{fig:spectra}~(c) is an almost flat
-top of the electric dipole resonance.
-% maybe there are two different dipole "types", and we see their
-% interference?
+top of the electric dipole resonance.  TODO from IVS maybe there are
+two different dipole "types", and we see their interference?  TODO
+from AEM To answer this question we need to look at the internal
+coefficients of each layer.  There is no interference between
+multipoles - they are orthogonal modes ;-)
+% end of AEM comment
 This effect might be related with the coupling between the electric
 dipole $\tilde{a}_1$ with the magnetic quadrupole $\tilde{b}_2$, but
 this hypothesis should be further tested.  Whereas resonant responses
@@ -323,15 +326,16 @@ $R=63$~nm.  Using semi-transparent white curves we also plot
 streamlines of the Poynting vector which characterize energy flow.
 For the effective design of the absorber, the power from a large
 cross-sectional area flows into the particle.  In case of
-super-absorption regime, we observe power flow vortices, which make
-absorption more efficient as the electromagnetic energy propagates
-several times through the absorbing materials.  The reason for the
-smaller overall absorption efficiency of a super-design is obvious:
-spatial distribution of the electric field is not uniform inside the
-particle and the share of the volume with high absorption rate in the
-vortices do not compensate low absorption efficiency in the regions
-with small electric field ( absorbed power is expressed as $P_{\rm
-  abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
+super-absorption regime, we observe the formation of vortices in the
+power flow, which make absorption more efficient as the
+electromagnetic energy propagates several times through the absorbing
+materials.  The reason for the smaller overall absorption efficiency
+of a super-design is obvious: spatial distribution of the electric
+field is not uniform inside the particle and the share of the volume
+with high absorption rate in the vortices do not compensate low
+absorption efficiency in the regions with small electric field (
+absorbed power is expressed as $P_{\rm abs}=\frac{1}{2}\int\sigma
+\left|E\right|^2dx\,dy\,dz$)
 
 In conclusion, we find the effect of the super-absorption, when the
 absorption cross-section of the nanoparticle can reach the theoretical
@@ -344,8 +348,7 @@ a single mode regime. We present their spectral characteristics and
 field structure.
 
 
-TODO
-WE NEED TO WRITE ABOUT THIS AND SOME OTHER WORKS IN THE
+TODO WE NEED TO WRITE ABOUT THIS AND SOME OTHER WORKS IN THE
 INTRODUCTION. THE TOPIC IS DONE TO DEATH.  It is interesting to note
 that a similar conclusion was made by Miller et al.~\cite{Miller-2014}
 for extinction of arbitrary particles: small size with only dipole
