@@ -21,9 +21,10 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 % nanoparticles} %KSL
 % \title{Super-absorption and efficient absorption of light by
 % spherical nanoparticles} %IVS
-\title{Super vs efficient absorption of light by spherical
-  nanoparticles} %AEM
-
+\title{Super absorption of light by nanoparticles} %AEM
+% Proposed reviewers: Anatoly Zayats
+% Andrea Alu
+% Sergei Bozhevolnyi
 
 \author{Konstantin Ladutenko} \email[e-mail: ]{fisik2000@mail.ru}
 \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
@@ -54,13 +55,13 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
   Nanoparticles have a fundamental limit as to how much light they can
   absorb. This limit is based on the finite number of modes excited
   inside the nanoparticle at a given wavelength and maximal absorption
-  capacity per mode. Thus, the enhanced absorption can be achieved
+  capacity per mode. The enhanced absorption can be achieved
   when each mode supported by the nanopartice absorbs light up to the
-  maximal capacity. Using stochastic optimization algorithm, we design
+  maximum capacity. Using stochastic optimization algorithm, we design
   multi-layer nanoparticles, in which we can make several resonant
   modes overlap at the same frequency resulting in {\it
     super-absorption}.  We further introduce the {\it efficiency of
-    the absorption} for a nanoparticle, which is absorption normalized
+    the absorption} for a nanoparticle, which is the absorption normalized
   by the physical size of the particle, and show that efficient
   absorbers are not always operating in super-absorbing regime.
 \end{abstract}
@@ -76,34 +77,27 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
-Mie theory~\cite{Mie-1908}, which is over 100 years old now, describes
+Mie theory~\cite{Mie-1908}, which is over 100 years old, describes
 interaction of electromagnetic waves with spherical particles. Mie
-solution is still of great
-interest~\cite{Suzuki-2008,MacKowski-2012,Lerme-2000,Xu-2005,Li-2006,Gogoi-2010,Santiago-2011},
+solution is still of great interest these days~\cite{Suzuki-2008,MacKowski-2012,Lerme-2000,Xu-2005,Li-2006,Gogoi-2010,Santiago-2011},
 since it is one of the primary tools for analyzing wave scattering by
 spherical objects. Further development of the Mie
 theory~\cite{Yang-2003, Pena-scattnlay-2009} made it possible to apply
-study the multilayered spherical
+it to study the multi-layered spherical
 particles~\cite{Sheehan-2013,Selmke-2012}.  Such particles have
 various applications in cancer treatment~\cite{Zhang-2010,
   Hirsch-2003}, medical diagnostics~\cite{Allain-2002},
 cloaking~\cite{Qui-2009, Semouchkina-2013, Ladutenko-2014} and
-plasmonic~\cite{Martin-2013, Alu-2005} devices, study on thermal
-properties of insulating material~\cite{Xie-2013}, as well as for
-improving solar cells performance~\cite{Kameya-2011,Mann-2011}, and so
-on.
+plasmonic devices~\cite{Martin-2013, Alu-2005}, in the study of thermal properties of insulating materials~\cite{Xie-2013}, as well as for improving solar cells performance~\cite{Kameya-2011,Mann-2011}.
 
 The scattering properties of multilayer cylinders and spheres was
-studied in great detail by Fan~et~al.~\cite{Fan-2010,Fan-2011}.  In
+studied in great detail by Ruan and Fan~\cite{Fan-2010,Fan-2011}.  In
 these works authors introduced the concept of a super-scattering, when
 the scattering cross-section of a multilayer particle exceeds that of
 a homogeneous particle of the same size in the so-called
-single-channel limit. The super-scattering appears when we design a
-multilayer structure so that several modes become nearly degenerate,
-i.e. their resonance frequencies coincide or get close to each
-other. In a homogeneous particle, the resonances appear at different
-frequencies, and there is no design freedom for a fixed geometry of
-the structure to make these resonances overlap, and this limits the
+single-channel limit. The super-scattering appears when a
+multi-layer structure has several nearly degenerate modes,
+i.e. their resonance frequencies coincide or close to each other. In a homogeneous particle, the resonances appear at different frequencies, and there is no design freedom to make these resonances overlap, and this limits the
 achievable scattering cross-section.
 
 Similar fundamental limitations exist for the absorbing properties of
@@ -113,10 +107,10 @@ derived a theoretical limit of a maximum absorption cross-section
 sphere is excited.  As a result the absorption coefficients
 $\tilde{a}_n= {\rm Re}\{a_n\} - |a_n|^2 $ and $\tilde{b}_n= {\rm
   Re}\{b_n\} - |b_n|^2 $ become limited by $1/4$, here $a_n$ and $b_n$
-are scattering coefficient as defined in Mie
+are scattering coefficient as defined within the Mie
 theory~\cite{Bohren-1983}.
 
-To overcome these limitations, we employ similar approach for
+To overcome these limitations, we employ similar approach to the one used for
 enhancing absorption cross-section~\cite{Fan-2011}. In particular, we
 propose to use the multi-layer structures, and by means of stochastic
 optimization algorithm we optimize the ACS of such nanoparticles. We
@@ -129,19 +123,14 @@ smaller particles, and quite remarkably we find that the most {\em
   efficient} absorption can be achieved in a single channel limit for
 small particles.
 
-Another approach for an ideal absorber was given in a recent work by
-Grigoriev et al.~\cite{Grigoriev-2015}. However, they considered only
-a dipole approximation, the final value for our range of particle
-sizes is very close to the dipole limit predicted with
-Tribelsky~\cite{Tribelsky-2011}.  Thus, such super-absorption designs
-correspond to single mode limit.  At the same time, Grigoriev et
+Another approach for an ideal absorber is given in a recent work by
+Grigoriev et al.~\cite{Grigoriev-2015}. Authors considered only
+a dipole approximation, and the final result is very close to the dipole limit predicted by
+Tribelsky~\cite{Tribelsky-2011}.  Such absorption design
+corresponds to the single mode limit.  At the same time, Grigoriev et
 al.~\cite{Grigoriev-2015} also provide an equation to design a
-core-shell structure from predefined materials. However, in case of
-$Si$ (core) and $Ag$ (shell) materials and size parameter from our
-best design, their equation gives a complex value for the core
-material filling factor, which is not practical for any experimental
-realisations.
-
+core-shell structure from given materials. However, in the case of
+$Si$ core and $Ag$ shell materials and sizes taken from the best design obtained in the present paper, their equation gives a complex value for the core material filling factor, which cannot be achieved in an experimental realisations.
 
 \begin{figure}
   \center{
@@ -156,29 +145,26 @@ realisations.
 
 We start our analyses by considering the triple layered $Si/Ag/Si$
 spherical particle illuminated with a plane
-wave~(Fig.~\ref{fig:geom}). In what follows we describe the materials
+wave schematically shown in Fig.~\ref{fig:geom}. In what follows we describe the materials
 using experimentally measured parameters from the
-Ref.~\cite{palik-1997} as $\epsilon_{Si} = 18.5 + i0.63$ and
+Ref.~\cite{palik-1997}, and, e.g. at $\lambda = 500$ nm $\epsilon_{Si} = 18.5 + i0.63$ and
 $\epsilon_{Ag} = -8.5 + i0.76$.  To optimize the thickness of each
 layer we implemented~\cite{JADE-web} an adaptive differential
 evolution algorithm~\cite{Storn-DE-first-1997}, which is called
 JADE~\cite{Jingqiao-JADE-2009}.  The technical details of the
 optimization algorithm are published previously in
 Ref.~\cite{Ladutenko-2014}. We perform Mie calculations using the
-Scattnlay~\cite{Pena-scattnlay-2009,Scattnlay-web} software, whose
-results were verified with a number of other implementations of the
-Mie solutions and with a commercially available software such as CST
-Microwave studio~\cite{CST-web} and Comsol
-Multiphysics~\cite{Comsol-web}.
+Scattnlay software~\cite{Pena-scattnlay-2009,Scattnlay-web}, whose
+results are verified by a number of other implementations of the
+Mie solutions and by a commercially available software including CST
+Microwave studio~\cite{CST-web} and Comsol Multiphysics~\cite{Comsol-web}.
 
-It is a common understanding that, in general, a bigger particle will
-have a bigger absorption cross-section, so sphere with the diameter of
-1 cm will absorb more light than any nanoscale sphere at a give
-wavelength. Therefore, it is practical to employ the absorption
-efficiency $Q_{\rm abs}=C_{\rm abs}/2\pi R^2$, where $R$ is the outer
+It is a common understanding that, in general, a bigger particle 
+has a bigger absorption cross-section, so sphere with the diameter of
+1 cm absorbs more light than any nanoscale sphere. Therefore, it is practical to employ {\em the absorption
+efficiency} $Q_{\rm abs}=C_{\rm abs}/\pi R^2$, where $R$ is the outer
 radius of the particle and $C_{\rm abs}$ is the absorption
-cross-section. We maximize absorption efficiency at a fixed wavelength
-of the incident light (we have chosen $\lambda=500$~nm).
+cross-section. 
 
 \begin{figure}
   \center{
@@ -186,7 +172,7 @@ of the incident light (we have chosen $\lambda=500$~nm).
     \includegraphics[width=0.4\textwidth]{fig/2015-04-01-Qabs-SiAgSi-overview}%
     \caption{ Results of the optimization of the absorption efficiency
       for the fixed wavelength of 500~nm. (a) Absorption efficiency
-      with the best value achieved at the particle radius of 36~nm and
+      with the best value achieved for the particle of the radius of 36~nm and
       Ag/Si design (zero sized core). Dashed lines show theoretical
       limits for the first channel and second channel
       absorption. Second and third peaks in the absorption efficiency
@@ -207,20 +193,21 @@ In order to study the dependence of the absorption efficiency on the
 outer particle size, we run optimization algorithm for different
 (fixed) particle outer size, and our optimization parameters are the
 radii of internal cores, whereas the target function is the absorption
-efficiency.  We show the results of our stochastic optimization
+efficiency. We maximize absorption efficiency at a fixed wavelength
+of the incident light (we have chosen $\lambda=500$~nm). We show the results of our stochastic optimization
 algorithm in Fig.~\ref{fig:overview}~(a).  Dashed lines show
 theoretical absorption limit of a dipole ($n=1$) and a quadrupole
 ($n=2$) resonances~\cite{Tribelsky-2011}, which are given
 as $$Q^{(n)}_{\rm abs\ max}=\frac{2n+1}{2q^2},$$ where the size
-parameter $q=2\pi R/\lambda$, and $n$ is an angular momentum of the
+parameter $q=2\pi R/\lambda$, and $n$ is the angular momentum of the
 mode. Following Ref.~\cite{Fan-2011}, where authors introduce
 super-scattering for spherical particles, here we we introduce
-super-absorption, when the ACS is larger than the theoretical limit
+super-absorption regime, when {\em the ACS is larger than the theoretical limit
 for absorption by the mode with highest excited angular momentum
-$n$. In our parameter space we have just modes up to the quadrupole
+$n$}. In our parameter space we have just modes up to the quadrupole
 excited ($n=2$), and in order to get a super-absorption our efficiency
 should be higher than that of a quadrupole. We clearly see this
-super-absorption at $R>60$~nm, in Fig.~\ref{fig:overview}~(a).
+super-absorption regime at $R>60$~nm, in Fig.~\ref{fig:overview}~(a).
 
 In Fig.~\ref{fig:overview}~(b) we present the values of Mie absorption
 coefficients for individual excited modes in the structure, while
@@ -236,7 +223,7 @@ Figs.~\ref{fig:overview}~(b,c) experience the discontinuity. We also
 note that there is a very narrow range of particle sizes, between
 80.7~nm and 82.1~nm, where our analyses finds that the design
 supporting electric dipole $\tilde{a}_1$ and magnetic quadrupole
-$\tilde{b}_2$, has larger ACS, and this explains two more
+$\tilde{b}_2$ has larger ACS, and this explains two more
 discontinuities of the curves at the respective size values.
 
 Fig.~\ref{fig:overview}~(c) shows optimized sizes of the layers inside
@@ -250,19 +237,19 @@ $\tilde{a}_1>0.249$).  It appears that the optimizer introduced the
 inner $Si$ layer in order to keep $\tilde{a}_1$ near the theoretical
 limit as the $R$ increases.  As a side effect, the quadrupole
 contribution $\tilde{a}_2$ appears; however, it does not help to reach
-super-absorption limit $n=2$.
+super-absorption limit for $n=2$.
 
-Remarkably, the absolute maximum absorption efficiency is not reached
+Remarkably, the absolute maximum {\em absorption efficiency} is not reached
 within the super-absorption regime. Figure~\ref{fig:overview} shows
-that the maximum efficiency is reached for small particle size, and
+that the maximum efficiency is achieved for small particle size, and
 the ACS is still well below the single channel limit. It appears that
 the $Ag/Si$ core-shell nanoparticle, with the total radii of
-approximately 36~nm is the most efficient absorbing in the considered
-structure, which ACS reaching values over 5 times the physical
-cross-section area of the particle.  From practical point of view it
+approximately 36~nm is the most efficient absorber in the considered
+structure, whose ACS reaches values {\em over 5 times the physical
+cross-section area of the particle}.  From practical point of view it
 is quite important that the maximum can be reached in a bi-layer
-structure, instead of a triple-layer, and it should be easier and
-cheaper to produce.
+structure, instead of a triple-layer, since it should be easier and
+cheaper to fabricate.
 
 \begin{figure}
   \center{
@@ -286,34 +273,29 @@ additional absorption resonances, but they are located far from the
 wavelength of interest.
 
 A noticeable feature of Fig.~\ref{fig:spectra}~(c) is an almost flat
-top of the electric dipole resonance.  TODO from IVS maybe there are
-two different dipole "types", and we see their interference?  TODO
-from AEM To answer this question we need to look at the internal
-coefficients of each layer.  There is no interference between
-multipoles - they are orthogonal modes ;-)
-% end of AEM comment
-This effect might be related with the coupling between the electric
-dipole $\tilde{a}_1$ with the magnetic quadrupole $\tilde{b}_2$, but
-this hypothesis should be further tested.  Whereas resonant responses
-of other designs originate from coupling of incident plane wave with
-the corresponding multipole, it is not the case for the design with
-$R=81$~nm. Here, the particle is mostly composed from the $Si$ outer
-shell, that give enough volume for $\tilde{b}_2$.  Dipole response
-comes from the small inner part of the sphere and can not be directly
-excited with the incident wave.  It takes the power from the
-surrounding $\tilde{b}_2$ mode and very soon it reaches the
-fundamental limit for absorption.  This way, we can observe a flat top
-for the $\tilde{a}_1$ response accompanied with a significant value of
-$\tilde{b}_2$.  Our suggestion is indirectly proved by the reduced
-width of the $\tilde{b}_2$ resonance compared to other quadrupole
-responses.
+top of the electric dipole resonance.  
+%This effect might be related with the coupling between the electric
+%dipole $\tilde{a}_1$ with the magnetic quadrupole $\tilde{b}_2$, but
+%this hypothesis should be further tested.  Whereas resonant responses
+%of other designs originate from coupling of incident plane wave with
+%the corresponding multipole, it is not the case for the design with
+%$R=81$~nm. Here, the particle is mostly composed from the $Si$ outer
+%shell, that give enough volume for $\tilde{b}_2$.  Dipole response
+%comes from the small inner part of the sphere and can not be directly
+%excited with the incident wave.  It takes the power from the
+%surrounding $\tilde{b}_2$ mode and very soon it reaches the
+%fundamental limit for absorption.  This way, we can observe a flat top
+%for the $\tilde{a}_1$ response accompanied with a significant value of
+%$\tilde{b}_2$.  Our suggestion is indirectly proven by the reduced
+%width of the $\tilde{b}_2$ resonance compared to other quadrupole
+%responses.
 
 \begin{figure}
   \center{
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.45\textwidth]{fig/SiAgSi-flow-R62-YZ-Eabs.pdf}%
     \caption{ Amplitude of electric field for $R=36$~nm (a,c) and
-      super- (b,d) designs in E-k  (a-b) and H-k (c-d)
+      super-absorbing designs (b,d) in E-k  (a-b) and H-k (c-d)
       planes normalized to incident wave. 
       \label{fig:field}
     }%
@@ -330,34 +312,32 @@ super-absorption regime, we observe the formation of vortices in the
 power flow, which make absorption more efficient as the
 electromagnetic energy propagates several times through the absorbing
 materials.  The reason for the smaller overall absorption efficiency
-of a super-design is obvious: spatial distribution of the electric
+of a super-absorbing design is obvious: spatial distribution of the electric
 field is not uniform inside the particle and the share of the volume
 with high absorption rate in the vortices do not compensate low
 absorption efficiency in the regions with small electric field (
 absorbed power is expressed as $P_{\rm abs}=\frac{1}{2}\int\sigma
 \left|E\right|^2dx\,dy\,dz$)
 
-In conclusion, we find the effect of the super-absorption, when the
+In conclusion, we introduce and study the effect of the super-absorption, when the
 absorption cross-section of the nanoparticle can reach the theoretical
-limit for several modes at once, corresponding to the super-absorption
-condition. Such situation realized when several resonant modes of the
-structure overlap at the same frequency. Moreover, quite unexpectedly
-we find that the most efficient absorbers, which are characterized by
+limit for several modes at the same frequency. This becomes possible when several resonant modes of the
+structure overlap at the same frequency, and this regime can be achieved in multi-layer nanoparticles. Moreover, quite unexpectedly we find that the most efficient absorbers, which are characterized by
 enhanced absorption efficiencies, are smaller nanoparticles working in
 a single mode regime. We present their spectral characteristics and
-field structure.
-
-
-TODO WE NEED TO WRITE ABOUT THIS AND SOME OTHER WORKS IN THE
-INTRODUCTION. THE TOPIC IS DONE TO DEATH.  It is interesting to note
+field structure.  The stochastic algorithm utilized in our approach is
+very generic and the optimization can be repeated for any desired
+wavelength or wavelength range.  As a result, one can design
+spectrally-selective absorbers or broadband absorbers with almost
+arbitrary prescribed properties.  It is interesting to note
 that a similar conclusion was made by Miller et al.~\cite{Miller-2014}
 for extinction of arbitrary particles: small size with only dipole
-responce is preferable for geometric volume normalized efficiency.
+response is preferable for geometric volume normalized efficiency.
 
 
 \begin{acknowledgments}
 
-  TODO acknowledgments
+ AEM and IVS would like to acknowledge support from the Australian Research Council through Future Fellow and Discovery project schemes. 
   % The authors would like to thank the Ministry of Education and
   % Science of the Russian Federation (Goszadanie 2014/190, Zadanie
   % No. 3.561.2014/K, project 14.584.21.0009 10), Russian Foundation
