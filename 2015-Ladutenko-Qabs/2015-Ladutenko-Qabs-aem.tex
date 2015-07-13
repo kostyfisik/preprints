@@ -125,6 +125,30 @@ smaller particles, and quite remarkably we find that the most {\em
   efficient} absorption can be achieved in a single channel limit for
 small particles.
 
+Another approach for an ideal absorber was given in a recent work by
+Grigoriev et al.~\cite{Grigoriev-2015}. However, they considered only
+a dipole approximation, the final value for our range of particle
+sizes is very close to the dipole limit predicted with
+Tribelsky~\cite{Tribelsky-2011}.  Thus, such super-absorption designs
+correspond to single mode limit.  At the same time, Grigoriev et
+al.~\cite{Grigoriev-2015} also provide an equation to design a
+core-shell structure from predefined materials. However, in case of
+$Si$ and $Ag$ materials and size parameter from our best design, their
+equation gives a complex value for core material filling factor, which
+is not practical for any experimental realisations.
+
+
+\begin{figure}
+  \center{
+    % Use pdfcrop to remove white margins
+    \includegraphics[width=0.4\textwidth]{fig/Fig1}%
+    \caption{ Shematic view of the simulated $Si/Ag/Si$ particle. 
+      \label{fig:geom}
+    }%
+  }
+\end{figure}
+
+
 We start our analyses by considering the triple layered $Si/Ag/Si$
 spherical particle illuminated with a plane wave~(Fig. TODO ). In what
 follows we describe the materials using experimentally measured
@@ -255,10 +279,25 @@ overlap of several resonances.  We note that these structures have
 additional absorption resonances, but they are located far from the
 wavelength of interest.
 
-A noticeable feature of Fig.~\ref{fig:spectra} (c) is an almost flat
-top of the electric dipole resonance. (TODO add some explanation, why
-it flat? Any ideas?  - not really, maybe there are two different
-dipole "types", and we see their interference?)
+A noticeable feature of Fig.~\ref{fig:spectra}~(c) is an almost flat
+top of the electric dipole resonance.
+% maybe there are two different dipole "types", and we see their
+% interference?
+To answer this question we need to look at the internal coefficients of each layer.
+There is no interference between multipoles - they are orthogonal modes ;-)
+ Whereas resonant responses
+of other designs originate from coupling of incident plane wave with
+the corresponding multipole, it is not the case for the design with
+$R=81$~nm. Here, the particle is mostly composed from the $Si$ outer
+shell, that give enough volume for $\tilde{b}_2$.  Dipole response
+comes from the small inner part of the sphere and can not be directly
+excited with the incident wave.  It takes the power from the
+surrounding $\tilde{b}_2$ mode and very soon it reaches the
+fundamental limit for absorption.  This way, we can observe a flat top
+for the $\tilde{a}_1$ response accompanied with a significant value of
+$\tilde{b}_2$.  Our suggestion is indirectly proved by the reduced
+width of the $\tilde{b}_2$ resonance compared to other quadrupole
+responses.
 
 \begin{figure}
   \center{
@@ -279,10 +318,15 @@ circles that denote outer boundary are plotted to be the same size.
 We also plot streamlines of the Poynting vector which characterize
 energy flow. For the effective design of the absorber, the power from
 a large cross-sectional area flows into the particle.  In case of
-super-absorption regime, we observe power flow vortices, which make
+super-absorption regime, we observe the formation of vortices in the power flow, which make
 absorption more efficient as the electromagnetic energy propagates
-several times through the absorbing materials.
-
+several times through the absorbing materials.  The reason for the
+smaller overall absorption efficiency of a super-design is obvious:
+spatial distribution of the electric field is not uniform inside the
+particle and the share of the volume with high absorption rate in the
+vortices do not compensate low absorption efficiency in the regions
+with small electric field ( absorbed power is expressed as $P_{\rm
+  abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
 
 In conclusion, we find the effect of the super-absorption, when the
 absorption cross-section of the nanoparticle can reach the theoretical
