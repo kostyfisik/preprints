@@ -1,0 +1,56 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Binary
+*.bin
+
+#LaTeX
+*.rtx
+*.aux
+*.toc
+*.snm
+*.bst
+*.sty
+*.cls
+*.bbl
+*.blg
+*.log
+*Notes.bib
+
+# Temp
+*~
+oprofiletmp
+callgrind
+oprofile_data
+out.dot
+cov-int*
+cov-int
+build*
+.ipynb_checkpoints
+tests/python/field.txt
