@@ -215,11 +215,12 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
 
         # Define scale ticks
         #min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
-        min_tick = 0
+        min_tick = 0.1
         #max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
-        max_tick = 8
-        scale_ticks = np.linspace(min_tick, max_tick, 5)
-
+        max_tick = 60
+        #scale_ticks = np.linspace(min_tick, max_tick, 5)
+        #scale_ticks = np.power(10.0, np.linspace(np.log10(min_tick), np.log10(max_tick), 6))
+        scale_ticks = [0.1,0.3,1,3,10,30]
         # Interpolation can be 'nearest', 'bilinear' or 'bicubic'
         # ax.set_title(label)
         # build a rectangle in axes coords
@@ -231,14 +232,14 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
         #         transform=ax.transAxes)
         cax = ax.imshow(Eabs_data, interpolation='nearest', cmap=cm.jet,
                         origin='lower', vmin=min_tick, vmax=max_tick, extent=(min(scale_x), max(scale_x), min(scale_z), max(scale_z))
-                        #,norm = LogNorm()
+                        ,norm = LogNorm()
                         )
         ax.axis("image")
 
         # Add colorbar
         cbar = fig.colorbar(cax, ticks=[a for a in scale_ticks], ax=ax)
         # vertically oriented colorbar
-        cbar.ax.set_yticklabels(['%1.0f' % (a) for a in scale_ticks])
+        cbar.ax.set_yticklabels(['%g' % (a) for a in scale_ticks])
         # pos = list(cbar.ax.get_position().bounds)
         #fig.text(pos[0] - 0.02, 0.925, '|E|/|E$_0$|', fontsize = 14)
         lp2 = -10.0
@@ -285,7 +286,7 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
             # max_length=factor*x[-1]*5
             max_angle = np.pi / 160
             if is_flow_extend:
-                rg = range(0, flow_total * 2 + 1)
+                rg = range(0, flow_total * 5 + 1)
             else:
                 rg = range(0, flow_total)
             for flow in rg:

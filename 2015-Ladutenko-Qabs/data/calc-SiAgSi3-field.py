@@ -37,7 +37,7 @@ import cmath
 from fieldplot import fieldplot
 
 ###############################################################################
-def SetXM(design):
+def SetXM(design, WL = 0):
     """ design value:
     1: AgSi - a1
     2: SiAgSi - a1, b1
@@ -52,31 +52,36 @@ def SetXM(design):
     if design==1:
         #36	5.62055	0	31.93	4.06	49	5.62055	500
         isSiAgSi=False
-        WL=500 #nm
+        if WL == 0:
+            WL=500 #nm
         core_width = 0.0 #nm Si
         inner_width = 31.93 #nm Ag
         outer_width = 4.06 #nm  Si
     elif design==2:
         #62.5	4.48866	29.44	10.33	22.73	0	4.48866	500
-        WL=500 #nm
+        if WL == 0:
+            WL=500 #nm
         core_width = 29.44 #nm Si
         inner_width = 10.33 #nm Ag
         outer_width = 22.73 #nm  Si
     elif design == 3:
         #81.4	3.14156	5.27	8.22	67.91	0	3.14156	500
-        WL=500 #nm
+        if WL == 0:
+            WL=500 #nm
         core_width = 5.27 #nm Si
         inner_width = 8.22 #nm Ag
         outer_width = 67.91 #nm  Si
     elif design==4:
-        WL=800 #nm
+        if WL == 0:
+            WL=800 #nm
         epsilon_Si = 13.64 + 0.047j
         epsilon_Ag = -28.05 + 1.525j
         core_width = 17.74 #nm Si
         inner_width = 23.31 #nm Ag
         outer_width = 22.95 #nm  Si
     elif design==5:
-        WL=354 #nm
+        if WL == 0:
+            WL=354 #nm
         core_r = WL/20.0
         epsilon_Ag = -2.0 + 0.28j   #original
         index_Ag = np.sqrt(epsilon_Ag)
@@ -124,18 +129,18 @@ def SetXM(design):
 #design = 2
 #design = 3
 #design = 4   # WL=800
-comment='SiAgSi-flow'
+comment='SiAgSi3-flow'
 # design = 5   # Bulk Ag
 # comment='bulk-Ag-flow'
 
 WL_units='nm'
 npts = 1501
 #npts = 101
-factor=2.8
+factor=1.2
 #factor=4.5
 #flow_total = 39
 flow_total = 13
-#flow_total = 0
+#flow_total = 2
 #crossplane='XY'
 
 # Options to plot: Eabs, Habs, Pabs, angleEx, angleHy
@@ -147,15 +152,17 @@ fig.tight_layout()
 
 
 crossplane='XZ'
-design = 1 #AgSi
-x, m, WL = SetXM(design)
+design = 3 #AgSi
+WL = 504
+x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
-fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
+fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
           subplot_label='(a)')#,is_flow_extend=False)
 
-design = 2 #AgSi
-x, m, WL = SetXM(design)
+design = 3 #AgSi
+WL = 487
+x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[0,1], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
@@ -163,15 +170,17 @@ fieldplot(fig, axs[0,1], x,m, WL, comment, WL_units, crossplane, field_to_plot, 
 
 crossplane='YZ'
 
-design = 1 #AgSi
-x, m, WL = SetXM(design)
+design = 3 #AgSi
+WL = 504
+x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
-fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
+fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
           subplot_label='(c)')#,is_flow_extend=False)
 
-design = 2 #AgSi
-x, m, WL = SetXM(design)
+design = 3 #AgSi
+WL = 487
+x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[1,1], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
