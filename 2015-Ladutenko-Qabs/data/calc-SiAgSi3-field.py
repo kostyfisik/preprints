@@ -158,7 +158,7 @@ x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
-          subplot_label='(a)')#,is_flow_extend=False)
+          subplot_label='(a) E-k WL=504nm')#,is_flow_extend=False)
 
 design = 3 #AgSi
 WL = 487
@@ -166,7 +166,7 @@ x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[0,1], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
-          subplot_label='(b)')#,is_flow_extend=False)
+          subplot_label='(b) E-k WL=487nm')#,is_flow_extend=False)
 
 crossplane='YZ'
 
@@ -176,7 +176,7 @@ x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
-          subplot_label='(c)')#,is_flow_extend=False)
+          subplot_label='(c) H-k WL=504nm')#,is_flow_extend=False)
 
 design = 3 #AgSi
 WL = 487
@@ -184,7 +184,7 @@ x, m, WL = SetXM(design, WL)
 print "x =", x
 print "m =", m
 fieldplot(fig, axs[1,1], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor, flow_total,
-          subplot_label='(d)')#,is_flow_extend=False)
+          subplot_label='(d) H-k WL=487nm')#,is_flow_extend=False)
 
 
 for aaxs in axs:

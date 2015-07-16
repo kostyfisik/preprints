@@ -216,16 +216,16 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
         # Define scale ticks
         #min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
         min_tick = 0.1
-        #max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
-        max_tick = 60
+        max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
+        #max_tick = 60
         #scale_ticks = np.linspace(min_tick, max_tick, 5)
         #scale_ticks = np.power(10.0, np.linspace(np.log10(min_tick), np.log10(max_tick), 6))
-        scale_ticks = [0.1,0.3,1,3,10,30]
+        scale_ticks = [0.1,0.3,1,3,10, max_tick]
         # Interpolation can be 'nearest', 'bilinear' or 'bicubic'
         # ax.set_title(label)
         # build a rectangle in axes coords
-        ax.annotate(subplot_label, xy=(1.0, 1.1), xycoords='axes fraction',  # fontsize=10,
-                    horizontalalignment='right', verticalalignment='top')
+        ax.annotate(subplot_label, xy=(0.0, 1.1), xycoords='axes fraction',  # fontsize=10,
+                    horizontalalignment='left', verticalalignment='top')
         # ax.text(right, top, subplot_label,
         #         horizontalalignment='right',
         #         verticalalignment='bottom',
@@ -239,7 +239,7 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
         # Add colorbar
         cbar = fig.colorbar(cax, ticks=[a for a in scale_ticks], ax=ax)
         # vertically oriented colorbar
-        cbar.ax.set_yticklabels(['%g' % (a) for a in scale_ticks])
+        cbar.ax.set_yticklabels(['%2.1f' % (a) for a in scale_ticks])
         # pos = list(cbar.ax.get_position().bounds)
         #fig.text(pos[0] - 0.02, 0.925, '|E|/|E$_0$|', fontsize = 14)
         lp2 = -10.0
