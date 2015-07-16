@@ -105,18 +105,18 @@ axs[Qsca].arrow(36, 4.5, 0, 0.6, head_width=1.2, head_length=0.3, fc='k', ec='k'
 axs[Qsca].arrow(62.6, 3.35, 0, 0.6, head_width=1.2, head_length=0.3, fc='k', ec='k')
 axs[Qsca].arrow(81.4, 4.3, 0, -0.6, head_width=1.2, head_length=0.3, fc='k', ec='k')
 
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth/1.5,
-                       solid_joinstyle='round', solid_capstyle='round', color='red'
-                       , label="core"
-                       )
 
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='black'
+                       , label="outer shell"
+                       )
 cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,3], linewidth=plotwidth,
                        solid_joinstyle='round', solid_capstyle='round', color='green'
                        , label="inner shell"
                        )
-cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,4], linewidth=plotwidth,
-                       solid_joinstyle='round', solid_capstyle='round', color='black'
-                       , label="outer shell"
+cax = axs[Design].plot(data_spaced[:,0], data_spaced[:,2], linewidth=plotwidth/1.5,
+                       solid_joinstyle='round', solid_capstyle='round', color='red'
+                       , label="core"
                        )
 lg=axs[Design].legend(loc='upper left',prop={'size':10})
 lg.draw_frame(False)

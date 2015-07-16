@@ -25,6 +25,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.ticker as tkr
 from scattnlay import scattnlay
 from scattnlay import scattcoeffs
 ###############################################################################
@@ -140,8 +141,8 @@ def GetEpsilon(WLs, fname):
 ###############################################################################
 def save_spectra(fname, from_WL, to_WL, total_points, design, extra_width):
     WLs = np.linspace(from_WL, to_WL, total_points)
-    epsSi = GetEpsilon(WLs, "Si.txt")
-    epsAg = GetEpsilon(WLs, "Ag.txt")
+    epsSi = GetEpsilon(WLs, "Si-int.txt")
+    epsAg = GetEpsilon(WLs, "Ag-int.txt")
     data = calc(design, extra_width, WLs[0], epsSi[0,1], epsAg[0,1])
     for i in xrange(len(WLs)):
         data = np.vstack((data,calc(design, extra_width, WLs[i], epsSi[i,1], epsAg[i,1])))
@@ -176,10 +177,10 @@ design = 1 #AgSi
 # epsilon_Ag = -8.5014154589 + 0.7585845411j
 # WL = 500
 from_WL = 400
-to_WL = 800
+to_WL = 600
 total_points = 600
-for i in xrange(100):
-    extra_width = i-2
+for i in xrange(1):
+    extra_width = 0
     fname = "Ag-Si-channels-TotalR036-calc.dat"
     design = 1 #AgSi
     save_spectra(fname, from_WL, to_WL, total_points, design, extra_width)
@@ -197,6 +198,11 @@ for i in xrange(100):
     data3, data_spaced3 = load_data(fname3)
     data_spaced3 = data3
 
+    # design = 3
+    fname4 = "absorb-layered-spectra-d0.dat"
+    data4, data_spaced4 = load_data(fname4)
+
+
     isAll = False
     isAll = True
     ############################# Plotting ######################
@@ -205,12 +211,13 @@ for i in xrange(100):
     mvals = ma.masked_where(np.nan in data_spaced, vals)
 
     if isAll:
-        fig, axs = plt.subplots(3,figsize=(4,6), sharex=True)#, sharey=True)
+        fig, axs = plt.subplots(4,figsize=(4,8), sharex=True)#, sharey=True)
     else:
         fig, axs = plt.subplots(2,figsize=(4,4), sharex=True)#, sharey=True)
     AgSi=0
     SiAgSi=1
     SiAgSi2=2
+    SiAgSi3=3
     for ax in axs:
         ax.locator_params(axis='y',nbins=4)
         # for label in ['left', 'right', 'top', 'bottom']:
@@ -298,25 +305,46 @@ for i in xrange(100):
 
         lg.draw_frame(False)
 
+        plotwidth=2.0
+        l,n = 2, 0                
+        cax = axs[SiAgSi3].plot(data4[:,0], data4[:,l*6+n*2+1], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='black'
+                       , label="outer shell"
+                       )
+
+        l,n = 1, 0
+        cax = axs[SiAgSi3].plot(data4[:,0], data4[:,l*6+n*2+1], linewidth=plotwidth,
+                       solid_joinstyle='round', solid_capstyle='round', color='green'
+                       , label="inner shell"
+                       )
+        l,n = 0, 0
+        cax = axs[SiAgSi3].plot(data4[:,0], data4[:,l*6+n*2+1], linewidth=plotwidth/1.5,
+                       solid_joinstyle='round', solid_capstyle='round', color='red'
+                       , label="core"
+                       )
+
+        lg=axs[SiAgSi3].legend(loc='upper left',prop={'size':11})
+        lg.draw_frame(False)
 
 
     y_up_lim = 0.29
-    axs[AgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
+    axs[AgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=4.1)
     axs[AgSi].set_ylim(0, y_up_lim)
 
-    axs[SiAgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
+    axs[SiAgSi].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=4.1)
     axs[SiAgSi].set_ylim(0, y_up_lim)
 
-    if isAll:
-        axs[SiAgSi2].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=-0.9)
-        axs[SiAgSi2].set_ylim(0, y_up_lim)
-        axs[SiAgSi2].set_xlabel('Wavelengh, nm', labelpad=2)
-    else:
-        axs[SiAgSi].set_xlabel('Wavelengh, nm', labelpad=2)
+    axs[SiAgSi2].set_ylabel(r'$\tilde{a}_n ,\ \tilde{b}_n$', labelpad=4.1)
+    axs[SiAgSi2].set_ylim(0, y_up_lim)
+
+    axs[SiAgSi3].set_ylabel(r'$\left|a_{ln}\right|^2+\left|d_{ln}\right|^2$', labelpad=+3)
+    axs[SiAgSi3].set_xlabel('Wavelengh, nm', labelpad=2)
+    axs[SiAgSi3].set_ylim(0.8, 8000)
+
     plt.xlim(from_WL,  to_WL)
 
-    axs[AgSi].annotate(r'$\Delta=%i$'%extra_width, xy=(0.09, 0.985), xycoords='axes fraction', fontsize=10,
-                    horizontalalignment='left', verticalalignment='top')
+    # axs[AgSi].annotate(r'$\Delta=%i$'%extra_width, xy=(0.09, 0.985), xycoords='axes fraction', fontsize=10,
+    #                 horizontalalignment='left', verticalalignment='top')
 
     axs[AgSi].annotate('(a)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                     horizontalalignment='right', verticalalignment='top')
@@ -325,10 +353,20 @@ for i in xrange(100):
     if isAll:
         axs[SiAgSi2].annotate('(c)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
                     horizontalalignment='right', verticalalignment='top')
+        axs[SiAgSi3].annotate('(d)', xy=(0.99, 0.985), xycoords='axes fraction', fontsize=10,
+                    horizontalalignment='right', verticalalignment='top')
+        axs[SiAgSi3].set_yscale('log')
+        axs[SiAgSi3].set_yticks([1, 10, 100, 1000])
+        
+        axs[SiAgSi3].tick_params(axis='y', which='major', pad=-0.65)
+
+       # fmt = tkr.ScalarFormatter()
+        # fmt.set_scientific(True)
+        # axs[SiAgSi3].get_yaxis().set_major_formatter(fmt)
 
     fig.subplots_adjust(hspace=.05)
-
-    fname="2015-04-01-SiAgSi-ab-spectra-calc-d%+03i"%extra_width
+    plt.minorticks_off()
+    fname="2015-04-01-SiAgSi-ab-spectra4"
     plt.savefig(fname+".pdf",pad_inches=0.02, bbox_inches='tight')
     #plt.draw()
 
