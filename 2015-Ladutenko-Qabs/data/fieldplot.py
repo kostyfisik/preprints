@@ -214,13 +214,13 @@ def fieldplot(fig, ax, x, m, WL, comment='', WL_units=' ', crossplane='XZ',
             min(coordZ) * WL / 2.0 / np.pi, max(coordZ) * WL / 2.0 / np.pi, npts)
 
         # Define scale ticks
-        #min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
-        min_tick = 0.1
+        min_tick = np.amin(Eabs_data[~np.isnan(Eabs_data)])
+        #min_tick = 0.1
         max_tick = np.amax(Eabs_data[~np.isnan(Eabs_data)])
         #max_tick = 60
         #scale_ticks = np.linspace(min_tick, max_tick, 5)
-        #scale_ticks = np.power(10.0, np.linspace(np.log10(min_tick), np.log10(max_tick), 6))
-        scale_ticks = [0.1,0.3,1,3,10, max_tick]
+        scale_ticks = np.power(10.0, np.linspace(np.log10(min_tick), np.log10(max_tick), 6))
+        #scale_ticks = [0.1,0.3,1,3,10, max_tick]
         # Interpolation can be 'nearest', 'bilinear' or 'bicubic'
         # ax.set_title(label)
         # build a rectangle in axes coords

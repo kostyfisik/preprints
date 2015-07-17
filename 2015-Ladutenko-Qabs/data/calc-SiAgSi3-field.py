@@ -134,12 +134,12 @@ comment='SiAgSi3-flow'
 # comment='bulk-Ag-flow'
 
 WL_units='nm'
-npts = 1501
+npts = 501
 #npts = 101
 factor=1.2
 #factor=4.5
 #flow_total = 39
-flow_total = 13
+flow_total = 0
 #flow_total = 2
 #crossplane='XY'
 

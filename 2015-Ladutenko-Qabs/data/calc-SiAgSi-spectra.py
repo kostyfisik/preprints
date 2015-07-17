@@ -141,11 +141,18 @@ def GetEpsilon(WLs, fname):
 ###############################################################################
 def save_spectra(fname, from_WL, to_WL, total_points, design, extra_width):
     WLs = np.linspace(from_WL, to_WL, total_points)
-    epsSi = GetEpsilon(WLs, "Si-int.txt")
-    epsAg = GetEpsilon(WLs, "Ag-int.txt")
-    data = calc(design, extra_width, WLs[0], epsSi[0,1], epsAg[0,1])
+    # epsSi = GetEpsilon(WLs, "Si-int.txt")
+    # epsAg = GetEpsilon(WLs, "Ag-int.txt")    
+    # data = calc(design, extra_width, WLs[0], epsSi[0,1], epsAg[0,1])
+    # for i in xrange(len(WLs)):
+    #     data = np.vstack((data,calc(design, extra_width, WLs[i], epsSi[i,1], epsAg[i,1])))
+    epsSi = 18.4631066585 + 0.6259727805j
+    epsAg = -8.5014154589 + 0.7585845411j
+    WL = 500
+    data = calc(design, extra_width, from_WL, epsSi, epsAg)
     for i in xrange(len(WLs)):
-        data = np.vstack((data,calc(design, extra_width, WLs[i], epsSi[i,1], epsAg[i,1])))
+        data = np.vstack((data,calc(design, extra_width, WLs[i], epsSi, epsAg)))
+    
     data = data[1:]
     np.savetxt(fname,data)
 ###############################################################################
