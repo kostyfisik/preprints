@@ -22,7 +22,7 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 % \title{Superabsorption and efficient absorption of light by
 % spherical nanoparticles} %IVS
 \title{Superabsorption of light by nanoparticles} %AEM
-% Proposed reviewers: Anatoly Zayats Andrea Alu Sergei Bozhevolnyi
+% Proposed reviewers: Anatoly Zayats, Andrea Alu, Sergei Bozhevolnyi
 
 \author{Konstantin Ladutenko} \email[e-mail: ]{k.ladutenko@metalab.ifmo.ru}
 \affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
@@ -110,20 +110,31 @@ derived a theoretical limit of a maximum absorption cross-section
 is excited.  As a result, the absorption coefficients $\tilde{a}_n=
 {\rm Re}\{a_n\} - |a_n|^2 $ and $\tilde{b}_n= {\rm Re}\{b_n\} -
 |b_n|^2 $ become limited by $1/4$, here $a_n$ and $b_n$ are scattering
-coefficient as defined within the Mie theory~\cite{Bohren-1983}.
+coefficient as defined within the Mie theory~\cite{Bohren-1983} for
+expansion of the scattered electric field:
+$$ 
+ {\rm \mathbf{E}}_s = \sum_{n=1}^{\infty} E_n
+ \left(
+   i a_n {\rm \mathbf{N}}_{e1n}^{(3)} - b_n{\rm\mathbf{M}_{o1n}^{(3)}}
+ \right),
+$$
+where ${\rm \mathbf{N}}_{e1n}^{(3)}$ and ${\rm\mathbf{M}_{o1n}^{(3)}}$
+are corresponding vector spherical harmonics,
+$E_n=i^nE_0(2n+1)/n(n+1)$, $n$ is the angular momentum of the mode,
+and $E_0$ is the amplitude of the incident field.
 
 To overcome these limitations, we employ similar approach to the one
 used for enhancing scattering cross-section~\cite{Fan-2011}. In
 particular, we propose to use the multilayer structures, and by means
-of stochastic optimization algorithm we optimize the ACS of such
-nanoparticles. We analyze the absorption cross-section of these
-particles, and present the superabsorption regime. We further
-introduce the absorption efficiency, which is the ACS normalized to
-the geometric cross-section of particles. Here we show that there is a
-strong counterplay between the increased absorption for larger
-particles vs size for smaller particles, and quite remarkably we find
-that the most {\em efficient} absorption can be achieved in a single
-channel limit for small particles.
+of stochastic optimization algorithm~\cite{Jingqiao-JADE-2009} we
+optimize the ACS of such nanoparticles. We analyze the absorption
+cross-section of these particles, and present the superabsorption
+regime. We further introduce the absorption efficiency, which is the
+ACS normalized to the geometric cross-section of particles. Here we
+show that there is a strong counterplay between the increased
+absorption for larger particles vs size for smaller particles, and
+quite remarkably we find that the most {\em efficient} absorption can
+be achieved in a single channel limit for small particles.
 
 Another approach for an ideal absorber is given in the recent work by
 Grigoriev et al.~\cite{Grigoriev-2015}. Authors considered only dipole
@@ -295,7 +306,8 @@ resonance response shown in Fig.~\ref{fig:spectra}~(c).
     \includegraphics[width=0.47\textwidth]{fig/SiAgSi-flow-R62-YZ-Eabs.pdf}%
     \caption{ Amplitude of electric field for $R=36$~nm (a,c) and
       superabsorbing designs (b,d) in E-k  (a-b) and H-k (c-d)
-      planes normalized to incident wave. 
+      planes normalized to incident wave.  White curves show the
+      energy flow streamlines, plane wave comes from the left.
       \label{fig:field}
     }%
   }
@@ -338,9 +350,11 @@ geometric volume normalized efficiency.
 
 \begin{acknowledgments}
   Thanks to David A. Powell for his contribution to the analysis of
-  the spectrum feature.  AEM and IVS would like to acknowledge support
+  the spectrum feature.  AEM and IVS acknowledge the support
   from the Australian Research Council through Future Fellow and
-  Discovery project schemes. KSL and PAB would like to thank the
+  Discovery project schemes. OPR is grateful to Consejo Nacional de
+  Ciencia y Tecnolog\'{i}a (Mexico) for financing a short stay at
+  Universidad Autónoma de Puebla, Mexico.  KSL and PAB thank the
   Ministry of Education and Science of the Russian Federation and
   Government of the Russian Federation (Grant 074-U01) for the
   financial support.
