@@ -1,27 +1,10 @@
-%\documentclass[aps,prl,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4-1}  % for review and submission
+\documentclass[aps,prl,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4-1}  % for review and submission
 %\documentclass[aps,preprint,showpacs,superscriptaddress,groupedaddress]{revtex4-1}  % for double-spaced preprint
-
-%Phys Rev B
-%Letter or rapid communication - 3500 words
-%\documentclass[prb,groupedaddress,reprint]{revtex4-1}
-%APL
-\documentclass[aps,prl,twocolumn,showpacs,superscriptaddress,groupedaddress]{revtex4-1}
-%\documentclass[aps,prl,reprint]{revtex4-1}
-%\documentclass[aip,jap,reprint]{revtex4-1}
 \usepackage[english]{babel}
 \usepackage{graphicx}% Include figure files
-\usepackage[pdftex,unicode,colorlinks, citecolor=blue,%
-filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
-\usepackage[figure,table]{hypcap} %links should lead to the begining
-                                %of figure or table...
+\begin{document} 
+\title{Superabsorption of light by nanoparticles}
 
-\begin{document} %Max size in pdf for APL - 4 print pages
-
-% \title{More efficient than a ``super'' absorption in spherical
-% nanoparticles} %KSL
-% \title{Superabsorption and efficient absorption of light by
-% spherical nanoparticles} %IVS
-\title{Superabsorption of light by nanoparticles} %AEM
 % Proposed reviewers: Anatoly Zayats, Andrea Alu, Sergei Bozhevolnyi
 % Prof. García de Abajo (http://garciadeabajos-group.icfo.es/)
 %  Andrea Alu.
@@ -46,10 +29,6 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
   Mills Rd, Acton, ACT, 2601, Australia}
 
 \date{\today}
-% APL 250 words! Phys Rev B less then 500 words, about
-% 5% ot total paper length
-% emacs M-x count-words
-
 \begin{abstract}
   Nanoparticles have a fundamental limit as to how much light they can
   absorb. This limit is based on the finite number of modes excited
@@ -66,13 +45,13 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 \end{abstract}
 
 
-\pacs% insert suggested PACS numbers in braces on next line
+\pacs% insert suggested PACS numbers in braces on next line,
+% not more that 4
 {41.20.Jb 42.25.Bs 02.60.Pn 02.70.-c}
-% 41.20.Jb Electromagnetic wave propagation 42.25.Bs Wave propagation,
-% transmission and absorption
-%% 42.25.Fx Diffraction and scattering
-% 02.60.Pn Numerical optimization 02.70.-c Computational techniques;
-% simulations
+% 41.20.Jb Electromagnetic wave propagation
+%% 42.25.Bs Wave propagation, transmission and absorption
+%% 02.60.Pn Numerical optimization
+% 02.70.-c Computational techniques; simulations
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
@@ -330,6 +309,29 @@ rate in the vortices does not compensate low absorption efficiency in
 the regions with small electric field (absorbed power is expressed as
 $P_{\rm abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
 
+The stochastic algorithm utilized in our approach is very generic and
+the optimization can be repeated for any desired wavelength or
+wavelength range.  As a result, one can design spectrally-selective
+absorbers or broadband absorbers with almost arbitrary prescribed
+properties.  As an example we reproduced some of the caclulations from
+the work of Estakhri and Al\`u~\cite{Alu-2014}. If we define the total
+amount of the absorbed power with cross-section of $\alpha_{\rm
+  abs}=\frac{3\lambda^2}{8\pi}$ our optimization give a similar result
+for the structure with contributing harmonics TM${_1}$ and TE$_1$.
+For $\epsilon_1 = 1.25+i0.03$, $\epsilon_2 = -10.37+ i0.35$, and
+$\epsilon_3=8.4+i2.33$ as material parameters we obtained radii
+$\{a_{c1},a_{c2},a_3\}=\{0.142,0.166,0.194\}\lambda$ and
+scattering-normalized absorption efficiency $\eta_{\rm abs}^{(\alpha)}
+=7.65$ which corresponds nicely to $\eta_{\rm abs}^{(\alpha)} =7.1$
+from the original work~\cite{Alu-2014}.  However, when setting the
+optimizer to keep high level of absoption efficiency the size of the
+outer layer vanish and the particle becomes much smaller
+$\{a_{c1},a_{c2}\}=\{0.00635,0.00747\}\lambda$ resulting with
+$\eta_{\rm abs}^{(Q)} =544$ and $Q_{\rm abs} = 4.98$.  This way small
+particle still absorbes five times of its phisical size with a very
+large scattering-normalized absorption efficiency.
+
+
 In conclusion, we introduce and study the effect of superabsorption,
 when the absorption cross-section of the nanoparticle can reach the
 theoretical limit for several modes at the same frequency. This
@@ -339,11 +341,7 @@ nanoparticles. Moreover, quite unexpectedly we find that the most
 efficient absorbers, which are characterized by enhanced absorption
 efficiencies, are smaller nanoparticles working in a single mode
 regime. We present their spectral characteristics and field structure.
-The stochastic algorithm utilized in our approach is very generic and
-the optimization can be repeated for any desired wavelength or
-wavelength range.  As a result, one can design spectrally-selective
-absorbers or broadband absorbers with almost arbitrary prescribed
-properties.  It is interesting to note that a similar conclusion was
+  It is interesting to note that a similar conclusion was
 made by Miller et al.~\cite{Miller-2014} for extinction of arbitrary
 particles: small size with only dipole response is preferable for
 geometric volume normalized efficiency.
