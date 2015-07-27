@@ -313,29 +313,22 @@ The stochastic algorithm utilized in our approach is very generic and
 the optimization can be repeated for any desired wavelength or
 wavelength range.  As a result, one can design spectrally-selective
 absorbers or broadband absorbers with almost arbitrary prescribed
-properties.  As an example we reproduced some of the caclulations from
-the work of Estakhri and Al\`u~\cite{Alu-2014} and provide a number of
-new designs. Initially, we set the total amount of the absorbed power
-with cross-section of $\alpha_{\rm abs}=\frac{3\lambda^2}{8\pi}$ and
-keep the outer radius of the particle. In this case the optimization
+properties. We note, that using this algorithm, one can optimize not only absorbtion efficiency, but also other parameters that may be desired for some applications. As an example we reproduce some of the results from
+the work of Estakhri and Al\`u~\cite{Alu-2014}, where authors aim to design absorbers with small scattering cross-section, and we provide a number of new optimized designs. The efficiency in the Ref.~\cite{Alu-2014} is defined as the ACS normalized to scattering cross-section. Initially, we set the total value of the absorbed power with cross-section of $\alpha_{\rm abs}=\frac{3\lambda^2}{8\pi}$ and
+keep the outer radius of the particle fixed. In this case the optimization
 gives a result similar to the structure with contributing harmonics
 TM${_1}$ and TE$_1$ from Ref~\cite{Alu-2014}.  For $\epsilon_1 =
 1.29+i0.01$, $\epsilon_2 = -10.37+ i0.35$, and $\epsilon_3=8.4+i2.33$
-as material parameters we obtained radii
-$\{a_{c1},a_{c2},a_3\}=\{0.142,0.166,0.194\}\lambda$ and
+as material parameters we obtained radii $\{a_{c1},a_{c2},a_3\}=\{0.142,0.166,0.194\}\lambda$ and
 scattering-normalized absorption efficiency $\eta_{\rm abs}^{(\alpha)}
-=7.65$ which corresponds nicely to $\eta_{\rm abs}^{(\alpha)} =7.1$
-from the original work~\cite{Alu-2014}.  However, when setting the
-optimizer to keep high level of absoption efficiency $Q_{\rm abs}
-\approx 5$ the particle becomes much smaller and the size of the outer
-layer vanishes $\{a_{c1},a_{c2}\}=\{0.00635,0.00747\}\lambda$ resulting
-with $\eta_{\rm abs}^{(Q)} =544$.  This way small particle still
-absorbes five times of its phisical size with a very large
-scattering-normalized absorption efficiency.  Moreover, it is easy to
-set the optimizer to keep $\eta_{\rm abs} \approx 100$ or $\eta_{\rm abs}
-\approx 1000$, resulting $\{a_{c1},a_{c2}\}=\{0.0112,0.0131\}\lambda$,
-$Q_{\rm abs} = 8.65$ or $\{a_{c1},a_{c2}\}=\{0.0052,0.0061\}\lambda$,
-$Q_{\rm abs} = 3.26$ respectively.
+=7.65$ which corresponds to $\eta_{\rm abs}^{(\alpha)} =7.1$
+from the original work~\cite{Alu-2014}.  However, if we set the optimizer to keep high level of absoption efficiency $Q_{\rm abs} \approx 5$ the particle becomes much smaller and the size of the outer layer vanishes $\{a_{c1},a_{c2}\}=\{0.00635,0.00747\}\lambda$ resulting in $\eta_{\rm abs}^{(Q)} =544$.  It means that this small particle still absorbs five times its phisical size with a very large scattering-normalized absorption efficiency. 
+
+%Moreover, it is easy to
+%set the optimizer to keep $\eta_{\rm abs} \approx 100$ or $\eta_{\rm abs}
+%\approx 1000$, resulting $\{a_{c1},a_{c2}\}=\{0.0112,0.0131\}\lambda$,
+%$Q_{\rm abs} = 8.65$ or $\{a_{c1},a_{c2}\}=\{0.0052,0.0061\}\lambda$,
+%$Q_{\rm abs} = 3.26$ respectively.
 
 
 In conclusion, we introduce and study the effect of superabsorption,
