@@ -136,12 +136,13 @@ in experimental realisations.
   }
 \end{figure}
 
-
-We start our analyses by considering the triple-layer $Si/Ag/Si$
-spherical particle illuminated with a plane wave schematically shown
-in Fig.~\ref{fig:geom}. In what follows we describe the materials
-using experimentally measured parameters from Ref.~\cite{palik-1997},
-and, e.g. at $\lambda = 500$ nm $\epsilon_{Si} = 18.5 + i0.63$ and
+The proposed approach can be applied to arbitrary combination of
+materials, but to be more specific in what follows we consider
+dielectric-metal-dielectric triple-layer $Si/Ag/Si$ spherical particle
+illuminated by a plane wave schematically shown in
+Fig.~\ref{fig:geom}. In what follows we describe the materials using
+experimentally measured parameters from Ref.~\cite{palik-1997}, and,
+e.g. at $\lambda = 500$ nm $\epsilon_{Si} = 18.5 + i0.63$ and
 $\epsilon_{Ag} = -8.5 + i0.76$.  To optimize the thickness of each
 layer we implemented~\cite{JADE-web} an adaptive differential
 evolution algorithm~\cite{Storn-DE-first-1997}, which is called
@@ -167,18 +168,18 @@ particle and $C_{\rm abs}$ is the absorption cross-section.
     \includegraphics[width=0.45\textwidth]{fig/2015-04-01-Qabs-SiAgSi-overview}%
     \caption{(color online) Results of optimization of the absorption efficiency
       for the fixed wavelength of 500~nm. (a) Absorption efficiency
-      with the best value achieved for the particle of the radius of 36~nm and
-      Ag/Si design (zero sized core). Dashed lines show theoretical
-      limits for the first channel and second channel
-      absorption. The second and third peaks in the absorption efficiency
-      curve exceed the theoretical limit for the second mode
-      absorption at $R=63$~nm and $R=81$~nm. Local maxima of
-      absorption efficiency are additionally marked with arrows. (b) Mie absorption
-      coefficients for individual excited modes of the optimized
-      structures. (c) Optimized layer thicknesses. For the total
-      particle radius below 46~nm the optimizer converges to
-      a bi-layer structure, when core size vanishes, and the
-      optimum design is a $Ag/Si$ particle. 
+      with the best value achieved for the particle of the
+      double-layer Ag/Si design of the radius of 36~nm. Dashed lines
+      show theoretical limits for the first channel and second channel
+      absorption. The second and third peaks in the absorption
+      efficiency curve exceed the theoretical limit for the second
+      mode absorption at $R=63$~nm and $R=81$~nm. Local maxima of
+      absorption efficiency are additionally marked with arrows. (b)
+      Mie absorption coefficients for individual excited modes of the
+      optimized structures. (c) Optimized layer thicknesses. For the
+      total particle radius below 46~nm the optimizer converges to a
+      bi-layer structure, when core size vanishes, and the optimum
+      design is a $Ag/Si$ particle. 
       \label{fig:overview}
     }%
   }
@@ -199,7 +200,7 @@ R/\lambda$, and $n$ is the angular momentum of the mode. Following
 Ref.~\cite{Fan-2011}, where the authors introduce superscattering for
 spherical particles, here we introduce superabsorption regime, when
 {\em the ACS is larger than the theoretical limit for absorption by
-  the mode with the highest excited angular momentum $n$}. In our
+  strongly excited mode with the highest angular momentum $n$}. In our
 parameter space we have modes up to the quadrupole excited ($n=2$),
 and in order to get superabsorption our efficiency should be higher
 than that of a quadrupole. We clearly see this superabsorption regime
@@ -215,12 +216,15 @@ by electric dipole $\tilde{a}_1$.  At $R > 56.6$~nm the optimization
 procedure finds that the designs with both electric and magnetic
 dipoles have larger ACS than the structure with only the electric
 dipole excited. This is why the curves in
-Figs.~\ref{fig:overview}~(b,c) experience the discontinuity. We also
-note that there is a very narrow range of particle sizes, between
-80.7~nm and 82.1~nm, where our analysis finds that the design
-supporting electric dipole $\tilde{a}_1$ and magnetic quadrupole
-$\tilde{b}_2$ has larger ACS, and this explains two more
-discontinuities of the curves at the respective size values.
+Figs.~\ref{fig:overview}~(b,c) experience the discontinuity. Quite
+remarkably, in this regime, {\em the combined absorption of the
+  electric and magnetic dipoles exceeds the theoretical limit for the
+  higher order (quadrupole) mode.}  We also note that there is a very
+narrow range of particle sizes, between 80.7~nm and 82.1~nm, where our
+analysis finds that the design supporting electric dipole
+$\tilde{a}_1$ and magnetic quadrupole $\tilde{b}_2$ has larger ACS,
+and this explains two more discontinuities of the curves at the
+respective size values.
 
 Fig.~\ref{fig:overview}~(c) shows optimized sizes of layers inside a
 multilayer structure. It reveals quite a curious result, that the
