@@ -2,15 +2,15 @@
 %\documentclass[aps,preprint,showpacs,superscriptaddress,groupedaddress]{revtex4-1}  % for double-spaced preprint
 \usepackage[english]{babel}
 \usepackage{graphicx}% Include figure files
-\begin{document} 
+\begin{document}
 \title{Superabsorption of light by nanoparticles}
 
 % Proposed reviewers: Anatoly Zayats, Andrea Alu, Sergei Bozhevolnyi
-% Prof. García de Abajo (http://garciadeabajos-group.icfo.es/)
-%  Andrea Alu.
-\author{Konstantin Ladutenko} \email[e-mail: ]{k.ladutenko@metalab.ifmo.ru}
-\affiliation{ITMO University, 49 Kronverskii Ave., St.~Petersburg
-  197101, Russian Federation}
+% Prof. García de Abajo (http://garciadeabajos-group.icfo.es/) Andrea
+% Alu.
+\author{Konstantin Ladutenko} \email[e-mail:
+]{k.ladutenko@metalab.ifmo.ru} \affiliation{ITMO University, 49
+  Kronverskii Ave., St.~Petersburg 197101, Russian Federation}
 
 \affiliation{Ioffe Physical-Technical Institute of the Russian Academy
   of Sciences, 26 Polytekhnicheskaya Str., St.~Petersburg 194021,
@@ -31,8 +31,8 @@
 \date{\today}
 \begin{abstract}
   Nanoparticles have a fundamental limit as to how much light they can
-  absorb. This limit is based on the finite number of modes excited
-  in the nanoparticle at a given wavelength and maximum absorption
+  absorb. This limit is based on the finite number of modes excited in
+  the nanoparticle at a given wavelength and maximum absorption
   capacity per mode. The enhanced absorption can be achieved when each
   mode supported by the nanopartice absorbs light up to the maximum
   capacity. Using stochastic optimization algorithm, we design
@@ -50,8 +50,8 @@
 {41.20.Jb 42.25.Bs 02.60.Pn 02.70.-c}
 % 41.20.Jb Electromagnetic wave propagation
 %% 42.25.Bs Wave propagation, transmission and absorption
-%% 02.60.Pn Numerical optimization
-% 02.70.-c Computational techniques; simulations
+% 02.60.Pn Numerical optimization
+%% 02.70.-c Computational techniques; simulations
 
 \maketitle %\maketitle must follow title, authors, abstract and \pacs
 
@@ -93,10 +93,8 @@ is excited.  As a result, the absorption coefficients $\tilde{a}_n=
 coefficient as defined within the Mie theory~\cite{Bohren-1983} for
 expansion of the scattered electric field:
 $$ 
- {\rm \mathbf{E}}_s = \sum_{n=1}^{\infty} E_n
- \left(
-   i a_n {\rm \mathbf{N}}_{e1n}^{(3)} - b_n{\rm\mathbf{M}_{o1n}^{(3)}}
- \right),
+{\rm \mathbf{E}}_s = \sum_{n=1}^{\infty} E_n \left( i a_n {\rm
+    \mathbf{N}}_{e1n}^{(3)} - b_n{\rm\mathbf{M}_{o1n}^{(3)}} \right),
 $$
 where ${\rm \mathbf{N}}_{e1n}^{(3)}$ and ${\rm\mathbf{M}_{o1n}^{(3)}}$
 are corresponding vector spherical harmonics,
@@ -202,10 +200,10 @@ Ref.~\cite{Fan-2011}, where the authors introduce superscattering for
 spherical particles, here we introduce superabsorption regime, when
 {\em the ACS is larger than the theoretical limit for absorption by
   the mode with the highest excited angular momentum $n$}. In our
-parameter space we have modes up to the quadrupole excited
-($n=2$), and in order to get superabsorption our efficiency should be
-higher than that of a quadrupole. We clearly see this superabsorption
-regime at $R>60$~nm, in Fig.~\ref{fig:overview}~(a).
+parameter space we have modes up to the quadrupole excited ($n=2$),
+and in order to get superabsorption our efficiency should be higher
+than that of a quadrupole. We clearly see this superabsorption regime
+at $R>60$~nm, in Fig.~\ref{fig:overview}~(a).
 
 In Fig.~\ref{fig:overview}~(b) we present the values of Mie absorption
 coefficients for individual excited modes in the structure, while
@@ -242,12 +240,12 @@ reached within the superabsorption regime. Figure~\ref{fig:overview}
 shows that the maximum efficiency is achieved for small particle size,
 and the ACS is still well below the single channel limit. It appears
 that the $Ag/Si$ core-shell nanoparticle with the total radii of
-approximately 36~nm is the most efficient absorber among the considered
-structures, whose ACS reaches values {\em over 5 times the physical
-  cross-section area of the particle}.  From a practical point of view,
-it is quite important that the maximum can be reached in a bi-layer
-structure, instead of a triple-layer, since it should be easier and
-cheaper to fabricate.
+approximately 36~nm is the most efficient absorber among the
+considered structures, whose ACS reaches values {\em over 5 times the
+  physical cross-section area of the particle}.  From a practical
+point of view, it is quite important that the maximum can be reached
+in a bi-layer structure, instead of a triple-layer, since it should be
+easier and cheaper to fabricate.
 
 \begin{figure}
   \center{
@@ -274,11 +272,12 @@ dipole resonance. More detailed analysis shows that we have {\em
   excited several electric dipole resonances} with close resonance
 frequencies within our multilayer structure. Indeed, if we plot a
 superposition of the squares of the absolute values of the Mie
-coefficients, which characterize electric energy density stored in each layer, we find
-that we excite resonances in all three layers, and they are slightly
-offset as shown in Fig.~\ref{fig:spectra}~(d). Combined effect of
-these resonances produces the flat and relatively broadband electric
-resonance response shown in Fig.~\ref{fig:spectra}~(c).
+coefficients, which characterize electric energy density stored in
+each layer, we find that we excite resonances in all three layers, and
+they are slightly offset as shown in
+Fig.~\ref{fig:spectra}~(d). Combined effect of these resonances
+produces the flat and relatively broadband electric resonance response
+shown in Fig.~\ref{fig:spectra}~(c).
 
 \begin{figure}
   \center{
@@ -313,22 +312,37 @@ The stochastic algorithm utilized in our approach is very generic and
 the optimization can be repeated for any desired wavelength or
 wavelength range.  As a result, one can design spectrally-selective
 absorbers or broadband absorbers with almost arbitrary prescribed
-properties. We note, that using this algorithm, one can optimize not only absorbtion efficiency, but also other parameters that may be desired for some applications. As an example we reproduce some of the results from
-the work of Estakhri and Al\`u~\cite{Alu-2014}, where authors aim to design absorbers with small scattering cross-section, and we provide a number of new optimized designs. The efficiency in the Ref.~\cite{Alu-2014} is defined as the ACS normalized to scattering cross-section. Initially, we set the total value of the absorbed power with cross-section of $\alpha_{\rm abs}=\frac{3\lambda^2}{8\pi}$ and
-keep the outer radius of the particle fixed. In this case the optimization
-gives a result similar to the structure with contributing harmonics
-TM${_1}$ and TE$_1$ from Ref~\cite{Alu-2014}.  For $\epsilon_1 =
-1.29+i0.01$, $\epsilon_2 = -10.37+ i0.35$, and $\epsilon_3=8.4+i2.33$
-as material parameters we obtained radii $\{a_{c1},a_{c2},a_3\}=\{0.142,0.166,0.194\}\lambda$ and
-scattering-normalized absorption efficiency $\eta_{\rm abs}^{(\alpha)}
-=7.65$ which corresponds to $\eta_{\rm abs}^{(\alpha)} =7.1$
-from the original work~\cite{Alu-2014}.  However, if we set the optimizer to keep high level of absoption efficiency $Q_{\rm abs} \approx 5$ the particle becomes much smaller and the size of the outer layer vanishes $\{a_{c1},a_{c2}\}=\{0.00635,0.00747\}\lambda$ resulting in $\eta_{\rm abs}^{(Q)} =544$.  It means that this small particle still absorbs five times its phisical size with a very large scattering-normalized absorption efficiency. 
+properties. We note, that using this algorithm, one can optimize not
+only absorbtion efficiency, but also other parameters that may be
+desired for some applications. As an example we reproduce some of the
+results from the work of Estakhri and Al\`u~\cite{Alu-2014}, where
+authors aim to design absorbers with small scattering cross-section,
+and we provide a number of new optimized designs. The efficiency in
+the Ref.~\cite{Alu-2014} is defined as the ACS normalized to
+scattering cross-section. Initially, we set the total value of the
+absorbed power with cross-section of $\alpha_{\rm
+  abs}=\frac{3\lambda^2}{8\pi}$ and keep the outer radius of the
+particle fixed. In this case the optimization gives a result similar
+to the structure with contributing harmonics TM${_1}$ and TE$_1$ from
+Ref~\cite{Alu-2014}.  For $\epsilon_1 = 1.29+i0.01$, $\epsilon_2 =
+-10.37+ i0.35$, and $\epsilon_3=8.4+i2.33$ as material parameters we
+obtained radii $\{a_{c1},a_{c2},a_3\}=\{0.142,0.166,0.194\}\lambda$
+and scattering-normalized absorption efficiency $\eta_{\rm
+  abs}^{(\alpha)} =7.65$ which corresponds to $\eta_{\rm
+  abs}^{(\alpha)} =7.1$ from the original work~\cite{Alu-2014}.
+However, if we set the optimizer to keep high level of absoption
+efficiency $Q_{\rm abs} \approx 5$ the particle becomes much smaller
+and the size of the outer layer vanishes
+$\{a_{c1},a_{c2}\}=\{0.00635,0.00747\}\lambda$ resulting in $\eta_{\rm
+  abs}^{(Q)} =544$.  It means that this small particle still absorbs
+five times its phisical size with a very large scattering-normalized
+absorption efficiency.
 
-%Moreover, it is easy to
-%set the optimizer to keep $\eta_{\rm abs} \approx 100$ or $\eta_{\rm abs}
-%\approx 1000$, resulting $\{a_{c1},a_{c2}\}=\{0.0112,0.0131\}\lambda$,
-%$Q_{\rm abs} = 8.65$ or $\{a_{c1},a_{c2}\}=\{0.0052,0.0061\}\lambda$,
-%$Q_{\rm abs} = 3.26$ respectively.
+% Moreover, it is easy to set the optimizer to keep $\eta_{\rm abs}
+% \approx 100$ or $\eta_{\rm abs} \approx 1000$, resulting
+% $\{a_{c1},a_{c2}\}=\{0.0112,0.0131\}\lambda$, $Q_{\rm abs} = 8.65$
+% or $\{a_{c1},a_{c2}\}=\{0.0052,0.0061\}\lambda$, $Q_{\rm abs} =
+% 3.26$ respectively.
 
 
 In conclusion, we introduce and study the effect of superabsorption,
@@ -340,22 +354,21 @@ nanoparticles. Moreover, quite unexpectedly we find that the most
 efficient absorbers, which are characterized by enhanced absorption
 efficiencies, are smaller nanoparticles working in a single mode
 regime. We present their spectral characteristics and field structure.
-  It is interesting to note that a similar conclusion was
-made by Miller et al.~\cite{Miller-2014} for extinction of arbitrary
-particles: small size with only dipole response is preferable for
-geometric volume normalized efficiency.
+It is interesting to note that a similar conclusion was made by Miller
+et al.~\cite{Miller-2014} for extinction of arbitrary particles: small
+size with only dipole response is preferable for geometric volume
+normalized efficiency.
 
 
 \begin{acknowledgments}
   Thanks to David A. Powell for his contribution to the analysis of
-  the spectrum feature.  AEM and IVS acknowledge the support
-  from the Australian Research Council through Future Fellow and
-  Discovery project schemes. OPR is grateful to Consejo Nacional de
-  Ciencia y Tecnolog\'{i}a (Mexico) for financing a short stay at
-  Universidad Autónoma de Puebla, Mexico.  KSL and PAB thank the
-  Ministry of Education and Science of the Russian Federation and
-  Government of the Russian Federation (Grant 074-U01) for the
-  financial support.
+  the spectrum feature.  AEM and IVS acknowledge the support from the
+  Australian Research Council through Future Fellow and Discovery
+  project schemes. OPR is grateful to Consejo Nacional de Ciencia y
+  Tecnolog\'{i}a (Mexico) for financing a short stay at Universidad
+  Autónoma de Puebla, Mexico.  KSL and PAB thank the Ministry of
+  Education and Science of the Russian Federation and Government of
+  the Russian Federation (Grant 074-U01) for the financial support.
 \end{acknowledgments}
 
 \bibliography{2015-Ladutenko-Qabs}
