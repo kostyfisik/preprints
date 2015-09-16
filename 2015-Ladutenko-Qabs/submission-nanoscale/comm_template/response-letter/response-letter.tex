@@ -35,13 +35,13 @@ the subsequent modifications.
 
 \begin{tabular}[!H]{l|p{0.9\textwidth}}
 \quad & 1. The authors claimed “Combined effect of these resonances is presented to produce the flat and relative broadband electric resonance response.” Nevertheless, the broadened absorption band is not very broad. Is there any further way to predict a broadband light absorption. For instance, a broadband absorption in the whole visible spectral range. Maybe, a possible way of using the dispersed size scale nanoparticles should be added for improving the study. 
-\end{tabular}
+\end{tabular}\\
 
 This comment touches two aspects of broadband performance, namely,
 properties of a stanalone particle and in interaction with other
 particles.  The first case, as it was correctly mentioned with the
 reviewer, has some limiations.  We can design a band, which will be
-wider of a typical band for a given multipole, however, it`s width is
+broader of a typical band for a given multipole, however, it`s width is
 not extremly large.  To illustrate this we have run an optimization
 with a goal to provide a prediefined separation between multipole
 resonanses (Fig.~\ref{fig:broadband}).
@@ -87,28 +87,31 @@ resonanses (Fig.~\ref{fig:broadband}).
      note that for 80 nm separation optimizer was able to find a
      desing with two resonances of a dipole mode (f). We suppose that
      the latter most likely has the same nature as the responce
-     presented in Fig. 2(c,d) of the manuscript: there are several
+     presented in Fig. 3(c,d) of the manuscript: there are several
      resonances of an electric dipole responce binded to different
      layers of the particle.\label{fig:broadband}}%
 \end{figure}
-
 Our observation is the following: while the separation is small enough
 compared to a multiple resonance width the optimizer was successful to
 find desings with electric and magnetic dipole. If the separation is
 large the absorption band splits into two. For large separation is is
 also possible to obtain two resonanses of the electric dipole
 responce, located at predefined position
-(Fig. \ref{fig:broadband}(e,f)).  Still there are not so many 
-possibilities here to design a good wideband. To control the
-bandwidth at a given spectral position we need to involeve relatively large particles. This
-leads to appereance of resonances (and absorbtion) out of the designed band.
+(Fig. \ref{fig:broadband}(e,f)).  Still there are not so many
+possibilities here to design a good broadband. To control the
+bandwidth at a given spectral position we need to involeve relatively
+large particles. This leads to appereance of resonances (and
+absorbtion) out of the designed band which are hard to control or
+suppress in disscussed triple-layer structure.
 
 To answer the second part of the comment, related to possiblity of
 usage of the pariticle array with dispered sizes, we designed two
 particles with best absorption effeciency at 475~nm and 525~nm and
 simulatied them both with FDTD method using Lumerical FDTD Solutions.
-Sketch of the simulated system is in Fig.~\ref{fig:fdtd}
-
+Sketch of the simulated system and final results are in
+Fig.~\ref{fig:fdtd}. To verify our FDTD we fist simulated absorption
+of standalone spheres, the obtained postions and amplitudes of
+resonances corresponde well with Mie caclulations.
 \begin{figure}
   \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     a)    \end{flushleft}
   \end{minipage}
@@ -120,8 +123,39 @@ Sketch of the simulated system is in Fig.~\ref{fig:fdtd}
   \begin{minipage}[h]{0.49\textwidth} 
    \includegraphics[width=0.95\textwidth]{fdtd-spectra}
   \end{minipage}
-   \caption{.\label{fig:fdtd}}%
+   \caption{(a) Fullwave simulation prepared in Lumerical FDTD. (b)
+     Absorption spectra of stand-alone spheres and in dimer
+     configuration with separation between spheres of 0, 10, and 30~nm.\label{fig:fdtd}}%
 \end{figure}
+Next step was to find out the possible interactions between two
+spheres, so we run a simulation in dimer configuration with zero
+separation between spheres and with 10 and 30~nm separation.  The
+resulting spectra has a strong contribution from standalone
+resonances, while coupling effects seems to be minor.  This can be
+easily explained from field distribution in Fig.~4(c) of the
+manuscript. Positioning spheres in H-k plane we are exploting the
+feature of field being highly localized inside the the sphere.  For
+sure arranging spheres in other plane, increasing the number of
+spheres can change the amount of coupling between the spheres. Still,
+here we show that in principle it is possible to construct an
+absoption band of an array of dispersed particles simply optimizing
+the properties of every single sphere.
+
+
+We changed the manuscript from ``As a result, one can design
+spectrally-selective absorbers or broadband absorbers with almost
+arbitrary prescribed properties.'' to ``As a result, one can design
+absorbers with broadened spectra or spectrally-selective absorbers
+with almost arbitrary prescribed properties.  Due to high localization
+of field inside the particle (espatially in H-k plane) it is also
+possible to desing arrays of dispersed size particles by defining the
+properties of individual particles; we obtained rather small coupling
+between particles during additional simulation using FDTD method.''
+
+
+
+
+
 
 
 
@@ -142,11 +176,6 @@ Sketch of the simulated system is in Fig.~\ref{fig:fdtd}
 
 %% In order to reply to this comment we run an optimization ...
 
-We changed the manuscript ``The stochastic algorithm utilized in our approach is very
-generic and the optimization can be repeated for any desired
-wavelength or wavelength range. As a result, one can design
-spectrally-selective absorbers or broadband absorbers with almost
-arbitrary prescribed properties.''
 
 
 
