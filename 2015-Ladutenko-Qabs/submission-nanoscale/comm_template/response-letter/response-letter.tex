@@ -41,7 +41,7 @@ This comment touches two aspects of broadband performance, namely,
 properties of a stanalone particle and in interaction with other
 particles.  The first case, as it was correctly mentioned with the
 reviewer, has some limiations.  We can design a band, which will be
-broader of a typical band for a given multipole, however, it`s width is
+broader of a typical band for a given multipole, however, width is
 not extremly large.  To illustrate this we have run an optimization
 with a goal to provide a prediefined separation between multipole
 resonanses (Fig.~\ref{fig:broadband}).
@@ -86,9 +86,9 @@ resonanses (Fig.~\ref{fig:broadband}).
      electric and magnetic modes, respectively). It is interesting to
      note that for 80 nm separation optimizer was able to find a
      desing with two resonances of a dipole mode (f). We suppose that
-     the latter most likely has the same nature as the responce
+     the latter most likely has the same nature as the response
      presented in Fig. 3(c,d) of the manuscript: there are several
-     resonances of an electric dipole responce binded to different
+     resonances of an electric dipole response binded to different
      layers of the particle.\label{fig:broadband}}%
 \end{figure}
 Our observation is the following: while the separation is small enough
@@ -96,7 +96,7 @@ compared to a multiple resonance width the optimizer was successful to
 find desings with electric and magnetic dipole. If the separation is
 large the absorption band splits into two. For large separation is is
 also possible to obtain two resonanses of the electric dipole
-responce, located at predefined position
+response, located at predefined position
 (Fig. \ref{fig:broadband}(e,f)).  Still there are not so many
 possibilities here to design a good broadband. To control the
 bandwidth at a given spectral position we need to involeve relatively
@@ -151,29 +151,28 @@ easily explained from field distribution in Fig.~4(c) of the
 manuscript. Positioning spheres in H-k plane we are exploting the
 feature of field being highly localized inside the the sphere.  For
 sure arranging spheres in other plane, increasing the number of
-spheres can change the amount of coupling between the spheres. Still,
-here we show that in principle it is possible to construct an
-absoption band of an array of dispersed particles simply optimizing
-the properties of every single sphere.
-
+spheres can change the amount of coupling between the spheres. As an
+example we tested arragement of sphers in E-k plane
+Fig.~\ref{fig:fdtd}(c); for zero separation the intraction between
+spheres is strong, however, due to near-field nature of this coupling
+it rapidly decays with the separation width Fig.~\ref{fig:fdtd}(d),
+for separation of 30~nm responses of individual particle dominates in
+overall spectra for both planes of polarization. This way we show that
+in principle it is possible to construct an absoption band of an array
+of dispersed particles simply optimizing the properties of every
+single sphere carefully tuning the distance between particles (which
+still is much smaller than the wavelength).
 
 We changed the manuscript from ``As a result, one can design
 spectrally-selective absorbers or broadband absorbers with almost
 arbitrary prescribed properties.'' to ``As a result, one can design
 absorbers with broadened spectra or spectrally-selective absorbers
-with almost arbitrary prescribed properties.  Due to high localization
-of field inside the particle (espatially in H-k plane) it is also
-possible to desing arrays of dispersed size particles by defining the
-properties of individual particles; we obtained rather small coupling
-between particles during additional simulation using FDTD method.''
-
-
-
-
-
-
-
-
+with almost arbitrary prescribed properties.  Due to strong
+localization of electric dipole field (espatially in H-k plane) it is
+also possible to desing dispersed size arrays particles by defining
+their individual properties for composite absorption spectra; we
+obtained rather small coupling between particles during additional
+simulation using FDTD method.''
 
 % band80-e
 % Si-Ag-Si-TotalR058.00nm-Qabs02.4351291413952--core0013.16nm--inshell0041.41nm--outshell0003.43nm-fails0-spectra
@@ -188,7 +187,6 @@ between particles during additional simulation using FDTD method.''
 %% 4-layer?
 
 %% В статье этого графика нет, есть обсуждение, готовим новую статью.
-
 %% In order to reply to this comment we run an optimization ...
 
 
@@ -208,13 +206,127 @@ between particles during additional simulation using FDTD method.''
 \end{tabular}
 
 %% Lumerical - periodic boundary - попробовать несколько частиц
+We would like to thank the reviewer for provided citation, some of
+them turned to be really interesting. In order to reply this comment
+first of all we checked all the citations provided.
+
+ACS Applied Materials \& Interfaces, 7, 4962-4968 (2015) titled
+``Automatically Acquired Broadband Plasmonic-Metamaterial Black
+Absorber during the Metallic Film-Formation'' uses metal film
+formation process to achive very wideband performance. However, the
+absorption in this case is highly dependable on the thickness of the
+underlaying silica layer.  This way we can argue against the conlusion
+of the paper ``These results also confirm that an ultrathin
+meta-surface layer (less than 10 nm) structure can produce nearly
+ideal broadband light absorption'' - to achieve experimentally
+observed performance the whole system (including silica layer and gold
+under-layer) is needed. A more detailed simulation can give some answers, however,
+we cant expect that most of the absorbtion happends in the gold
+under-layer, while the metasurface and silica layer serves to be an
+impedance matcher.  This proposal is confirmed with the experemental
+results in Fig. 5 of the paper, for 100~nm silica layer the absorption
+is low. Anyway, albiet of the exiting experimental results obtained in
+the paper they exploit phycal effect that differs a lot from the
+proposed in our manuscript; our particles were desinged to absorb the
+incident power by themselfs, and it work perfectly for a stand-alone
+sphere.  This can be extremly conviniet, for example, for
+nanophotonics application, when the available volume to place an
+absorber can be very limited.
+
+
+Materials Letters 158, 262265 (2015);
+
+Applied Physics Letters, 104, 081116 (2014);
+
+Nanotechnology, 24, 155203 (2013) titled ``Near-unity transparency of
+a continuous metal film via cooperative effects of double plasmonic
+arrays'' describes light interaction with a gold film, which has an
+array of gold spheres positioned on top, bottom, or both sides of the
+film.  Provided simulations show a strong field enhancement between
+the spheres. Absorption related part of the paper references [18-21],
+where [20] is Le F, Brandl D W, Urzhumov Y A, Wang H, Kundu J, Halas N
+J, Aizpurua J and Nordlander P 2008 ACS Nano 2 707 titled ``Metallic
+Nanoparticle Arrays: A Common Substrate for Both Surface-Enhanced
+Raman Scattering and Surface-Enhanced Infrared Absorption''.  It this
+paper absorption spectra in Fig.~5(b) calculated with electrostatic
+plasmon hybridization method showes, as it was stated with a reviewer,
+a significat increase of the band when packing particles to an
+array. This broadering originates from the appearance of collective
+mode (or, in other words, the hybridization of plasmon responce of
+several particles) with additional impact from retardation effects. It
+can be of great intereset (including applied examples) to apply the
+same approch from our manuscript to this system. It should be possible
+to optimize simultniously geometry of individual particles and their
+positioning in array to degenerate several absorption resonances of
+such collective modes in order to achieve superabsorption. However, we
+do not have any working code for plasmon hybridization method to check
+it with our optimizer. Using brute force approach with FDTD simulation
+looks to be rather computationaly expensive without any prior
+analytical estimations.
+
+For a fast check of this idea we simulated the 3x3 rectangular array
+of spheres (to provide a good coupling both in E and H direcitons)
+with the separation of 4 nm (so it is only 2 mesh cells to resolve the
+separation in the used coarse grid, selected to get a resonable timing
+of a 3D full-wave simulation) Fig~\ref{fig:fdtd-3x3}(a). Several
+collective modes can be recognized from field distribution while
+changing the incident wavelength Fig~\ref{fig:fdtd-3x3}(c-e). However,
+for used materials, nanoparicle and array designs, and spectral range
+we observed a blue shift of absoption responce (it looks to be
+dominated with silver plasmon resonance) Fig~\ref{fig:fdtd-3x3}(b),
+which is opposite to results of Le et al. in Fig.~5(b) of their paper.
+
+This way it looks that using particle array adds a whole banch of new
+physical features which deserve a separate investigation. No changes
+to the manuscript were done.
+\begin{figure}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     a)    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     b)    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth} 
+   \includegraphics[width=0.95\textwidth]{fdtd-3x3}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth} 
+   \includegraphics[width=0.95\textwidth]{fdtd-spectra-3x3}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     c)    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     d)   \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth} 
+    \includegraphics[width=0.95\textwidth]{fdtd-field-408nm}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth} 
+    \includegraphics[width=0.95\textwidth]{fdtd-field-452nm}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     e)    \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     -   \end{flushleft}
+  \end{minipage}
+  \begin{minipage}[h]{0.49\textwidth} 
+    \includegraphics[width=0.95\textwidth]{fdtd-field-600nm}
+  \end{minipage}
+  %% \begin{minipage}[h]{0.49\textwidth} 
+  %%   \includegraphics[width=0.95\textwidth]{fdtd-field-452nm}
+  %% \end{minipage}
+  
+    \caption{ FDTD simulation of 3x3 grid of spheres optimized for
+      absorption at 525~nm(a) Fullwave simulation prepared in Lumerical FDTD. (b)
+     Absorption spectra of stand-alone spheres and in dimer
+     configuration with separation between spheres of 0, 10, and
+     30~nm, particles are in H-k plane (c) Separation 0 and 30~nm for
+     particles in E-k plane (d) Field distribution at 500nm of
+     incedent wavelength for particles in E-k plane with separation of
+     30~nm.\label{fig:fdtd-3x3}}%
+\end{figure}
 
 
 
-We totally agree with the reviewer's statement. It seems that our
-manuscript was not clear enough at this point. ...  However, as we
-compare final optimization results we conclude that .... To make it
-clearer we rewrite this part of the manuscript as follows:
+%% We totally agree with the reviewer's statement. It seems that our
+%% manuscript was not clear enough at this point. ...  However, as we
+%% compare final optimization results we conclude that .... To make it
+%% clearer we rewrite this part of the manuscript as follows:
 
 \begin{tabular}[!H]{p{0.9\textwidth}}
 `` Some text''
