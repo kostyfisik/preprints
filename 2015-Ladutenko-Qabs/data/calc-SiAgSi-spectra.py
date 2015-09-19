@@ -112,6 +112,7 @@ def SetXM(design, extra_width = 0, WL=0, epsilon_Si=0, epsilon_Ag=0):
         m = np.ones((2), dtype = np.complex128)
         m[0] = index_Ag/nm
         m[1] = index_Si/nm
+    print m    
     return x, m
 ###############################################################################
 def calc(design, extra_width, WL, epsilon_Si, epsilon_Ag):
@@ -185,7 +186,7 @@ design = 1 #AgSi
 # WL = 500
 from_WL = 400
 to_WL = 600
-total_points = 600
+total_points = 10
 for i in xrange(1):
     extra_width = 0
     fname = "Ag-Si-channels-TotalR036-calc.dat"

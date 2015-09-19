@@ -17,7 +17,7 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 \begin{center}
   Response Letter
 \end{center}
-Dear Editor,
+Dear Editors,
 \\
 \\
 I am writing to respond to the reviewers' critical comments on our
@@ -29,8 +29,9 @@ unbiased and professional review is an important part of a publication
 process.  This way we would like to stress you attantion to the second
 comment of the first reviewer. He had listed a number of publications,
 however, it is hard to belive that this list is unbiased after looking
-to the authors names; several authors from Jiangxi Normal University a
-listed in all of this publications.  We provide our findings here:
+to the authors names; several authors from Jiangxi Normal University are
+listed in all of this publications (it looks like some names have two
+spelling options with and without the dash).  We provide our findings here:
 \begin{enumerate}
 \item ACS Applied Materials & Interfaces, 7, 4962-4968 (2015)\\
   Zhengqi Liu, Xiaoshan Liu,  Shan Huang,  Pingping Pan,  Jing Chen,
@@ -50,13 +51,14 @@ listed in all of this publications.  We provide our findings here:
   doi:10.1088/0957-4484/24/15/155203
 \end{enumerate}
 
-I would like to thank the editor and two anonymous reviewers for their
+We would like to thank the editor and two anonymous reviewers for their
 constructive comments, which helped us to improve the
 manuscript. Below, we address all comments point-by-point, discussing
 the subsequent modifications.
 
 \vspace{10pt}
 
+\newpage
 \textbf{Reviewer \#1 comments}
 
 \begin{tabular}[!H]{l|p{0.9\textwidth}}
@@ -138,7 +140,7 @@ simulatied them both with FDTD method using Lumerical FDTD Solutions.
 Sketch of the simulated system and final results are in
 Fig.~\ref{fig:fdtd}. To verify our FDTD we fist simulated absorption
 of standalone spheres, the obtained postions and amplitudes of
-resonances corresponde well with Mie caclulations.
+resonances to corresponde well with Mie caclulations.
 \begin{figure}
   \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     a)    \end{flushleft}
   \end{minipage}
@@ -182,7 +184,7 @@ example we tested arragement of sphers in E-k plane
 Fig.~\ref{fig:fdtd}(c); for zero separation the intraction between
 spheres is strong, however, due to near-field nature of this coupling
 it rapidly decays with the separation width Fig.~\ref{fig:fdtd}(d),
-for separation of 30~nm responses of individual particle dominates in
+for separation of 30~nm responses of individual particles dominate in
 overall spectra for both planes of polarization. This way we show that
 in principle it is possible to construct an absoption band of an array
 of dispersed particles simply optimizing the properties of every
@@ -231,7 +233,7 @@ simulation using FDTD method.''
   of this proposed multilayered nanoparticles. 
 \end{tabular}
 
-%% Lumerical - periodic boundary - попробовать несколько частиц
+% Lumerical - periodic boundary - попробовать несколько частиц
 We would like to thank the reviewer for provided citations, some of
 them turned to be really interesting. In order to reply this comment
 first of all we checked all the citations provided.
@@ -256,12 +258,14 @@ be related to the fractal-type surface, as it is shown in Fig.~2(f)
 Moreover, it should be relativly easy to estimate the thermal
 behaviour of such a metasurface, as soon as isolated particles on the
 top of the silica have no heat transfer with electrons to the
-substrate.  If we suppose, that most of the light is absorbed in this
+substrate.  If we suppose that most of the light is absorbed in top
 layer this should lead to overheating of the metasurface due to
-extreamly low geometrical volume righ after switching on the continous
-light source. Measuring temperature via infrared radiation from both
-sides of the sample can provide hints to distinguish the absortption
-origin.
+extreamly low geometrical volume. For this case in steady state we
+should expect a large temperature gradient as soon as gold thermal
+condutivity 310 $W/(m\cdot K)}$ is about 200 fold larger than silica
+  $1.4 W/(m\cdot K)}$. Measuring temperature via infrared
+    radiation from both sides of the sample can provide hints to
+    distinguish the absortption origin.
 
 Anyway, albiet of the exciting experimental results obtained in the
 paper they exploit phsycal effect that differs a lot from the one
@@ -269,62 +273,57 @@ proposed in our manuscript; our particles were desinged to absorb the
 incident power by themselfs, and they work perfectly in a stand-alone
 mode.  This can be extremly conviniet, for example, for nanophotonics
 application, when the available volume to place an absorber can be
-very limited. Same overheating question can appear here, limiting the
+very limited. Same overheating question can also appear here, limiting the
 operational power range.
 
 
-Materials Letters 158, 262265 (2015) titled ``Dielectric shell
-modulated plasmonic crystal for novel light absorption meta-surface''
 
 Applied Physics Letters, 104, 081116 (2014) titled ``$\lambda^3$/20000
 plasmonic nanocavities with multispectral ultra-narrowband absorption
 for high-quality sensing'' is cleary not related to ``broadband light
-coupling and confinement'' as it was stated by the reviewer and was
+coupling and confinement'' and was
 probably listed by an accident.
 
 Nanotechnology, 24, 155203 (2013) titled ``Near-unity transparency of
 a continuous metal film via cooperative effects of double plasmonic
-arrays'' at a first glance is not related to ``broadband light
-coupling and confinement'' and describes light interaction with a gold
-film, which has an array of gold spheres positioned on top, bottom, or
-both sides of the film.  Provided simulations show a strong field
-enhancement between the spheres. Absorption related part of the paper
-references [18-21], where [20] is Le F, Brandl D W, Urzhumov Y A, Wang
-H, Kundu J, Halas N J, Aizpurua J and Nordlander P 2008 ACS Nano 2 707
-titled ``Metallic Nanoparticle Arrays: A Common Substrate for Both
-Surface-Enhanced Raman Scattering and Surface-Enhanced Infrared
-Absorption''.  It this paper absorption spectra in Fig.~5(b)
-calculated with electrostatic plasmon hybridization method showes, as
-it was stated with a reviewer, a significat increase of the band when
-packing particles to an array. This broadering originates from the
-appearance of collective mode (or, in other words, the hybridization
-of plasmon responce of several particles) with additional impact from
-retardation effects. It can be of great intereset (including applied
-examples) to apply the same approch from our manuscript to this
-system. It should be possible to optimize simultniously geometry of
-individual particles and their positioning in array to degenerate
-several absorption resonances of such collective modes in order to
-achieve superabsorption. However, we do not have any working code for
-plasmon hybridization method to check it with our optimizer. Using
-brute force approach with FDTD simulation looks to be rather
-computationaly expensive without any prior analytical estimations.
+arrays'' describes light interaction with a gold film, which has an
+array of gold spheres positioned on top, bottom, or both sides of the
+film.  Provided simulations show a strong field enhancement between
+the spheres. Absorption related part of the paper references [18-21],
+where [20] is Le F, Brandl D W, Urzhumov Y A, Wang H, Kundu J, Halas N
+J, Aizpurua J and Nordlander P 2008 ACS Nano 2 707 titled ``Metallic
+Nanoparticle Arrays: A Common Substrate for Both Surface-Enhanced
+Raman Scattering and Surface-Enhanced Infrared Absorption''.  In this
+paper absorption spectra in Fig.~5(b) calculated with electrostatic
+plasmon hybridization method showes, as it was stated with a reviewer,
+a significat increase of the band when packing particles to an
+array. This broadering originates from the appearance of collective
+mode (or, in other words, the hybridization of plasmon responce of
+several particles) with additional impact from retardation effects. It
+can be of great intereset (including applied examples) to apply the
+same approch from our manuscript to this system. It should be possible
+to optimize simultniously geometry of individual particles and their
+positioning in array to degenerate several absorption resonances of
+such collective modes in order to achieve superabsorption. However, we
+do not have any working code for plasmon hybridization method to check
+it with our optimizer. Using brute force approach with FDTD simulation
+looks to be rather computationaly expensive without any prior
+analytical estimations.
 
-For a fast check of this idea we simulated the 3x3 rectangular array
-of spheres (to provide a good coupling both in E and H direcitons)
-with the separation of 4 nm (so it is only 2 mesh cells to resolve the
-separation in the used coarse grid, selected to get a resonable timing
-of a 3D full-wave simulation) Fig~\ref{fig:fdtd-3x3}(a). Several
-collective modes can be recognized from field distribution while
-changing the incident wavelength Fig~\ref{fig:fdtd-3x3}(c-e). However,
-for used materials, nanoparicle and array designs, spectral range, and
-plane of polarization we observed a blue shift of absoption responce
-(it looks to be dominated with silver plasmon resonance)
-Fig~\ref{fig:fdtd-3x3}(b), which is opposite to results of Le et
-al. in Fig.~5(b) of their paper.
+However, as a proof of concept, we simulated with FDTD method the 3x3
+rectangular array of spheres (to provide a good coupling both in E and
+H direcitons) with the separation of 4 nm (so it is only 2 mesh cells
+to resolve the separation in the used coarse grid, selected to get a
+resonable timing of a 3D full-wave simulation)
+Fig~\ref{fig:fdtd-3x3}(a). Several collective modes can be recognized
+from field distribution while changing the incident wavelength
+Fig~\ref{fig:fdtd-3x3}(c-e) (it can be interesting to compare this results
+with Fig 4 of Le et al. paper)  . However, for used materials, nanoparicle
+and array designs, spectral range, and plane of polarization we
+observed a blue shift of absoption responce (it looks to be dominated
+with silver plasmon resonance) Fig~\ref{fig:fdtd-3x3}(b), which is
+opposite to results of Le et al. in Fig.~5(b) of their paper.
 
-This way it looks that using particle array adds a whole banch of new
-physical features which deserve a separate investigation. No changes
-to the manuscript were done.
 \begin{figure}
   \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     a)    \end{flushleft}
   \end{minipage}
@@ -358,15 +357,43 @@ to the manuscript were done.
   %% \end{minipage}
   
     \caption{ FDTD simulation of 3x3 grid of spheres optimized for
-      absorption at 525~nm(a) Fullwave simulation prepared in Lumerical FDTD. (b)
-     Absorption spectra of stand-alone spheres and in dimer
-     configuration with separation between spheres of 0, 10, and
-     30~nm, particles are in H-k plane (c) Separation 0 and 30~nm for
-     particles in E-k plane (d) Field distribution at 500nm of
-     incedent wavelength for particles in E-k plane with separation of
-     30~nm.\label{fig:fdtd-3x3}}%
+      absorption at 525~nm(a) Fullwave simulation prepared in
+      Lumerical FDTD. (b) Cross-section absorption spectra (c,d,e)
+      Field distribution at 408, 452, and 600nm of incident light.\label{fig:fdtd-3x3}}%
 \end{figure}
 
+Materials Letters 158, 262265 (2015) titled ``Dielectric shell
+modulated plasmonic crystal for novel light absorption meta-surface''
+provide another type of plasmonic coupling. In contrast to most other
+works with hot spots located between the particles it this paper field
+distributions presented in Fig 2 (b-d) is mostly localized inside the
+particles and if Fig 2 (e) it is about the same order inside and
+between the particles. This way due to relatively small coupling
+between the particles we should expect to find this resonances in a
+stand-alone particle, which was easy to reproduce. The result of Mie
+calcultion for gold sphere (material data is from P. B. Johnson and
+R. W. Christy. Optical Constants of the Noble Metals, Phys. Rev. B 6,
+4370-4379 (1972)) of diameter d=25~nm covered with lossless and
+dispersionless dielectric with refractive indes n=2.5 and d=65~nm in
+Fig.~\ref{fig:Au-core-shell}. However, there was the only one electric
+dipole resonance at 637~nm, futhermore, 3D FDTD simulation of such a particle
+with a gold substrate (as is was used in the paper) and periodic
+boundary condition for a HCP array lead to appearance of a peak at
+678~nm in contrast with the simulation presented in Fig. 1(b) of the
+paper.  We do not have a good explanation for a such disagreement.
+\begin{figure}
+  \includegraphics[width=0.95\textwidth]{Au-core-shell}\\
+  c)\\
+   \includegraphics[width=0.95\textwidth]{fdtd-hcp}
+  \caption{Mie simulation for core-shell particle with gold core (a)
+    Mie absorption coefficients (b) Mie efficency for scattering,
+    absorbtion, extinction and backscattering.\label{fig:Au-core-shell}}
+\end{figure}
+
+
+This way it looks that using particle array adds a whole banch of new
+physical features which deserve a separate investigation. No changes
+to the manuscript were done.
 
 
 %% We totally agree with the reviewer's statement. It seems that our
@@ -383,6 +410,7 @@ to the manuscript were done.
 
 \vspace{10pt}
 
+\newpage
 \begin{minipage}{1.0\linewidth}
   \textbf{Reviewer \#2 comments}\\
   \begin{tabular}[!H]{l|p{0.9\textwidth}}
