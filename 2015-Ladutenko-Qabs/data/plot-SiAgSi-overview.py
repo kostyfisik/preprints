@@ -26,7 +26,7 @@ def load_data(fname):
 
 fname = "2015-04-01-Qabs-SiAgSi-overview"
 data, data_spaced = load_data(fname)
-for i in xrange(1, len(data[:,1])):
+for i in xrange(1, len(data[:,1])-2):
     if data[i-2,1]<=data[i,1] and data[i+2,1]<=data[i,1]:
         print(data[i,:])
 

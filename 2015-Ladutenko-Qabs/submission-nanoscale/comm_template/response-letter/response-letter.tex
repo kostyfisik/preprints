@@ -437,10 +437,11 @@ quite important that the maximum can be reached in a bi-layer
 structure, instead of a triple-layer, since it should be easier and
 cheaper to fabricate.''
 
-New sentencs: ``At the same time superabsorption designs achieve the
-best absorption efficency for large particles (with
-$R>60$~nm for provided materials and layers order), which can be
-relevant if fine control of layer thickness is not available.''
+New sentencs: ``At the same time the best absorption efficency for
+large particles (with $R>60$~nm for provided materials and layers
+order) was achieved with superabsorption designs, which can be
+relevant for the case of layer thickness fine control is not
+available.''
 
 
 %% Для маленьких толщин лучше простой диполь, если есть ограничения на
@@ -462,6 +463,23 @@ relevant if fine control of layer thickness is not available.''
   only plays a significant role in this small wavelength range. 
 \end{tabular}
 
+The sort answer it that it was not possible to fit magnetic quadroupole to the particle of
+smaller size, however, it is hard to keep it been efficient for larger
+sizes. However, the contribution of the electric diple is also
+very important.
+
+To present this idea in more details we run an optimization with
+changed fitness function - we requested to maximize the impact of
+electric dipole to the absorption efficiency.
+
+\begin{figure}
+  \includegraphics[width=0.35\textwidth]{overview-Qabs-a1}
+  d)
+   \includegraphics[width=0.55\textwidth]{overview-Qabs-all-a1}
+  \caption{Mie simulation for core-shell particle with gold core (a)
+    Mie absorption coefficients (b) Mie efficency for scattering,
+    absorbtion, extinction and backscattering.(c)\label{fig:Au-core-shell}}
+\end{figure}
 
 
 \begin{tabular}[!H]{l|p{0.9\textwidth}}
