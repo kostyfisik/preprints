@@ -455,7 +455,7 @@ available.''
 %% should be performed.
 
 \begin{tabular}[!H]{l|p{0.9\textwidth}}
-  \quad &  2.      In Fig. 2, we noticed a discontinuity at ~80
+  \quad &  2.      In Fig. 2, we noticed a discontinuity at $\sim$80
   nm. The authors explain it as the design supporting electric dipole
   and magnetic quadrupole has larger ACS. However, this explanation is
   not clearly to me since it is lacking physics behind this
@@ -463,22 +463,30 @@ available.''
   only plays a significant role in this small wavelength range. 
 \end{tabular}
 
-The sort answer it that it was not possible to fit magnetic quadroupole to the particle of
-smaller size, however, it is hard to keep it been efficient for larger
-sizes. However, the contribution of the electric diple is also
-very important.
+The sort answer it that it was not possible to fit magnetic
+quadroupole to the particle of smaller size, however, it is hard to
+keep it been efficient for larger sizes. However, the contribution of
+the electric diple is also very important.
 
 To present this idea in more details we run an optimization with
 changed fitness function - we requested to maximize the impact of
-electric dipole to the absorption efficiency.
-
+electric dipole to the absorption efficiency, results are presented in
+Fig.~\ref{fig:a1max}. During the increase of the total $R$ the
+$\tilde{a}_1$ rapidly reaches it`s theoretical maximum. Optimizer was
+quite successful to keep it for all larger values of $R$. During the
+increase of $R$ other dipole resonances can appear. Such an appearence
+of $\tilde{b}_2$ formes the discussed maxima at $\sim 80$~nm, it is
+cleary observed at Fig.~\ref{fig:a1max}(b).
 \begin{figure}
   \includegraphics[width=0.35\textwidth]{overview-Qabs-a1}
-  d)
-   \includegraphics[width=0.55\textwidth]{overview-Qabs-all-a1}
-  \caption{Mie simulation for core-shell particle with gold core (a)
-    Mie absorption coefficients (b) Mie efficency for scattering,
-    absorbtion, extinction and backscattering.(c)\label{fig:Au-core-shell}}
+   \includegraphics[width=0.60\textwidth]{overview-Qabs-all-a1}
+  \caption{(a-c) Same as Fig.2 of the manuscript with the optimization
+    aim to maximize contibution of electric dipole to
+    absorption. Missing points did not pass the additional check for
+    stability of plotting script. (d) $Q_{abs}$ for maximized
+    $\tilde{a}_1$ from the first subplot of present figure without the
+    additional stability check compared with $Q_{abs}$ optimization
+    regarding all multipoles.\label{fig:a1max}}
 \end{figure}
 
 
