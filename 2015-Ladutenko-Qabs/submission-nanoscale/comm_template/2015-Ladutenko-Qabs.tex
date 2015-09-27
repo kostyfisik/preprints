@@ -201,7 +201,7 @@ particles.\cite{Sheehan-2013,Selmke-2012}  Such particles have
 various applications in cancer treatment,\cite{Zhang-2010,
   Hirsch-2003} medical diagnostics,\cite{Allain-2002}
 cloaking\cite{Qui-2009, Semouchkina-2013, Ladutenko-2014} and
-plasmonic devices,\cite{Martin-2013, Alu-2005} in the study of
+plasmonic devices,\cite{Liu-MatLett-2015, Martin-2013, Alu-2005, Liu-Nanotech-2013} in the study of
 thermal properties of insulating materials,\cite{Xie-2013} as well as
 for improving solar cells performance.\cite{Kameya-2011,Mann-2011}
 
@@ -242,9 +242,10 @@ of stochastic optimization algorithm\cite{Jingqiao-JADE-2009} we
 optimize the ACS of such nanoparticles. We analyze the absorption
 cross-section of these particles, and present the superabsorption
 regime. We further introduce the absorption efficiency, which is the
-ACS normalized to the geometric cross-section of particles. Here we
-show that there is a strong counterplay between the increased
-absorption for larger particles vs size for smaller particles, and
+ACS normalized to the geometric cross-section of particles.  Here we
+show that the increased peak absorption rate of high order multipoles
+available in larger particles does not compensate the increased volume
+with low absorption rate compared to volume of smaller particles, and
 quite remarkably we find that the most {\em efficient} absorption can
 be achieved in a single channel limit for small particles.
 
@@ -383,7 +384,11 @@ considered structures, whose ACS reaches values {\em over 5 times the
   physical cross-section area of the particle}.  From a practical
 point of view, it is quite important that the maximum can be reached
 in a bi-layer structure, instead of a triple-layer, since it should be
-easier and cheaper to fabricate.
+easier and cheaper to fabricate.  At the same time the best absorption
+efficiency for larger particles (with $R>60$~nm for provided
+materials) can be achieved in superabsorption regime. This may be
+important when fabrication of smaller multi-layer particles is not
+available.
 
 \begin{figure}[h]
   \center{
@@ -392,7 +397,9 @@ easier and cheaper to fabricate.
     \caption{Spectra of Mie absorption coefficients of (a)~efficient
       and (b-c)~superabsorption design. Panel~(d) shows the
       superposition of the squared absolute values of the Mie
-      coefficients for electric dipole contribution inside each layer.
+      coefficients for electric dipole contribution inside each layer
+      of design from panel~(c), which is needed to explain an almost
+      flat top of the electric dipole resonance.
       \label{fig:spectra}
     }%
   }
@@ -451,9 +458,25 @@ $P_{\rm abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
 
 The stochastic algorithm utilized in our approach is very generic and
 the optimization can be repeated for any desired wavelength or
-wavelength range.  As a result, one can design spectrally-selective
-absorbers or broadband absorbers with almost arbitrary prescribed
-properties. We note, that using this algorithm, one can optimize not
+wavelength range.  As a result, one can design absorbers with broad
+spectra or spectrally-selective absorbers with almost arbitrary
+prescribed properties.  One can also achieve broadband performance by
+mixing particles whose absorption is optimized for different
+wavelengths. We have verified that due to strong localization of
+electric dipole field it is possible to design dimers whose absorbing
+properties are dominated by the properties of individual particles,
+and not by their mutual interaction. As a result, by appropriately
+spacing the resonances of individual particles, their mixture will
+exhibit a combined broadband response. Providing such an additional
+control, this approach complements the case of self-organized
+particles of various size and shape, which was experimentally proved
+to have a wide absorption band~[ACS-AMI-Liu-2015]. % Reference to the
+% paper mentioned with the reviewer in his second comment.
+Further control of the absorption spectrum can be achieved by
+arranging our spherical structures in a periodic and non-periodic
+arrays.
+
+We note, that using this algorithm, one can optimize not
 only absorbtion efficiency, but also other parameters that may be
 desired for some applications. As an example we reproduce some of the
 results from the work of Estakhri and Al\`u,\cite{Alu-2014} where

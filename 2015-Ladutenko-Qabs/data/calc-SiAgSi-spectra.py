@@ -47,9 +47,14 @@ def SetXM(design, extra_width = 0, WL=0, epsilon_Si=0, epsilon_Ag=0):
         #36	5.62055	0	31.93	4.06	49	5.62055	500
         isSiAgSi=False
         if WL == 0: WL=500 #nm
-        core_width = 0.0 #nm Si
-        inner_width = 31.93 #nm Ag
-        outer_width = 4.06 #nm  Si
+        core_width = 27.52 #nm Si
+        inner_width = 18.48 #nm Ag
+        outer_width = 0.00 #nm  Si
+        # isSiAgSi=False
+        # if WL == 0: WL=500 #nm
+        # core_width = 0.0 #nm Si
+        # inner_width = 31.93 #nm Ag
+        # outer_width = 4.06 #nm  Si
     elif design==2:
         #62.5	4.48866	29.44	10.33	22.73	0	4.48866	500
         if WL == 0: WL=500 #nm
@@ -110,8 +115,10 @@ def SetXM(design, extra_width = 0, WL=0, epsilon_Si=0, epsilon_Ag=0):
         x[0] = 2.0*np.pi*inner_r/WL
         x[1] = 2.0*np.pi*outer_r/WL
         m = np.ones((2), dtype = np.complex128)
-        m[0] = index_Ag/nm
-        m[1] = index_Si/nm
+        m[1] = index_Ag/nm
+        m[0] = index_Si/nm
+        # m[0] = index_Ag/nm
+        # m[1] = index_Si/nm
     print m    
     return x, m
 ###############################################################################
@@ -142,8 +149,10 @@ def GetEpsilon(WLs, fname):
 ###############################################################################
 def save_spectra(fname, from_WL, to_WL, total_points, design, extra_width):
     WLs = np.linspace(from_WL, to_WL, total_points)
-    epsSi = GetEpsilon(WLs, "Si-int.txt")
-    epsAg = GetEpsilon(WLs, "Ag-int.txt")    
+    epsSi = GetEpsilon(WLs, "Si.txt")
+    epsAg = GetEpsilon(WLs, "Ag.txt")    
+    # epsSi = GetEpsilon(WLs, "Si-int.txt")
+    # epsAg = GetEpsilon(WLs, "Ag-int.txt")    
     data = calc(design, extra_width, WLs[0], epsSi[0,1], epsAg[0,1])
     for i in xrange(len(WLs)):
         data = np.vstack((data,calc(design, extra_width, WLs[i], epsSi[i,1], epsAg[i,1])))
@@ -184,9 +193,9 @@ design = 1 #AgSi
 # epsilon_Si = 18.4631066585 + 0.6259727805j
 # epsilon_Ag = -8.5014154589 + 0.7585845411j
 # WL = 500
-from_WL = 400
-to_WL = 600
-total_points = 10
+from_WL = 200
+to_WL = 400
+total_points = 100
 for i in xrange(1):
     extra_width = 0
     fname = "Ag-Si-channels-TotalR036-calc.dat"
@@ -375,7 +384,7 @@ for i in xrange(1):
     fig.subplots_adjust(hspace=.05)
     plt.minorticks_off()
     fname="2015-04-01-SiAgSi-ab-spectra4"
-    plt.savefig(fname+".eps",pad_inches=0.02, bbox_inches='tight')
+    plt.savefig(fname+".pdf",pad_inches=0.02, bbox_inches='tight')
     #plt.draw()
 
     #plt.show()
