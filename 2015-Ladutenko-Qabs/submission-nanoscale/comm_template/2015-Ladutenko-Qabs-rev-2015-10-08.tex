@@ -121,14 +121,14 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
 \sffamily
 \begin{tabular}{m{4.5cm} p{13.5cm} }
 
-\includegraphics{head_foot/DOI} & \noindent\LARGE{\textbf{Superabsorption of light by nanoparticles}} \\%Article title goes here instead of the text "This is the title"
+\includegraphics{head_foot/DOI} & \noindent\LARGE{\textbf{Superabsorption of light by nanoparticles}} \\
  & \vspace{0.3cm} \\
 
  & \noindent\large{Konstantin Ladutenko,$^{\ast}$\textit{$^{a,b}$}
    Pavel Belov,\textit{$^{a}$} Ovidio
    Pe\~{n}a-Rodr\'{i}guez,\textit{$^{c}$} Ali Mirzaei,\textit{$^{d}$}
    Andrey Miroshnichenko,\textit{$^{d}$} and Ilya
-  Shadrivov\textit{$^{d}$}} \\%Author names go here instead of "Full name", etc.
+  Shadrivov\textit{$^{d}$}} \\
 
 \includegraphics{head_foot/dates} & \\
 
@@ -185,9 +185,7 @@ filecolor=black, linkcolor=blue, urlcolor=black]{hyperref}
     introduce the \textit{ efficiency of the absorption} for a
     nanoparticle, which is the absorption normalized by the physical
     size of the particle, and show that efficient absorbers are not
-    always operating in the superabsorbing regime.}}\\%The abstrast
-goes here instead of the text "The abstract should be..."
-
+    always operating in the superabsorbing regime.}}
 %%%END OF ABSTRACT%%%%
 
 \rmfamily %Please do not remove this line.
@@ -268,12 +266,35 @@ design obtained in the present paper, their equation gives a complex
 value for the core material filling factor, which cannot be achieved
 in experimental realizations.
 
-\begin{figure}[h]
+\begin{figure}
   \center{
     % Use pdfcrop to remove white margins
     \includegraphics[width=0.4\textwidth]{Fig1}%
     \caption{Shematic view of the simulated $Si/Ag/Si$ particle. 
       \label{fig:geom}
+    }%
+  }
+\end{figure}
+
+\begin{figure}
+  \center{
+    % Use pdfcrop to remove white margins
+    \includegraphics[width=0.45\textwidth]{2015-04-01-Qabs-SiAgSi-overview}%
+    \caption{Results of optimization of the absorption efficiency
+      for the fixed wavelength of 500~nm. (a) Absorption efficiency
+      with the best value achieved for the particle of the
+      double-layer Ag/Si design of the radius of 36~nm. Dashed lines
+      show theoretical limits for the first channel and second channel
+      absorption. The second and third peaks in the absorption
+      efficiency curve exceed the theoretical limit for the second
+      mode absorption at $R=63$~nm and $R=81$~nm. Local maxima of
+      absorption efficiency are additionally marked with arrows. (b)
+      Mie absorption coefficients for individual excited modes of the
+      optimized structures. (c) Optimized layer thicknesses. For the
+      total particle radius below 46~nm the optimizer converges to a
+      bi-layer structure, when core size vanishes, and the optimum
+      design is a $Ag/Si$ particle. 
+      \label{fig:overview}
     }%
   }
 \end{figure}
@@ -303,29 +324,7 @@ practical to employ {\em the absorption efficiency} $Q_{\rm
   abs}=C_{\rm abs}/\pi R^2$, where $R$ is the outer radius of the
 particle and $C_{\rm abs}$ is the absorption cross-section.
 
-\begin{figure}[h]
-  \center{
-    % Use pdfcrop to remove white margins
-    \includegraphics[width=0.45\textwidth]{2015-04-01-Qabs-SiAgSi-overview}%
-    \caption{Results of optimization of the absorption efficiency
-      for the fixed wavelength of 500~nm. (a) Absorption efficiency
-      with the best value achieved for the particle of the
-      double-layer Ag/Si design of the radius of 36~nm. Dashed lines
-      show theoretical limits for the first channel and second channel
-      absorption. The second and third peaks in the absorption
-      efficiency curve exceed the theoretical limit for the second
-      mode absorption at $R=63$~nm and $R=81$~nm. Local maxima of
-      absorption efficiency are additionally marked with arrows. (b)
-      Mie absorption coefficients for individual excited modes of the
-      optimized structures. (c) Optimized layer thicknesses. For the
-      total particle radius below 46~nm the optimizer converges to a
-      bi-layer structure, when core size vanishes, and the optimum
-      design is a $Ag/Si$ particle. 
-      \label{fig:overview}
-    }%
-  }
-\end{figure}
-%
+
 In order to study the dependence of the absorption efficiency on the
 outer particle size, we run optimization algorithm for different
 (fixed) particle outer size, and our optimization parameters are the
@@ -347,6 +346,7 @@ and in order to get superabsorption our efficiency should be higher
 than that of a quadrupole. We clearly see this superabsorption regime
 at $R>60$~nm, in Fig.~\ref{fig:overview}~(a).
 
+
 In Fig.~\ref{fig:overview}~(b) we present the values of Mie absorption
 coefficients for individual excited modes in the structure, while
 horizontal dashed line shows the theoretical limit (1/4) for each of
@@ -366,6 +366,22 @@ analysis finds that the design supporting electric dipole
 $\tilde{a}_1$ and magnetic quadrupole $\tilde{b}_2$ has larger ACS,
 and this explains two more discontinuities of the curves at the
 respective size values.
+
+
+\begin{figure}
+  \center{
+    % Use pdfcrop to remove white margins
+    \includegraphics[width=0.45\textwidth]{2015-04-01-SiAgSi-ab-spectra4}%
+    \caption{Spectra of Mie absorption coefficients of (a)~efficient
+      and (b-c)~superabsorption design. Panel~(d) shows the
+      superposition of the squared absolute values of the Mie
+      coefficients for electric dipole contribution inside each layer
+      of design from panel~(c), and it explains an almost
+      flat top of the electric dipole resonance.
+      \label{fig:spectra}
+    }%
+  }
+\end{figure}
 
 Fig.~\ref{fig:overview}~(c) shows optimized sizes of layers inside a
 multilayer structure. It reveals quite a curious result, that the
@@ -395,21 +411,6 @@ efficiency for larger particles (with $R>60$~nm for provided
 materials) can be achieved in superabsorption regime. This may be
 important when fabrication of smaller multi-layer particles is not
 available.
-
-\begin{figure}[h]
-  \center{
-    % Use pdfcrop to remove white margins
-    \includegraphics[width=0.45\textwidth]{2015-04-01-SiAgSi-ab-spectra4}%
-    \caption{Spectra of Mie absorption coefficients of (a)~efficient
-      and (b-c)~superabsorption design. Panel~(d) shows the
-      superposition of the squared absolute values of the Mie
-      coefficients for electric dipole contribution inside each layer
-      of design from panel~(c), and it explains an almost
-      flat top of the electric dipole resonance.
-      \label{fig:spectra}
-    }%
-  }
-\end{figure}
 To study spectral properties of structures with large ACS which we
 obtained by the optimization, in Fig.~\ref{fig:spectra} we plot three
 different cases for designs that correspond to local maxima of $Q_{\rm
@@ -433,18 +434,7 @@ Fig.~\ref{fig:spectra}~(d). Combined effect of these resonances
 produces the flat and relatively broadband electric resonance response
 shown in Fig.~\ref{fig:spectra}~(c).
 
-\begin{figure}[h]
-  \center{
-    % Use pdfcrop to remove white margins
-    \includegraphics[width=0.47\textwidth]{SiAgSi-flow-R62-YZ-Eabs}%
-    \caption{Amplitude of electric field for $R=36$~nm (a,c) and
-      superabsorbing designs (b,d) in E-k  (a-b) and H-k (c-d)
-      planes normalized to the incident wave.  White curves show the
-      energy flow streamlines; plane wave comes from the left.
-      \label{fig:field}
-    }%
-  }
-\end{figure}
+
 Finally, we present distribution of the amplitude of the electric
 field in Fig.~\ref{fig:field} for two designs: with the best
 efficiency at $R=36$~nm and in a superabsorbing design with $R=63$~nm.
@@ -462,6 +452,19 @@ rate in the vortices does not compensate low absorption efficiency in
 the regions with small electric field (absorbed power is expressed as
 $P_{\rm abs}=\frac{1}{2}\int\sigma \left|E\right|^2dx\,dy\,dz$)
 
+\begin{figure}
+  \center{
+    % Use pdfcrop to remove white margins
+    \includegraphics[width=0.47\textwidth]{SiAgSi-flow-R62-YZ-Eabs}%
+    \caption{Amplitude of electric field for $R=36$~nm (a,c) and
+      superabsorbing designs (b,d) in E-k  (a-b) and H-k (c-d)
+      planes normalized to the incident wave.  White curves show the
+      energy flow streamlines; plane wave comes from the left.
+      \label{fig:field}
+    }%
+  }
+\end{figure}
+
 The stochastic algorithm utilized in our approach is very generic and
 the optimization can be repeated for any desired wavelength or
 wavelength range.  As a result, one can design absorbers with broad
@@ -476,11 +479,12 @@ spacing the resonances of individual particles, their mixture will
 exhibit a combined broadband response. Providing such an additional
 control, this approach complements the case of self-organized
 particles of various size and shape, which was experimentally proven
-to have a wide absorption band~\cite[ACS-AMI-Liu-2015]. % Reference to the
+to have a wide absorption band~\cite{ACS-AMI-Liu-2015}. % Reference to the
 % paper mentioned with the reviewer in his second comment.
 Further control of the absorption spectrum can be achieved by
 arranging our spherical structures in a periodic and non-periodic
 arrays.
+
 
 We note, that using this algorithm, one can optimize not
 only absorption efficiency, but also other parameters that may be
@@ -538,6 +542,8 @@ normalized efficiency.
   KSL and PAB thank the Ministry of Education and Science of the
   Russian Federation and Government of the Russian Federation (Grant
   074-U01) for the financial support.
+%The \balance command can be used to balance the columns on the final page if desired. It should be placed anywhere within the first column of the last page.
+\balance
 
 
 
@@ -560,9 +566,6 @@ normalized efficiency.
 
 
 
-%The \balance command can be used to balance the columns on the final page if desired. It should be placed anywhere within the first column of the last page.
-
-\balance
 
 %If notes are included in your references you can change the title from 'References' to 'Notes and references' using the following command:
 %\renewcommand\refname{Notes and references}
