@@ -66,16 +66,15 @@ while the second approach uses several resonances within one
 particle. The later approach is nontrivial and requires large
 additional study, that would deserve a separate publication. The first
 approach, however, mentioned by the Referee, is more straightforward,
-and we can use a mixture of different particles, so that various sized
-particles absorb different wavelengths.  To illustrate this we have
+and we can use a mixture of different particles, so that particles of various sizes absorb different wavelengths.  To illustrate this we have
 run an optimization procedure to find two designs: one absorbs at
 475~nm, while another is centered at 525~nm (outer radii 34 and 38~nm,
 respectively). We then combine such particles to form a dimer, and
 calculate its properties using Lumerical FDTD Solutions. Sketch of the
 simulated system and final results are shown in
 Fig.~\ref{fig:fdtd}. As a reference, we also perform FDTD simulations
-of standalone spheres, and the obtained positions and amplitudes of
-resonances match well results of the Mie calculations.
+of standalone spheres, and the obtained positions and we found that the amplitudes of
+resonances match well the results of the Mie calculations.
 \begin{figure}
   \begin{minipage}[h]{0.49\textwidth}    \begin{flushleft}     a)    \end{flushleft}
   \end{minipage}
@@ -102,7 +101,7 @@ resonances match well results of the Mie calculations.
       stand-alone spheres and in dimer configuration with separation
       between spheres of 0, 10, and 30~nm, particles are in H-k plane;
       (c) Separation 0 and 30~nm for particles in E-k plane; (d) Field
-      distribution for the incident wavelength of500 nm for particles
+      distribution for the incident wavelength of 500 nm for particles
       in E-k plane with separation of 30~nm.\label{fig:fdtd}}%
 \end{figure}
 
@@ -113,7 +112,7 @@ spheres.  The resulting spectra have a strong contribution from
 standalone resonances, while coupling effects seems to be relatively
 minor. This can be explained from modal field distribution in
 Fig.~4(c) of the manuscript. Positioning spheres in H-k plane we are
-exploiting the features of fields being highly localized inside the
+exploiting the fact that the fields are highly localized inside the
 spheres. Arranging spheres in other planes with respect to incident
 polarization, or increasing the number of interacting spheres can
 change the effect of coupling. As an example, we tested arrangement of
@@ -258,10 +257,10 @@ non-periodic arrays.
 The super-absorption has a physical meaning of a regime, when we
 create a structure, which has several highly absorbing resonances
 overlapping in frequency, so that total absorption is larger than what
-can be created in the structure. The main conclusions of the paper are
+can be created in the structure with just one resonance. The main conclusions of the paper are
 that a) We can create structures that shows superabsorption b) For
 small particles (below 60nm), the efficiency of absorption is higher
-for single mode regime.  c) For larger particles the superabsorption
+in a single mode regime.  c) For larger particles the superabsorption
 regime allows to achieve best efficiency of absorption.
 
 To make this more clear in the manuscript, we have made the following changes to the manuscript: 
@@ -285,17 +284,17 @@ smaller multi-layer particles is not available.''
 
 The short qualitative answer to this is that it is not possible to
 excite the magnetic quadrupole resonance to the particle of a smaller
-size, and, it is hard to keep it efficient for larger sizes, while
+size, and, it is hard to make it absorb efficiently for larger sizes, while
 also maintaining the large contribution of the electric dipole.
 
 To present this idea in more details we run an optimization with
 changed fitness function - we maximize the absorption efficiency of
 only the electric dipole, with results presented in
-Fig.~\ref{fig:a1max}. With the increase of the particle radius $R$ the
+Fig.~\ref{fig:a1max}. With the increase of the particle radius $R$, the electric dipole contribution
 $\tilde{a}_1$ rapidly reaches its theoretical maximum. Optimizer was
-quite successful in maintain this for all larger values of $R$. When
+quite successful in maintaining this for all larger values of $R$. When
 we increase the $R$, other multipole resonances can appear. Such an
-appearance of $\tilde{b}_2$ forms the discussed maxima at $\sim
+appearance of magnetic quadrupole term $\tilde{b}_2$ forms the discussed maxima at $\sim
 80$~nm, and it is clearly observed in Fig.~\ref{fig:a1max}(b).
 
 Another way to qualitatively explain the effect is the following. We
@@ -333,7 +332,7 @@ cases. The authors should explain this broadened resonance clearly.
 We thank the referee for pointing this out, we must have not explained
 this point clearly. The most interesting feature of this resonance
 that we wanted to bring attention to is that the resonance has an
-unusual flat top part. The main shape and width of the resonance is
+unusual flat top. The main shape and width of the resonance is
 explained by one dominating dipole mode, as it is seen in the mode
 decomposition in Fig.~3(d). Two additional electric dipole resonances
 are much weaker, but their contribution "flattens" the top of the
@@ -341,7 +340,7 @@ combined absorption resonance. We have clarified this in the modified
 manuscript changing the caption of Fig.~(3), after ``Panel~(d) shows
 the superposition of the squared absolute values of the Mie
 coefficients for electric dipole contribution inside each layer'' we
-added ``of design from panel~(c), which is needed to explain an almost
+added ``of design from panel~(c), and it explains an almost
 flat top of the electric dipole resonance.''
 
 
@@ -355,10 +354,5 @@ the manuscript is acceptable at its current stage.
 We have worked on improving the readability of the
 manuscript. Particularly, we changed the instance mentioned with the
 reviewer, full sentence in the updated manuscript is now the
-following: ``Here we show that the increased peak absorption rate of
-high order multipoles available in larger particles does not
-compensate the increased volume with low absorption rate compared to
-volume of smaller particles, and quite remarkably we find that the
-most {\em efficient} absorption can be achieved in a single channel
-limit for small particles.''
+following: ``The absorption efficiency can be made large either by increasing ACS while keeping the particle size fixed, or by decreasing the particle size for fixed ACS. As a result, we show in this paper that smaller particles are more efficient when they operate in a single mode regime, while larger particles are more efficient absorbers when multiple modes are excited at the same frequency. ''
 \end{document}
