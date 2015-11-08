@@ -91,6 +91,18 @@ def SetXM(design):
         # m[0] = index_Ag
         # m[1] = index_Ag
         return x, m, WL
+    elif design == 6:
+        #Qabs01.0007366485006--core0151.20nm--inshell0024.68nm--outshell0004.12nm-fails0-
+        WL=500 #nm
+        core_r = 54.0
+        # epsilon_Ag = -2.0 + 0.28j   #original
+        # index_Ag = np.sqrt(epsilon_Ag)
+        x = np.ones((1), dtype = np.float64)
+        x[0] = 2.0*np.pi*core_r/WL
+        m = np.ones((1), dtype = np.complex128)
+        m[0] = index_Si
+        return x, m, WL
+
 
 
     core_r = core_width
@@ -129,7 +141,7 @@ comment='SiAgSi-flow'
 # comment='bulk-Ag-flow'
 
 WL_units='nm'
-npts = 1501
+npts = 501
 #npts = 101
 factor=2.8
 #factor=4.5
@@ -139,7 +151,7 @@ flow_total = 13
 #crossplane='XY'
 
 # Options to plot: Eabs, Habs, Pabs, angleEx, angleHy
-field_to_plot='Eabs'
+field_to_plot='Habs'
 #field_to_plot='angleHy'
 import matplotlib.pyplot as plt
 fig, axs = plt.subplots(2,2)#, sharey=True, sharex=True)
@@ -154,7 +166,8 @@ print "m =", m
 fieldplot(fig, axs[0,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
           subplot_label='(a)')#,is_flow_extend=False)
 
-design = 2 #AgSi
+#design = 2 #AgSi
+design = 6 #Bulk Si
 x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
@@ -170,7 +183,8 @@ print "m =", m
 fieldplot(fig, axs[1,0], x,m, WL, comment, WL_units, crossplane, field_to_plot, npts, factor*63.0/36.0, flow_total,
           subplot_label='(c)')#,is_flow_extend=False)
 
-design = 2 #AgSi
+#design = 2 #AgSi
+design = 6 #Bulk Si
 x, m, WL = SetXM(design)
 print "x =", x
 print "m =", m
